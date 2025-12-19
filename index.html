@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조끼형 아기띠 V5 기술 백서</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #c9a96e;
+            --accent-light: #e8d5b5;
+            --text: #f8f8f8;
+            --text-muted: #a0a0a0;
+            --gradient-start: #1a1a2e;
+            --gradient-end: #0f0f1a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border: rgba(201, 169, 110, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(180deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(201, 169, 110, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(201, 169, 110, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease 0.3s both;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--accent);
+            opacity: 0.15;
+            line-height: 1;
+            margin-bottom: -2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 110, 0.03) 50%, transparent 100%);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(201, 169, 110, 0.1);
+        }
+
+        .problem-card:hover::before {
+            opacity: 1;
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-light);
+        }
+
+        .problem-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Solution Overview */
+        .solution-overview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .solution-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .solution-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .solution-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .solution-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .solution-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Feature Section */
+        .feature-section {
+            background: linear-gradient(180deg, rgba(201, 169, 110, 0.02) 0%, transparent 100%);
+        }
+
+        .feature-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .feature-content.reverse {
+            direction: rtl;
+        }
+
+        .feature-content.reverse > * {
+            direction: ltr;
+        }
+
+        .feature-image {
+            position: relative;
+        }
+
+        .feature-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-image-badge {
+            position: absolute;
+            bottom: -20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+        }
+
+        .feature-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-light);
+        }
+
+        .feature-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .feature-highlights {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .feature-highlights li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .feature-highlights .icon {
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .feature-highlights .text strong {
+            display: block;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-highlights .text span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Weight Distribution Diagram */
+        .weight-diagram {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+
+        .diagram-image {
+            position: relative;
+        }
+
+        .diagram-image img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .diagram-points {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .diagram-point {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(201, 169, 110, 0.05);
+            border-radius: 15px;
+            border-left: 3px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .diagram-point:hover {
+            background: rgba(201, 169, 110, 0.1);
+            transform: translateX(10px);
+        }
+
+        .point-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .point-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--accent-light);
+        }
+
+        .point-text p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* 3-Part System */
+        .three-part-visual {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .part-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .part-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 110, 0.1) 100%);
+            transition: height 0.4s ease;
+        }
+
+        .part-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .part-card:hover::after {
+            height: 100%;
+        }
+
+        .part-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .part-card h4 {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            color: var(--text);
+            position: relative;
+            z-index: 1;
+        }
+
+        .part-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Use Case Grid */
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .use-case {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .use-case:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .use-case-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .use-case-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .use-case-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .use-case-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+
+        .use-case-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Material Section */
+        .material-showcase {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .material-image {
+            position: relative;
+        }
+
+        .material-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .material-features {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .material-feature {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .material-feature:hover {
+            border-color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .material-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .material-text h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text);
+        }
+
+        .material-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .benefit-card {
+            background: linear-gradient(180deg, var(--card-bg) 0%, rgba(201, 169, 110, 0.03) 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .benefit-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Value Proposition */
+        .value-section {
+            background: linear-gradient(180deg, rgba(201, 169, 110, 0.05) 0%, transparent 100%);
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .value-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.4s ease;
+        }
+
+        .value-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .value-card:hover::before {
+            height: 100%;
+        }
+
+        .value-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-light);
+        }
+
+        .value-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Conclusion Section */
+        .conclusion-section {
+            text-align: center;
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .conclusion-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(180deg, transparent 0%, var(--accent) 100%);
+        }
+
+        .conclusion-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .conclusion-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--accent-light);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .conclusion-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%);
+            color: var(--primary);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201, 169, 110, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .footer-text {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content,
+            .feature-content,
+            .weight-diagram,
+            .material-showcase {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .feature-content.reverse {
+                direction: ltr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .three-part-visual,
+            .benefits-grid,
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .use-case-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .use-case {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .problem-grid,
+            .solution-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">BEBESWAN V5</div>
+            <ul class="nav-links">
+                <li><a href="#intro">서론</a></li>
+                <li><a href="#weight">무게 분산</a></li>
+                <li><a href="#structure">3단 분리</a></li>
+                <li><a href="#material">통기성 소재</a></li>
+                <li><a href="#history">회사 연혁</a></li>
+                <li><a href="#value">비즈니스 가치</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="intro">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">TECHNICAL WHITE PAPER</span>
+                    <h1>조끼형 아기띠 V5<br>기술 백서</h1>
+                    <p class="hero-subtitle">
+                        사용자 중심 혁신과 엔지니어링의 결정체.<br>
+                        기존 조끼형 아기띠의 한계를 넘어선<br>
+                        차세대 육아 솔루션을 소개합니다.
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <img src="V5 셀링포인트_files/Image_001.png" alt="V5 조끼형 아기띠">
+                    <span class="feature-image-badge">혁신적 3대 기술</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section" id="problem">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-number">01</div>
+                <h2 class="section-title">기존 조끼형 아기띠의 한계</h2>
+                <p class="section-subtitle">
+                    어깨를 짓누르는 무게와 끊어질 듯한 허리 통증.<br>
+                    잘못된 무게 분산 설계가 야기하는 고질적인 문제입니다.
+                </p>
+            </div>
+
+            <div class="problem-grid fade-in">
+                <div class="problem-card">
+                    <div class="problem-icon">⚡</div>
+                    <h3>신체적 부담</h3>
+                    <p>아이의 체중이 효과적으로 분산되지 않아 무게가 어깨에 집중됩니다. 이는 사용자의 피로감을 가중시키고 어깨, 등, 허리 부위에 통증을 유발하는 핵심 원인입니다.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">😴</div>
+                    <h3>사용 편의성 문제</h3>
+                    <p>모처럼 잠든 아이를 아기띠에서 꺼내 눕히는 과정에서 아이가 깨는 경우가 빈번하게 발생합니다. 통기성 부족으로 장시간 사용이 어렵습니다.</p>
+                </div>
+            </div>
+
+            <div class="solution-overview fade-in">
+                <div class="solution-item">
+                    <div class="solution-number">1</div>
+                    <h4>인체공학적 무게 분산</h4>
+                    <p>어깨, 등, 허리 3점 분산으로 부담 최소화</p>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-number">2</div>
+                    <h4>3단 분리형 구조</h4>
+                    <p>잠든 아이를 깨우지 않는 혁신적 설계</p>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-number">3</div>
+                    <h4>고통기성 메쉬 소재</h4>
+                    <p>사계절 쾌적한 착용감 보장</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weight Distribution Section -->
+    <section class="feature-section" id="weight">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-number">02</div>
+                <h2 class="section-title">인체공학적 무게 분산 시스템</h2>
+                <p class="section-subtitle">
+                    조끼형 아기띠의 핵심 성능은 '체감 무게'를 얼마나 효과적으로 줄이느냐에 달려 있습니다.
+                </p>
+            </div>
+
+            <div class="weight-diagram fade-in">
+                <div class="diagram-image">
+                    <img src="V5 셀링포인트_files/Image_011.jpg" alt="무게 분산 다이어그램">
+                </div>
+                <div class="diagram-points">
+                    <div class="diagram-point">
+                        <div class="point-icon">👆</div>
+                        <div class="point-text">
+                            <h4>1차 하중 수용 - 어깨</h4>
+                            <p>어깨 스트랩이 1차 하중을 받아 안정적으로 지지합니다.</p>
+                        </div>
+                    </div>
+                    <div class="diagram-point">
+                        <div class="point-icon">📊</div>
+                        <div class="point-text">
+                            <h4>하중 재분배 - 등</h4>
+                            <p>후면 패널이 하중을 척추 라인을 따라 등으로 광범위하게 재분배합니다.</p>
+                        </div>
+                    </div>
+                    <div class="diagram-point">
+                        <div class="point-icon">⚓</div>
+                        <div class="point-text">
+                            <h4>무게 중심 안정화 - 허리</h4>
+                            <p>견고한 허리 벨트가 잔여 하중을 골반으로 전달하여 무게 중심을 낮춥니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="benefits-grid fade-in">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💪</div>
+                    <h4>피로도 감소</h4>
+                    <p>동일한 시간 동안 사용하더라도 어깨와 허리에 느껴지는 피로감이 현저히 줄어듭니다.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏃</div>
+                    <h4>장시간 쾌적한 사용</h4>
+                    <p>신체적 부담이 적어 아이와 함께하는 외출이나 여행 시에도 오랜 시간 편안함을 유지합니다.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🦴</div>
+                    <h4>척추 및 골반 보호</h4>
+                    <p>무게를 몸 전체로 분산시켜 장기적으로 사용자의 척추와 골반 건강을 보호합니다.</p>
+                </div>
+            </div>
+
+            <!-- 공인인증 압력 시험 결과 추가 -->
+            <div class="pressure-test-section fade-in" style="margin-top: 5rem;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <span style="background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600;">과학적 검증</span>
+                    <span style="background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-left: 0.5rem;">공인인증</span>
+                </div>
+                <h3 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--accent-light);">
+                    압력 분산의 차이가<br>
+                    <span style="color: var(--accent);">착용감의 차이</span>를 만듭니다
+                </h3>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">
+                    공인인증기관의 정밀한 압력 시험을 통해 입증된 베베스완의 우수한 압력 분산 기술
+                </p>
+
+                <!-- 압력 시험 테이블 -->
+                <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; overflow-x: auto;">
+                    <h4 style="text-align: center; font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text);">공인인증기관 - 압력 시험 도면</h4>
+                    
+                    <table style="width: 100%; border-collapse: separate; border-spacing: 0; background: rgba(255,255,255,0.02); border-radius: 12px; overflow: hidden;">
+                        <thead>
+                            <tr style="background: rgba(201, 169, 110, 0.2);">
+                                <th style="padding: 15px 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); color: var(--accent-light);">위치</th>
+                                <th style="padding: 15px 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); color: var(--text-muted);">H타입<br>(일반형)</th>
+                                <th style="padding: 15px 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); color: var(--text-muted);">H타입<br>(힙시트형)</th>
+                                <th style="padding: 15px 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary);">조끼형타입<br>(V5)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 15px; text-align: center; font-weight: 600; background: rgba(201, 169, 110, 0.05); border: 1px solid var(--border); color: var(--accent-light);">후면</td>
+                                <td style="padding: 15px; text-align: center; border: 1px solid var(--border);">
+                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1765156663836.png" alt="일반형 후면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
+                                </td>
+                                <td style="padding: 15px; text-align: center; border: 1px solid var(--border);">
+                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1765156663842.png" alt="힙시트형 후면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
+                                </td>
+                                <td style="padding: 15px; text-align: center; border: 1px solid var(--border); background: rgba(201, 169, 110, 0.05);">
+                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1765156663839.png" alt="V5 후면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; text-align: center; font-weight: 600; background: rgba(201, 169, 110, 0.05); border: 1px solid var(--border); color: var(--accent-light);">정면</td>
+                                <td style="padding: 15px; text-align: center; border: 1px solid var(--border);">
+                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1765156663825.png" alt="일반형 정면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
+                                </td>
+                                <td style="padding: 15px; text-align: center; border: 1px solid var(--border);">
+                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1765156663828.png" alt="힙시트형 정면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
+                                </td>
+                                <td style="padding: 15px; text-align: center; border: 1px solid var(--border); background: rgba(201, 169, 110, 0.05);">
+                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1765156663831.png" alt="V5 정면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px; text-align: center; font-weight: 600; background: rgba(201, 169, 110, 0.05); border: 1px solid var(--border); color: var(--accent-light);">결론</td>
+                                <td style="padding: 15px; text-align: center; border: 1px solid var(--border); color: #ef4444; font-weight: 600; font-size: 0.85rem;">어깨<br>부담 높음</td>
+                                <td style="padding: 15px; text-align: center; border: 1px solid var(--border); color: #ef4444; font-weight: 600; font-size: 0.85rem;">허리, 골반<br>부담 높음</td>
+                                <td style="padding: 15px; text-align: center; border: 1px solid var(--border); background: rgba(201, 169, 110, 0.1); color: #22c55e; font-weight: 700; font-size: 0.85rem;">전반적으로<br>양호</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-top: 1.5rem; padding: 1rem; background: rgba(201, 169, 110, 0.05); border-radius: 10px;">
+                        <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">부담강도 :</span>
+                        <span style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-muted);"><span style="width: 12px; height: 12px; background: #84cc16; border-radius: 50%;"></span> 약</span>
+                        <span style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-muted);"><span style="width: 12px; height: 12px; background: #eab308; border-radius: 50%;"></span> 중</span>
+                        <span style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-muted);"><span style="width: 12px; height: 12px; background: #ef4444; border-radius: 50%;"></span> 강</span>
+                        <span style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-muted);"><span style="width: 12px; height: 12px; background: #111; border-radius: 50%;"></span> 최강</span>
+                    </div>
+                </div>
+
+                <!-- 왜 압력 분산이 중요할까요? -->
+                <h4 style="margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.3rem; color: var(--accent-light); text-align: center;">왜 압력 분산이 중요할까요?</h4>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
+                    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 15px; padding: 1.5rem; text-align: center; transition: all 0.3s ease;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">👶</div>
+                        <h5 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text);">아기의 편안함</h5>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">낮은 압력은 아기 신체에 부담을 주지 않습니다.</p>
+                    </div>
+                    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 15px; padding: 1.5rem; text-align: center; transition: all 0.3s ease;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">👨‍👩‍👧</div>
+                        <h5 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text);">부모 어깨 부담 감소</h5>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">균등한 압력 분산으로 부담을 최소화합니다.</p>
+                    </div>
+                    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 15px; padding: 1.5rem; text-align: center; transition: all 0.3s ease;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">⏱️</div>
+                        <h5 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text);">장시간 사용 가능</h5>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">압력이 낮을수록 피로감이 적습니다.</p>
+                    </div>
+                    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 15px; padding: 1.5rem; text-align: center; transition: all 0.3s ease;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">🔬</div>
+                        <h5 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text);">과학적 검증</h5>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">공인인증기관의 정밀 측정으로 입증되었습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3-Part Structure Section -->
+    <section class="feature-section" id="structure">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-number">03</div>
+                <h2 class="section-title">혁신적인 3단 분리형 구조</h2>
+                <p class="section-subtitle">
+                    "잠든 아이를 깨우고 싶지 않다", "다른 사람과 아이를 안전하게 교대하고 싶다"<br>
+                    실제 육아 현장의 목소리를 깊이 있게 반영한 모듈식 설계입니다.
+                </p>
+            </div>
+
+            <div class="three-part-visual fade-in">
+                <div class="part-card">
+                    <div class="part-number">1</div>
+                    <h4>상단 베스트 패널</h4>
+                    <p>어깨와 등을 감싸는 메인 지지 구조로 하중의 1차 분산을 담당합니다.</p>
+                </div>
+                <div class="part-card">
+                    <div class="part-number">2</div>
+                    <h4>아기 포켓</h4>
+                    <p>아이를 감싸는 분리 가능한 모듈로 잠든 아이를 깨우지 않고 이동이 가능합니다.</p>
+                </div>
+                <div class="part-card">
+                    <div class="part-number">3</div>
+                    <h4>허리 벨트</h4>
+                    <p>견고한 골반 지지대로 무게 중심을 안정화하고 장시간 착용을 지원합니다.</p>
+                </div>
+            </div>
+
+            <div class="use-case-grid fade-in">
+                <div class="use-case">
+                    <div class="use-case-image">
+                        <img src="V5 셀링포인트_files/Image_024.png" alt="잠든 아이">
+                    </div>
+                    <div class="use-case-content">
+                        <span class="use-case-tag">Sleep-in-Place</span>
+                        <h4>잠든 아이 그대로!</h4>
+                        <p>아이가 아기띠 안에서 잠들었을 때, 아이를 감싸고 있는 부분만 분리하여 그대로 침대에 내려놓을 수 있습니다. 아이의 수면 연속성을 보장하고 안정적인 애착 형성을 돕습니다.</p>
+                    </div>
+                </div>
+                <div class="use-case">
+                    <div class="use-case-image">
+                        <img src="V5 셀링포인트_files/Image_023.png" alt="보호자 교대">
+                    </div>
+                    <div class="use-case-content">
+                        <span class="use-case-tag">Quick Handover</span>
+                        <h4>간편한 교대 및 이동</h4>
+                        <p>주차장이나 좁은 현관처럼 아이를 내려놓기 불안정한 공간에서도 아이를 감싼 부분만 분리하여 다른 보호자에게 안전하게 건넬 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Material Section -->
+    <section class="feature-section" id="material">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-number">04</div>
+                <h2 class="section-title">최적의 통기성을 위한 소재 공학</h2>
+                <p class="section-subtitle">
+                    성인보다 체온 조절 능력이 민감한 영유아에게 통기성은 매우 중요한 요소입니다.
+                </p>
+            </div>
+
+            <div class="material-showcase fade-in">
+                <div class="material-image">
+                    <img src="V5 셀링포인트_files/Image_020.png" alt="메쉬 소재">
+                </div>
+                <div class="material-features">
+                    <div class="material-feature">
+                        <div class="material-icon">🌬️</div>
+                        <div class="material-text">
+                            <h4>공기 순환 극대화</h4>
+                            <p>수많은 미세한 공기구멍으로 이루어진 구조는 공기의 흐름을 원활하게 하여 아기띠 내부에 열이 갇히는 것을 방지합니다.</p>
+                        </div>
+                    </div>
+                    <div class="material-feature">
+                        <div class="material-icon">💧</div>
+                        <div class="material-text">
+                            <h4>우수한 열과 습기 배출</h4>
+                            <p>활동 중에 발생하는 땀과 열을 빠르게 외부로 배출시켜 사용자와 아이 모두의 피부를 보송보송하게 유지합니다.</p>
+                        </div>
+                    </div>
+                    <div class="material-feature">
+                        <div class="material-icon">👶</div>
+                        <div class="material-text">
+                            <h4>땀띠 및 피부 트러블 예방</h4>
+                            <p>연약한 아이 피부에 땀이 차서 발생하는 땀띠나 각종 피부 트러블의 발생 가능성을 크게 낮춥니다.</p>
+                        </div>
+                    </div>
+                    <div class="material-feature">
+                        <div class="material-icon">🌡️</div>
+                        <div class="material-text">
+                            <h4>사계절 쾌적한 착용감</h4>
+                            <p>계절에 구애받지 않고 언제나 상쾌한 상태로 아이를 안을 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company History Section -->
+    <section class="feature-section" id="history">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-number">05</div>
+                <h2 class="section-title">Company History</h2>
+                <p class="section-subtitle">
+                    베베스완의 혁신적인 여정과 조끼형 아기띠의 진화
+                </p>
+            </div>
+
+            <div class="history-content fade-in" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start;">
+                <!-- 회사 연혁 타임라인 -->
+                <div class="history-timeline">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                        <img src="https://bebeswan.co.kr/web/upload/category/logo/logo_1000.png" alt="Bebeswan Logo" style="height: 50px; filter: brightness(0) invert(1);" onerror="this.style.display='none'">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent);">bebe swan</span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0;">
+                            <span style="color: var(--accent); font-weight: 700; min-width: 45px; font-size: 0.9rem;">2019</span>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">Founded in September</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0;">
+                            <span style="color: var(--accent); font-weight: 700; min-width: 45px; font-size: 0.9rem;">2020</span>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">Launched the world's first vest-style baby carrier in</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0;">
+                            <span style="color: var(--accent); font-weight: 700; min-width: 45px; font-size: 0.9rem;">2020</span>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">Won the Gold Prize at the Women Inventors Expo in</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0;">
+                            <span style="color: var(--accent); font-weight: 700; min-width: 45px; font-size: 0.9rem;">2020</span>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">Received the Minister of Gender Equality and Family Award in</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0;">
+                            <span style="color: var(--accent); font-weight: 700; min-width: 45px; font-size: 0.9rem;">2024</span>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">Awarded the Korea Consumer Brand Award in</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0;">
+                            <span style="color: var(--accent); font-weight: 700; min-width: 45px; font-size: 0.9rem;">2024</span>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">Began exports to Japan in</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0;">
+                            <span style="color: var(--accent); font-weight: 700; min-width: 45px; font-size: 0.9rem;">2024</span>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">Korea Brand Award – 1st Place</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0;">
+                            <span style="color: var(--accent); font-weight: 700; min-width: 45px; font-size: 0.9rem;">2025</span>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">KCBI Korea Consumer Award</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0;">
+                            <span style="color: var(--accent); font-weight: 700; min-width: 45px; font-size: 0.9rem;">2025</span>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">Established Bebeswan Co., Ltd.</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; background: linear-gradient(135deg, rgba(201, 169, 110, 0.1) 0%, rgba(201, 169, 110, 0.05) 100%); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; border: 1px solid var(--border);">
+                            <span style="color: var(--accent); font-weight: 700; min-width: 45px; font-size: 0.9rem;">2026</span>
+                            <span style="color: var(--accent-light); font-size: 0.85rem; font-weight: 600;">U.S. Market Entry Contract Confirmed</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1rem; background: linear-gradient(135deg, rgba(201, 169, 110, 0.1) 0%, rgba(201, 169, 110, 0.05) 100%); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; border: 1px solid var(--border);">
+                            <span style="color: var(--accent); font-weight: 700; min-width: 45px; font-size: 0.9rem;">2026</span>
+                            <span style="color: var(--accent-light); font-size: 0.85rem; font-weight: 600;">Q1 Scheduled Launch of Premium New Product "Eternity"</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 제품 라인업 이미지 -->
+                <div class="product-lineup" style="position: relative;">
+                    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 1.5rem; overflow: hidden;">
+                        <h3 style="text-align: center; font-size: 1.3rem; color: var(--accent-light); margin-bottom: 1rem;">조끼아기띠 라인업</h3>
+                        <p style="text-align: center; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; font-style: italic;">
+                            "오직, 엄마와 아기만을 위해<br>베베스완의 아기띠 연구소는 지금도 끊임없이 연구합니다"
+                        </p>
+                        <img src="회사연역.png" alt="조끼아기띠 라인업 타임라인" style="width: 100%; border-radius: 10px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Value Section -->
+    <section class="value-section" id="value">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-number">06</div>
+                <h2 class="section-title">기술이 실현하는 비즈니스 가치</h2>
+                <p class="section-subtitle">
+                    V5의 기술적 차별점이 유통 파트너 및 B2B 고객에게 제공하는 강력한 비즈니스 가치
+                </p>
+            </div>
+
+            <div class="value-grid fade-in">
+                <div class="value-card">
+                    <h4>🎯 경쟁 우위를 위한 '문제 해결' 서사</h4>
+                    <p>V5는 '어깨 통증', '아이가 깨는 문제' 등 소비자들이 오랫동안 겪어온 명확한 고충을 직접적으로 해결하는 '솔루션'입니다. 파트너사가 소비자에게 매우 쉽고 강력하게 소구할 수 있는 마케팅 서사를 제공합니다.</p>
+                </div>
+                <div class="value-card">
+                    <h4>❤️ 고객 만족도 및 충성도 증대</h4>
+                    <p>실제 육아의 질을 향상시키는 경험을 제공함으로써 높은 수준의 고객 만족도를 이끌어냅니다. 이는 긍정적인 입소문과 재구매로 이어져 강력한 브랜드 충성도를 구축합니다.</p>
+                </div>
+                <div class="value-card">
+                    <h4>🏆 프리미엄 포지셔닝</h4>
+                    <p>V5의 3단 분리 구조와 같은 독보적 기술은 경쟁사가 쉽게 모방할 수 없는 강력한 기술적 해자(Moat)를 구축합니다. 기술력에 기반한 프리미엄 가격 정책을 정당화하여 파트너사의 수익성을 보호합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="conclusion-section">
+        <div class="container">
+            <div class="conclusion-content fade-in">
+                <div class="section-number">07</div>
+                <h2 class="section-title">결론</h2>
+                <p class="conclusion-quote">
+                    "'조끼형 아기띠 V5'는 단순한 아기띠가 아닙니다.<br>
+                    기술을 통해 부모의 삶을 더 편안하고 즐겁게 만들고자 하는<br>
+                    저희의 철학이 담긴 '솔루션'입니다."
+                </p>
+                <p class="conclusion-text">
+                    저희는 V5가 귀사의 포트폴리오에 강력한 경쟁력을 더하고,<br>
+                    성공적인 비즈니스를 함께 열어갈 핵심 자산이 될 것이라 확신합니다.
+                </p>
+                <a href="#intro" class="cta-button">파트너십 문의하기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">BEBESWAN</div>
+                <div class="footer-links">
+                    <span style="color: var(--text-muted); font-size: 0.9rem;">조끼형 아기띠 V5 기술 백서</span>
+                </div>
+            </div>
+            <p class="footer-text">
+                © 2025 Bebeswan. All Rights Reserved.<br>
+                이 문서는 B2B 파트너를 위한 기술 백서입니다.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.padding = '0.5rem 0';
+                nav.style.background = 'rgba(26, 26, 46, 0.98)';
+            } else {
+                nav.style.padding = '1rem 0';
+                nav.style.background = 'rgba(26, 26, 46, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
+
