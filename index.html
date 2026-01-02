@@ -964,6 +964,21 @@
             section {
                 padding: 4rem 0;
             }
+
+            /* Comparison sections responsive */
+            [style*="grid-template-columns: 1fr auto 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+
+            [style*="grid-template-columns: 1fr auto 1fr"] > div:nth-child(2) {
+                order: -1;
+                padding: 1rem 0 !important;
+            }
+
+            [style*="grid-template-columns: 1fr auto 1fr"] > div:nth-child(2) > div {
+                font-size: 2rem !important;
+            }
         }
     </style>
 </head>
@@ -977,6 +992,7 @@
                 <li><a href="#weight">무게 분산</a></li>
                 <li><a href="#structure">3단 분리</a></li>
                 <li><a href="#material">통기성 소재</a></li>
+                <li><a href="#why-vest">왜 조끼형?</a></li>
                 <li><a href="#certification">특허/인증</a></li>
                 <li><a href="#history">회사 연혁</a></li>
                 <li><a href="#value">비즈니스 가치</a></li>
@@ -993,7 +1009,7 @@
                     <h1>조끼형 아기띠 V5<br>기술 백서</h1>
                     <p class="hero-subtitle">
                         사용자 중심 혁신과 엔지니어링의 결정체.<br>
-                        기존 조끼형 아기띠의 한계를 넘어선<br>
+                        기존 아기띠의 한계를 넘어선<br>
                         차세대 육아 솔루션을 소개합니다.
                     </p>
                 </div>
@@ -1009,49 +1025,115 @@
         <div class="container">
             <div class="section-header fade-in">
                 <div class="section-number">01</div>
-                <h2 class="section-title">기존 조끼형 아기띠의 한계</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title">조끼형 아기띠의 탄생</h2>
+                <p class="section-subtitle" style="max-width: 800px;">
                     어깨를 짓누르는 무게와 끊어질 듯한 허리 통증.<br>
                     잘못된 무게 분산 설계가 야기하는 고질적인 문제입니다.
                 </p>
             </div>
-
-            <!-- 한계점 시각화 이미지 -->
-            <div class="fade-in" style="margin-bottom: 3rem; text-align: center;">
-                <div style="display: inline-block; position: relative; max-width: 70%;">
-                    <img src="problem-schematic.png" alt="기존 아기띠의 한계" style="width: 100%; border-radius: 20px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); border: 1px solid var(--border);">
-                    <div style="position: absolute; top: -15px; right: -15px; width: 100%; height: 100%; border: 1px solid var(--accent); border-radius: 20px; opacity: 0.3; z-index: -1;"></div>
-                </div>
+            
+            <!-- 상세 설명 카드 -->
+            <div class="fade-in" style="margin: 0 auto 3rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px;">
+                <p style="color: var(--text-muted); font-size: 1rem; line-height: 2; text-align: center;">
+                    베이비 캐리어는 부모와 아이의 유대를 강화하고 이동의 자유를 제공하는 필수 육아용품입니다.<br>
+                    그러나 기존 제품들은 사용자인 부모에게 <strong style="color: var(--accent-light);">상당한 신체적 부담</strong>과 <strong style="color: var(--accent-light);">사용상의 불편함</strong>을 안겨주었습니다.
+                </p>
+                <div style="width: 60px; height: 2px; background: var(--accent); margin: 1.5rem auto;"></div>
+                <p style="color: var(--text); font-size: 1.05rem; line-height: 1.8; text-align: center; font-weight: 500;">
+                    본 백서는 <span style="color: var(--accent);">'베베스완 V5'</span>가 이러한 고질적인 문제들을<br>
+                    인체공학적 설계와 혁신적인 기술로 어떻게 해결하는지 분석합니다.
+                </p>
             </div>
 
-            <div class="problem-grid fade-in">
-                <div class="problem-card">
-                    <div class="problem-icon">⚡</div>
-                    <h3>신체적 부담</h3>
-                    <p>아이의 체중이 효과적으로 분산되지 않아 무게가 어깨에 집중됩니다. 이는 사용자의 피로감을 가중시키고 어깨, 등, 허리 부위에 통증을 유발하는 핵심 원인입니다.</p>
+            <!-- 마인드맵 스타일 문제-해결 다이어그램 -->
+            <div class="fade-in" style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; margin-top: 2rem;">
+                <!-- 라벨 상단 -->
+                <div style="display: flex; justify-content: space-between; max-width: 900px; margin: 0 auto 2rem; padding: 0 2rem;">
+                    <div style="text-align: center;">
+                        <span style="background: rgba(160, 160, 160, 0.15); color: var(--text-muted); padding: 0.5rem 1.5rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; border: 1px solid rgba(160, 160, 160, 0.3);">❌ 기존 문제</span>
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="background: rgba(201, 169, 110, 0.15); color: var(--accent); padding: 0.5rem 1.5rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border);">✅ V5 해결책</span>
+                    </div>
                 </div>
-                <div class="problem-card">
-                    <div class="problem-icon">😴</div>
-                    <h3>사용 편의성 문제</h3>
-                    <p>모처럼 잠든 아이를 아기띠에서 꺼내 눕히는 과정에서 아이가 깨는 경우가 빈번하게 발생합니다. 통기성 부족으로 장시간 사용이 어렵습니다.</p>
-                </div>
-            </div>
-
-            <div class="solution-overview fade-in">
-                <div class="solution-item">
-                    <div class="solution-number">1</div>
-                    <h4>인체공학적 무게 분산</h4>
-                    <p>어깨, 등, 허리 3점 분산으로 부담 최소화</p>
-                </div>
-                <div class="solution-item">
-                    <div class="solution-number">2</div>
-                    <h4>3단 분리형 구조</h4>
-                    <p>잠든 아이를 깨우지 않는 혁신적 설계</p>
-                </div>
-                <div class="solution-item">
-                    <div class="solution-number">3</div>
-                    <h4>고통기성 메쉬 소재</h4>
-                    <p>사계절 쾌적한 착용감 보장</p>
+                
+                <!-- 마인드맵 컨테이너 -->
+                <div style="display: flex; align-items: center; justify-content: center; gap: 0;">
+                    
+                    <!-- 왼쪽: 문제점 -->
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-end;">
+                        <!-- 신체적 부담 -->
+                        <div style="display: flex; align-items: center; gap: 0;">
+                            <div style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 16px; padding: 1.2rem 1.5rem; width: 280px;">
+                                <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
+                                    <span style="font-size: 1.5rem;">⚡</span>
+                                    <h4 style="color: var(--text); font-size: 1.05rem; font-weight: 700;">신체적 부담</h4>
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">무게가 어깨에 집중되어 피로감과 통증 유발</p>
+                            </div>
+                            <div style="width: 50px; height: 2px; background: linear-gradient(90deg, rgba(160,160,160,0.3), var(--accent));"></div>
+                        </div>
+                        
+                        <!-- 사용 편의성 문제 -->
+                        <div style="display: flex; align-items: center; gap: 0;">
+                            <div style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 16px; padding: 1.2rem 1.5rem; width: 280px;">
+                                <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
+                                    <span style="font-size: 1.5rem;">😴</span>
+                                    <h4 style="color: var(--text); font-size: 1.05rem; font-weight: 700;">사용 편의성 문제</h4>
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">잠든 아이를 내려놓을 때 깨움, 통기성 부족</p>
+                            </div>
+                            <div style="width: 50px; height: 2px; background: linear-gradient(90deg, rgba(160,160,160,0.3), var(--accent));"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 중앙: V5 솔루션 -->
+                    <div style="position: relative; z-index: 10; margin: 0 0.5rem;">
+                        <div style="width: 130px; height: 130px; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 15px 40px rgba(201, 169, 110, 0.4); border: 3px solid rgba(255,255,255,0.2);">
+                            <span style="font-size: 1.8rem; margin-bottom: 0.2rem;">💡</span>
+                            <span style="color: var(--primary); font-weight: 900; font-size: 1.2rem;">V5</span>
+                            <span style="color: var(--primary); font-size: 0.7rem; font-weight: 600;">솔루션</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 오른쪽: 해결책 -->
+                    <div style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;">
+                        <!-- 인체공학적 무게 분산 -->
+                        <div style="display: flex; align-items: center; gap: 0;">
+                            <div style="width: 50px; height: 2px; background: linear-gradient(90deg, var(--accent), rgba(201,169,110,0.3));"></div>
+                            <div style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 16px; padding: 1rem 1.3rem; width: 260px;">
+                                <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.3rem;">
+                                    <span style="background: var(--accent); color: var(--primary); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem;">1</span>
+                                    <h4 style="color: var(--accent-light); font-size: 0.95rem; font-weight: 700;">인체공학적 무게 분산</h4>
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.8rem;">어깨, 등, 허리 3점 분산</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 3단 분리형 구조 -->
+                        <div style="display: flex; align-items: center; gap: 0;">
+                            <div style="width: 50px; height: 2px; background: linear-gradient(90deg, var(--accent), rgba(201,169,110,0.3));"></div>
+                            <div style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 16px; padding: 1rem 1.3rem; width: 260px;">
+                                <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.3rem;">
+                                    <span style="background: var(--accent); color: var(--primary); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem;">2</span>
+                                    <h4 style="color: var(--accent-light); font-size: 0.95rem; font-weight: 700;">3단 분리형 구조</h4>
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.8rem;">잠든 아이를 깨우지 않는 설계</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 고통기성 메쉬 소재 -->
+                        <div style="display: flex; align-items: center; gap: 0;">
+                            <div style="width: 50px; height: 2px; background: linear-gradient(90deg, var(--accent), rgba(201,169,110,0.3));"></div>
+                            <div style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 16px; padding: 1rem 1.3rem; width: 260px;">
+                                <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.3rem;">
+                                    <span style="background: var(--accent); color: var(--primary); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem;">3</span>
+                                    <h4 style="color: var(--accent-light); font-size: 0.95rem; font-weight: 700;">고통기성 메쉬 소재</h4>
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.8rem;">사계절 쾌적한 착용감</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1063,9 +1145,130 @@
             <div class="section-header fade-in">
                 <div class="section-number">02</div>
                 <h2 class="section-title">인체공학적 무게 분산 시스템</h2>
-                <p class="section-subtitle">
+                <p class="section-subtitle" style="white-space: nowrap; max-width: none;">
                     조끼형 아기띠의 핵심 성능은 '체감 무게'를 얼마나 효과적으로 줄이느냐에 달려 있습니다.
                 </p>
+            </div>
+
+            <!-- V5 아기띠 도식화 -->
+            <div class="fade-in" style="margin-bottom: 4rem;">
+                <!-- 가로형 이미지 - 전체 너비 -->
+                <div style="background: var(--card-bg); border-radius: 24px; padding: 1rem; border: 1px solid var(--border); margin-bottom: 2rem; overflow: hidden;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1767144059432.png" alt="블루프린팅_가로버전.png" style="width: 100%; height: auto; display: block; border-radius: 12px;">
+                </div>
+                
+                <!-- 설명 부분 -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <!-- V5 조끼형 구조 설명 -->
+                    <div style="text-align: center;">
+                        <div style="background: rgba(201, 169, 110, 0.1); border-radius: 16px; padding: 2rem; border: 1px solid var(--border);">
+                            <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1rem;">V5 조끼형 구조</h4>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
+                                조끼처럼 입는 구조로<br>
+                                <strong style="color: var(--accent-light);">어깨 + 등 + 허리</strong>에<br>
+                                무게를 고르게 분산합니다
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 3단 분리 구조 -->
+                    <div style="text-align: center;">
+                        <div style="background: rgba(201, 169, 110, 0.05); border-radius: 16px; padding: 1.5rem; border: 1px solid var(--border);">
+                            <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                                <div style="display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem; background: rgba(201, 169, 110, 0.1); border-radius: 10px; border: 1px solid var(--border);">
+                                    <span style="background: var(--accent); color: var(--primary); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem;">1</span>
+                                    <span style="color: var(--text); font-size: 0.9rem; font-weight: 500;">조끼 패널</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem; background: rgba(201, 169, 110, 0.1); border-radius: 10px; border: 1px solid var(--border);">
+                                    <span style="background: var(--accent); color: var(--primary); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem;">2</span>
+                                    <span style="color: var(--text); font-size: 0.9rem; font-weight: 500;">아기 포켓</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem; background: rgba(201, 169, 110, 0.1); border-radius: 10px; border: 1px solid var(--border);">
+                                    <span style="background: var(--accent); color: var(--primary); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem;">3</span>
+                                    <span style="color: var(--text); font-size: 0.9rem; font-weight: 500;">허리 벨트</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 주요 특징과 혁신 -->
+            <div class="fade-in" style="margin-bottom: 4rem;">
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <span style="background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600;">핵심 혁신</span>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 1rem; color: var(--accent-light);">베베스완 V5의 주요 특징</h3>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                    <!-- 1. 무게 분산을 통한 혁신적인 편안함 -->
+                    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem;">💪</div>
+                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;">무게 분산을 통한<br>혁신적인 편안함</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                            기존의 일반적인 아기띠는 하중이 어깨와 허리 한 지점에 집중되어 장시간 착용 시 극심한 피로를 유발하는 단점이 있었습니다.
+                        </p>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                            <p style="color: var(--text); font-size: 0.85rem; line-height: 1.6;">
+                                베베스완 V5는 독자적인 <strong style="color: var(--accent);">베스트(Vest) 타입 설계</strong>를 도입하여 아이의 무게를 <strong style="color: var(--accent-light);">어깨, 등, 허리 전체</strong>로 넓고 이상적으로 분산시킵니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 2. 혼자서도 가능한 놀라운 간편함 -->
+                    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem;">✨</div>
+                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;">혼자서도 가능한<br>놀라운 간편함</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                            착용 과정의 번거로움을 획기적으로 줄였습니다. 셔츠를 입듯 간편하게 착용할 수 있는 시스템을 갖추고 있습니다.
+                        </p>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="background: var(--accent); color: var(--primary); width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700;">1</span>
+                                    <span style="color: var(--text); font-size: 0.85rem;">조끼처럼 입기</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="background: var(--accent); color: var(--primary); width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700;">2</span>
+                                    <span style="color: var(--text); font-size: 0.85rem;">버클 채우기</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="background: var(--accent); color: var(--primary); width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700;">3</span>
+                                    <span style="color: var(--text); font-size: 0.85rem;">아이 안아주기</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. 아이와의 교감을 위한 초밀착 설계와 안전 -->
+                    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem;">💕</div>
+                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;">초밀착 설계와<br>완벽한 안전</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                            아이와 부모 사이의 불필요한 공간을 없앤 '초밀착 설계'로 아이는 부모의 심장 소리를 들으며 안정감을 느낍니다.
+                        </p>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                                <span style="color: var(--text); font-size: 0.8rem;">✓ <strong style="color: var(--accent);">3중 잠금장치</strong> - 이중 안전</span>
+                                <span style="color: var(--text); font-size: 0.8rem;">✓ <strong style="color: var(--accent);">M자 포지션</strong> - 고관절 발달</span>
+                                <span style="color: var(--text); font-size: 0.8rem;">✓ <strong style="color: var(--accent);">프리미엄 소재</strong> - 피부 테스트 완료</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 결론 문구 -->
+                <div style="margin-top: 3rem; text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(201, 169, 110, 0.1) 0%, rgba(201, 169, 110, 0.02) 100%); border-radius: 20px; border: 1px solid var(--border);">
+                    <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--accent-light); line-height: 1.8; font-style: italic;">
+                        "베베스완 V5는 부모에게는 <strong style="color: var(--accent);">통증 없는 육아와 편의성</strong>을,<br>
+                        아이에게는 <strong style="color: var(--accent);">안전하고 정서적인 안정감</strong>을 제공하며<br>
+                        모두에게 완벽한 외출 환경을 약속합니다."
+                    </p>
+                    <div style="width: 60px; height: 2px; background: var(--accent); margin: 1.5rem auto;"></div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        마치 부모의 따뜻한 품을 그대로 본뜬 <strong style="color: var(--text);">입는 형태의 포옹</strong>과 같아서,<br>
+                        아이와 부모가 서로의 온기를 가장 편안한 방식으로 나눌 수 있게 해줍니다.
+                    </p>
+                </div>
             </div>
 
             <div class="weight-diagram fade-in">
@@ -1146,25 +1349,25 @@
                             <tr>
                                 <td style="padding: 15px; text-align: center; font-weight: 600; background: rgba(201, 169, 110, 0.05); border: 1px solid var(--border); color: var(--accent-light);">후면</td>
                                 <td style="padding: 15px; text-align: center; border: 1px solid var(--border);">
-                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1765156663836.png" alt="일반형 후면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
+                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766975361868.png" alt="일반형 후면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
                                 </td>
                                 <td style="padding: 15px; text-align: center; border: 1px solid var(--border);">
-                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1765156663842.png" alt="힙시트형 후면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
+                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766975361864.png" alt="힙시트형 후면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
                                 </td>
                                 <td style="padding: 15px; text-align: center; border: 1px solid var(--border); background: rgba(201, 169, 110, 0.05);">
-                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1765156663839.png" alt="V5 후면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
+                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766975361873.png" alt="V5 후면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding: 15px; text-align: center; font-weight: 600; background: rgba(201, 169, 110, 0.05); border: 1px solid var(--border); color: var(--accent-light);">정면</td>
                                 <td style="padding: 15px; text-align: center; border: 1px solid var(--border);">
-                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1765156663825.png" alt="일반형 정면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
+                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766975361866.png" alt="일반형 정면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
                                 </td>
                                 <td style="padding: 15px; text-align: center; border: 1px solid var(--border);">
-                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1765156663828.png" alt="힙시트형 정면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
+                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766975361861.png" alt="힙시트형 정면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
                                 </td>
                                 <td style="padding: 15px; text-align: center; border: 1px solid var(--border); background: rgba(201, 169, 110, 0.05);">
-                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1765156663831.png" alt="V5 정면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
+                                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766975361871.png" alt="V5 정면" style="width: 80px; height: 100px; object-fit: contain; filter: brightness(0.9);">
                                 </td>
                             </tr>
                             <tr>
@@ -1213,66 +1416,11 @@
         </div>
     </section>
 
-    <!-- 3-Part Structure Section -->
-    <section class="feature-section" id="structure">
-        <div class="container">
-            <div class="section-header fade-in">
-                <div class="section-number">03</div>
-                <h2 class="section-title">혁신적인 3단 분리형 구조</h2>
-                <p class="section-subtitle">
-                    "잠든 아이를 깨우고 싶지 않다", "다른 사람과 아이를 안전하게 교대하고 싶다"<br>
-                    실제 육아 현장의 목소리를 깊이 있게 반영한 모듈식 설계입니다.
-                </p>
-            </div>
-
-            <div class="three-part-visual fade-in">
-                <div class="part-card">
-                    <div class="part-number">1</div>
-                    <h4>상단 베스트 패널</h4>
-                    <p>어깨와 등을 감싸는 메인 지지 구조로 하중의 1차 분산을 담당합니다.</p>
-                </div>
-                <div class="part-card">
-                    <div class="part-number">2</div>
-                    <h4>아기 포켓</h4>
-                    <p>아이를 감싸는 분리 가능한 모듈로 잠든 아이를 깨우지 않고 이동이 가능합니다.</p>
-                </div>
-                <div class="part-card">
-                    <div class="part-number">3</div>
-                    <h4>허리 벨트</h4>
-                    <p>견고한 골반 지지대로 무게 중심을 안정화하고 장시간 착용을 지원합니다.</p>
-                </div>
-            </div>
-
-            <div class="use-case-grid fade-in">
-                <div class="use-case">
-                    <div class="use-case-image">
-                        <img src="Laying Baby on Sofa.png" alt="잠든 아이">
-                    </div>
-                    <div class="use-case-content">
-                        <span class="use-case-tag">Sleep-in-Place</span>
-                        <h4>잠든 아이 그대로!</h4>
-                        <p>아이가 아기띠 안에서 잠들었을 때, 아이를 감싸고 있는 부분만 분리하여 그대로 침대에 내려놓을 수 있습니다. 아이의 수면 연속성을 보장하고 안정적인 애착 형성을 돕습니다.</p>
-                    </div>
-                </div>
-                <div class="use-case">
-                    <div class="use-case-image">
-                        <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766551271140.png" alt="보호자 교대">
-                    </div>
-                    <div class="use-case-content">
-                        <span class="use-case-tag">Quick Handover</span>
-                        <h4>간편한 교대 및 이동</h4>
-                        <p>주차장이나 좁은 현관처럼 아이를 내려놓기 불안정한 공간에서도 아이를 감싼 부분만 분리하여 다른 보호자에게 안전하게 건넬 수 있습니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Material Section -->
     <section class="feature-section" id="material">
         <div class="container">
             <div class="section-header fade-in">
-                <div class="section-number">04</div>
+                <div class="section-number">03</div>
                 <h2 class="section-title">최적의 통기성을 위한 소재 공학</h2>
                 <p class="section-subtitle">
                     성인보다 체온 조절 능력이 민감한 영유아에게 통기성은 매우 중요한 요소입니다.
@@ -1310,6 +1458,483 @@
                         <div class="material-text">
                             <h4>사계절 쾌적한 착용감</h4>
                             <p>계절에 구애받지 않고 언제나 상쾌한 상태로 아이를 안을 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 프리미엄 안전 소재 섹션 -->
+            <div class="fade-in" style="margin-top: 5rem;">
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <span style="background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600;">프리미엄 소재</span>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 1rem; color: var(--accent-light);">타협 없는 안전의 기초, '프리미엄 안전 소재'</h3>
+                    <p style="color: var(--text-muted); margin-top: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                        베베스완은 "편안함의 기본은 완벽한 안전"이라는 철학 아래,<br>
+                        아이의 피부에 직접 닿는 소재에 대해서는 <strong style="color: var(--accent);">절대 타협하지 않습니다.</strong>
+                    </p>
+                </div>
+
+                <!-- 프리미엄 소재 특징 3가지 -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 3rem;">
+                    <!-- 1. 검증된 안전성 -->
+                    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                        <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem;">✓</div>
+                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;">검증된 안전성</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                            단순한 고급 소재를 넘어, <strong style="color: var(--text);">공인 기관의 피부 자극 테스트</strong>를 완료하여 소재의 안전성을 객관적으로 증명했습니다.
+                        </p>
+                        <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(34, 197, 94, 0.1); border-radius: 10px; border-left: 3px solid #22c55e;">
+                            <span style="color: #22c55e; font-size: 0.85rem; font-weight: 600;">피부 자극 테스트 완료</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. 쾌적한 통기성 -->
+                    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                        <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem;">🌬️</div>
+                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;">쾌적한 통기성</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                            뛰어난 통기성을 갖추어 장시간 착용 시 발생하는 <strong style="color: var(--text);">열기와 습기를 효과적으로 조절</strong>하며 쾌적한 환경을 제공합니다.
+                        </p>
+                        <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(59, 130, 246, 0.1); border-radius: 10px; border-left: 3px solid #3b82f6;">
+                            <span style="color: #3b82f6; font-size: 0.85rem; font-weight: 600;">공기 순환 극대화</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. 부드러운 감촉 -->
+                    <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                        <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem;">💕</div>
+                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;">부드러운 감촉</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                            프리미엄 소재 특유의 부드러운 감촉은 아이에게는 <strong style="color: var(--text);">정서적 안정감</strong>을, 부모에게는 기분 좋은 착용감을 선사합니다.
+                        </p>
+                        <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(236, 72, 153, 0.1); border-radius: 10px; border-left: 3px solid #ec4899;">
+                            <span style="color: #ec4899; font-size: 0.85rem; font-weight: 600;">정서적 안정감 제공</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 왜 프리미엄 소재인가? -->
+                <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem; margin-bottom: 3rem;">
+                    <h4 style="text-align: center; font-size: 1.3rem; color: var(--accent-light); margin-bottom: 2rem;">왜 프리미엄 소재여야 하는가?</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                        <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px; border-left: 3px solid var(--accent);">
+                            <div style="font-size: 2rem;">👶</div>
+                            <div>
+                                <h5 style="color: var(--text); font-size: 1rem; margin-bottom: 0.5rem;">연약한 아기 피부 보호</h5>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;">성인보다 훨씬 민감하고 연약한 아기 피부를 고려하여, 자극을 최소화할 수 있는 최고급 기능성 소재만을 엄선하여 사용합니다.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px; border-left: 3px solid var(--accent);">
+                            <div style="font-size: 2rem;">⏱️</div>
+                            <div>
+                                <h5 style="color: var(--text); font-size: 1rem; margin-bottom: 0.5rem;">광범위하고 장시간의 접촉</h5>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;">아기띠는 아이의 몸을 가장 넓게, 그리고 가장 오랜 시간 감싸는 제품이기 때문에 소재의 품질이 곧 아이의 안전과 직결됩니다.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px; border-left: 3px solid var(--accent);">
+                            <div style="font-size: 2rem;">🔬</div>
+                            <div>
+                                <h5 style="color: var(--text); font-size: 1rem; margin-bottom: 0.5rem;">객관적인 신뢰성</h5>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;">단순한 제조사의 주장이 아닌, 공인된 기관의 엄격한 테스트를 거침으로써 부모가 안심하고 아이를 맡길 수 있는 환경을 제공합니다.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px; border-left: 3px solid var(--accent);">
+                            <div style="font-size: 2rem;">💫</div>
+                            <div>
+                                <h5 style="color: var(--text); font-size: 1rem; margin-bottom: 0.5rem;">완벽한 육아 환경의 기반</h5>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;">부모와 아이가 불편함 없이 완벽한 교감을 나눌 수 있는 쾌적하고 안전한 환경을 조성하는 기반이 됩니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 결론 문구 -->
+                <div style="text-align: center; padding: 2.5rem; background: linear-gradient(135deg, rgba(201, 169, 110, 0.1) 0%, rgba(201, 169, 110, 0.02) 100%); border-radius: 20px; border: 1px solid var(--border);">
+                    <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--accent-light); line-height: 1.8; font-style: italic; margin-bottom: 1.5rem;">
+                        "베베스완의 프리미엄 소재는<br>
+                        <strong style="color: var(--accent);">안전(테스트 완료)</strong>, <strong style="color: var(--accent);">기능(통기성)</strong>, <strong style="color: var(--accent);">정서(부드러움)</strong>라는<br>
+                        세 가지 측면을 모두 만족시키는 핵심 요소입니다."
+                    </p>
+                    <div style="width: 60px; height: 2px; background: var(--accent); margin: 0 auto 1.5rem;"></div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        이 최고급 기능성 소재는 마치 <strong style="color: var(--text);">'아이를 포근하게 감싸는 숨 쉬는 요람'</strong>과 같아서,<br>
+                        민감한 아기 피부를 지켜줌과 동시에 부모와 아이가 서로의 온기를 가장 쾌적하게 느낄 수 있도록 돕습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Vest Carrier Section -->
+    <section class="feature-section" id="why-vest">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-number">04</div>
+                <h2 class="section-title">왜? 꼭! 조끼 아기띠여야만 하는지 함께 볼까요?</h2>
+                <p class="section-subtitle">
+                    일반 아기띠와 V5 조끼형 아기띠의 차이를 직접 비교해보세요
+                </p>
+            </div>
+
+            <!-- Comparison 1: 허리라인 -->
+            <div class="fade-in" style="margin-bottom: 5rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <div style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;">1</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;">
+                        어깨와 허리도 편한데 허리라인까지 예쁘게 잡아주는 아기띠 어떠세요
+                    </h3>
+                </div>
+
+                <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; margin-bottom: 2rem;">
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 3rem; align-items: start;">
+                        <!-- 일반 아기띠 -->
+                        <div style="text-align: center;">
+                            <div style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 20px; padding: 2rem;">
+                                <h4 style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">일반 아기띠</h4>
+                                <!-- 이미지 영역 -->
+                                <div style="width: 100%; height: 250px; background: rgba(0, 0, 0, 0.1); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <img src="" alt="일반 아기띠 이미지" style="width: 100%; height: 100%; object-fit: contain; display: none;" id="comparison1-normal-img">
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">이미지 영역</span>
+                                </div>
+                                <ul style="list-style: none; text-align: left; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
+                                    <li style="margin-bottom: 0.8rem;">• 어깨와 허리에만 집중</li>
+                                    <li style="margin-bottom: 0.8rem;">• 통증 유발</li>
+                                    <li style="margin-bottom: 0.8rem;">• 울퉁불퉁 매끄럽지 못한 뒤태</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- VS -->
+                        <div style="text-align: center; display: flex; align-items: center; height: 100%; padding: 0 1rem;">
+                            <div style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--accent);">VS</div>
+                        </div>
+
+                        <!-- V5 아기띠 -->
+                        <div style="text-align: center;">
+                            <div style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
+                                <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">V5 아기띠</h4>
+                                <!-- 이미지 영역 -->
+                                <div style="width: 100%; height: 250px; background: rgba(201, 169, 110, 0.1); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <img src="" alt="V5 아기띠 이미지" style="width: 100%; height: 100%; object-fit: contain; display: none;" id="comparison1-v5-img">
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">이미지 영역</span>
+                                </div>
+                                <ul style="list-style: none; text-align: left; color: var(--text); font-size: 0.95rem; line-height: 2;">
+                                    <li style="margin-bottom: 0.8rem;">• 어깨+등+허리에 넓게 분산</li>
+                                    <li style="margin-bottom: 0.8rem;">• 장시간 사용에도 편안함</li>
+                                    <li style="margin-bottom: 0.8rem;">• 매끄러운 허리라인</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison 2: 혼자서 업기 -->
+            <div class="fade-in" style="margin-bottom: 5rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <div style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;">2</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;">
+                        혼자서도 아이를 업을수만 있다면..
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                        청소와 설거지 바로바로 할 수 있었을 텐데..<br>
+                        남편이 출근하면 낮에는 혼자 육아하시는 어머님들이 대부분이실꺼에요.<br>
+                        아이가 자는 틈을 타 청소라도 하려고 하면 깨는 우리 아이.
+                    </p>
+                </div>
+
+                <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; margin-bottom: 2rem;">
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 3rem; align-items: start;">
+                        <!-- 일반 아기띠 -->
+                        <div style="text-align: center;">
+                            <div style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 20px; padding: 2rem;">
+                                <h4 style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">일반 아기띠</h4>
+                                <!-- 이미지 영역 -->
+                                <div style="width: 100%; height: 250px; background: rgba(0, 0, 0, 0.1); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <img src="" alt="일반 아기띠 이미지" style="width: 100%; height: 100%; object-fit: contain; display: none;" id="comparison2-normal-img">
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">이미지 영역</span>
+                                </div>
+                                <ul style="list-style: none; text-align: left; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
+                                    <li style="margin-bottom: 0.8rem;">• 혼자 업지 못함</li>
+                                    <li style="margin-bottom: 0.8rem;">• 아이의 무게가 앞으로 쏠림</li>
+                                    <li style="margin-bottom: 0.8rem;">• 허리와 어깨에 부담 증가!</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- VS -->
+                        <div style="text-align: center; display: flex; align-items: center; height: 100%; padding: 0 1rem;">
+                            <div style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--accent);">VS</div>
+                        </div>
+
+                        <!-- V5 아기띠 -->
+                        <div style="text-align: center;">
+                            <div style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
+                                <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">V5 아기띠</h4>
+                                <!-- 이미지 영역 -->
+                                <div style="width: 100%; height: 250px; background: rgba(201, 169, 110, 0.1); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <img src="" alt="V5 아기띠 이미지" style="width: 100%; height: 100%; object-fit: contain; display: none;" id="comparison2-v5-img">
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">이미지 영역</span>
+                                </div>
+                                <ul style="list-style: none; text-align: left; color: var(--text); font-size: 0.95rem; line-height: 2;">
+                                    <li style="margin-bottom: 0.8rem;">• 혼자 쉽게 업을 수 있음</li>
+                                    <li style="margin-bottom: 0.8rem;">• 허리와 어깨 부담 ZERO!</li>
+                                    <li style="margin-bottom: 0.8rem;">• 육아, 가사 동시 OK</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison 3: 식사 -->
+            <div class="fade-in" style="margin-bottom: 5rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <div style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;">3</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;">
+                        오늘도 아이를 안고 식사하셨나요?
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                        외출할 때마다 부스터 챙길까 말까 고민 많으셨죠
+                    </p>
+                </div>
+
+                <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; margin-bottom: 2rem;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <div style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.8rem 2rem; border-radius: 30px; font-size: 1rem; font-weight: 600; margin-bottom: 1.5rem;">
+                            조끼 아기띠의 변신! 식사시 부스터로 활용!
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">짐도 줄여주고 위생적으로 안심!</p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 3rem; align-items: start;">
+                        <!-- 일반 아기띠 -->
+                        <div style="text-align: center;">
+                            <div style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 20px; padding: 2rem;">
+                                <h4 style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">일반 아기띠</h4>
+                                <!-- 이미지 영역 -->
+                                <div style="width: 100%; height: 250px; background: rgba(0, 0, 0, 0.1); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <img src="" alt="일반 아기띠 이미지" style="width: 100%; height: 100%; object-fit: contain; display: none;" id="comparison3-normal-img">
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">이미지 영역</span>
+                                </div>
+                                <ul style="list-style: none; text-align: left; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
+                                    <li style="margin-bottom: 0.8rem;">• 부스터 필요</li>
+                                    <li style="margin-bottom: 0.8rem;">• 맛집 제한</li>
+                                    <li style="margin-bottom: 0.8rem;">• 불편한 식사 시간</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- VS -->
+                        <div style="text-align: center; display: flex; align-items: center; height: 100%; padding: 0 1rem;">
+                            <div style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--accent);">VS</div>
+                        </div>
+
+                        <!-- V5 아기띠 -->
+                        <div style="text-align: center;">
+                            <div style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
+                                <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">V5 아기띠</h4>
+                                <!-- 이미지 영역 -->
+                                <div style="width: 100%; height: 250px; background: rgba(201, 169, 110, 0.1); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <img src="" alt="V5 아기띠 이미지" style="width: 100%; height: 100%; object-fit: contain; display: none;" id="comparison3-v5-img">
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">이미지 영역</span>
+                                </div>
+                                <ul style="list-style: none; text-align: left; color: var(--text); font-size: 0.95rem; line-height: 2;">
+                                    <li style="margin-bottom: 0.8rem;">• 부스터로 변신</li>
+                                    <li style="margin-bottom: 0.8rem;">• 맛집 제한 없음</li>
+                                    <li style="margin-bottom: 0.8rem;">• 편하고 즐거운 식사 시간</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison 4: 지퍼 -->
+            <div class="fade-in" style="margin-bottom: 5rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <div style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;">4</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;">
+                        아이를 안고, 내릴 때마다 아기미를 입고 벗고.. 너무 번거로우셨죠?
+                    </h3>
+                </div>
+
+                <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; margin-bottom: 2rem;">
+                    <div style="text-align: center; margin-bottom: 2rem; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px;">
+                        <p style="color: var(--text); font-size: 1rem; line-height: 1.8;">
+                            조끼아기띠는<br>
+                            <strong style="color: var(--accent);">겉 옷을 벗지 않아도, 아기띠를 벗지 않아도</strong><br>
+                            지퍼만 스--윽 내리면 바로 안고, 바로 내릴 수 있어요!
+                        </p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 3rem; align-items: start;">
+                        <!-- 일반 아기띠 -->
+                        <div style="text-align: center;">
+                            <div style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 20px; padding: 2rem;">
+                                <h4 style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">일반 아기띠</h4>
+                                <!-- 이미지 영역 -->
+                                <div style="width: 100%; height: 250px; background: rgba(0, 0, 0, 0.1); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <img src="" alt="일반 아기띠 이미지" style="width: 100%; height: 100%; object-fit: contain; display: none;" id="comparison4-normal-img">
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">이미지 영역</span>
+                                </div>
+                                <ul style="list-style: none; text-align: left; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
+                                    <li style="margin-bottom: 0.8rem;">• 겉옷 벗고</li>
+                                    <li style="margin-bottom: 0.8rem;">• 아기띠 풀고</li>
+                                    <li style="margin-bottom: 0.8rem;">• 아기 내리고..</li>
+                                    <li style="margin-bottom: 0.8rem;">• 다시! 메고, 안고, 입고..</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- VS -->
+                        <div style="text-align: center; display: flex; align-items: center; height: 100%; padding: 0 1rem;">
+                            <div style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--accent);">VS</div>
+                        </div>
+
+                        <!-- V5 아기띠 -->
+                        <div style="text-align: center;">
+                            <div style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
+                                <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">V5 아기띠</h4>
+                                <!-- 이미지 영역 -->
+                                <div style="width: 100%; height: 250px; background: rgba(201, 169, 110, 0.1); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <img src="" alt="V5 아기띠 이미지" style="width: 100%; height: 100%; object-fit: contain; display: none;" id="comparison4-v5-img">
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">이미지 영역</span>
+                                </div>
+                                <ul style="list-style: none; text-align: left; color: var(--text); font-size: 0.95rem; line-height: 2;">
+                                    <li style="margin-bottom: 0.8rem;">• 지퍼만 스-윽! 내리고</li>
+                                    <li style="margin-bottom: 0.8rem;">• 아기 내리면 끝!</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison 5: 화장실 -->
+            <div class="fade-in" style="margin-bottom: 5rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <div style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;">5</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;">
+                        아기띠로 아이를 겨우 재웠는데 갑자기 화장실이 급하면 참 난감하시죠?
+                    </h3>
+                </div>
+
+                <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; margin-bottom: 2rem;">
+                    <div style="text-align: center; margin-bottom: 2rem; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px;">
+                        <p style="color: var(--text); font-size: 1rem; line-height: 1.8;">
+                            내려놓자니 깰것 같고, 안고 가자니 바지를 입고 벗기에 너무 힘들고<br>
+                            허리벨트를 해제하자니 아이가 추락할 것 같고<br>
+                            <strong style="color: var(--accent);">조끼아기띠는 허리벨트를 해제해도 아이가 그대로 안겨있어</strong><br>
+                            화장실 이용이 더 이상 두렵지 않아요
+                        </p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 3rem; align-items: start;">
+                        <!-- 일반 아기띠 -->
+                        <div style="text-align: center;">
+                            <div style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 20px; padding: 2rem;">
+                                <h4 style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">일반 아기띠</h4>
+                                <!-- 이미지 영역 -->
+                                <div style="width: 100%; height: 250px; background: rgba(0, 0, 0, 0.1); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <img src="" alt="일반 아기띠 이미지" style="width: 100%; height: 100%; object-fit: contain; display: none;" id="comparison5-normal-img">
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">이미지 영역</span>
+                                </div>
+                                <ul style="list-style: none; text-align: left; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
+                                    <li style="margin-bottom: 0.8rem;">• 허리벨트를 해제하면 추락</li>
+                                    <li style="margin-bottom: 0.8rem;">• 바지 벗고, 입기 불편함</li>
+                                    <li style="margin-bottom: 0.8rem;">• 화장실 이용 시 스트레스</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- VS -->
+                        <div style="text-align: center; display: flex; align-items: center; height: 100%; padding: 0 1rem;">
+                            <div style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--accent);">VS</div>
+                        </div>
+
+                        <!-- V5 아기띠 -->
+                        <div style="text-align: center;">
+                            <div style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
+                                <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">V5 아기띠</h4>
+                                <!-- 이미지 영역 -->
+                                <div style="width: 100%; height: 250px; background: rgba(201, 169, 110, 0.1); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <img src="" alt="V5 아기띠 이미지" style="width: 100%; height: 100%; object-fit: contain; display: none;" id="comparison5-v5-img">
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">이미지 영역</span>
+                                </div>
+                                <ul style="list-style: none; text-align: left; color: var(--text); font-size: 0.95rem; line-height: 2;">
+                                    <li style="margin-bottom: 0.8rem;">• 허리벨트를 해제해도 OK!</li>
+                                    <li style="margin-bottom: 0.8rem;">• 바지 벗고, 입기 편리함</li>
+                                    <li style="margin-bottom: 0.8rem;">• 화장실 이용 시 GOOD</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison 6: 차에 태우기 -->
+            <div class="fade-in" style="margin-bottom: 5rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <div style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;">6</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;">
+                        차에 태울때면, 거쳐야 하는 과정이 너무 많아 외출이 두려웠었나요?
+                    </h3>
+                </div>
+
+                <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; margin-bottom: 2rem;">
+                    <div style="text-align: center; margin-bottom: 2rem; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px;">
+                        <p style="color: var(--text); font-size: 1rem; line-height: 1.8; margin-bottom: 1rem;">
+                            <strong style="color: var(--accent);">지퍼만 내려 차에 쏘-옥! 태우고</strong>
+                        </p>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 600px; margin: 0 auto;">
+                            <div style="background: rgba(201, 169, 110, 0.1); border-radius: 10px; padding: 1rem;">
+                                <p style="color: var(--accent); font-weight: 600; font-size: 0.9rem;">착용한 상태에서 바로 운전 가능!</p>
+                            </div>
+                            <div style="background: rgba(201, 169, 110, 0.1); border-radius: 10px; padding: 1rem;">
+                                <p style="color: var(--accent); font-weight: 600; font-size: 0.9rem;">유모차에도 바로 착!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 3rem; align-items: start;">
+                        <!-- 일반 아기띠 -->
+                        <div style="text-align: center;">
+                            <div style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 20px; padding: 2rem;">
+                                <h4 style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">일반 아기띠</h4>
+                                <!-- 이미지 영역 -->
+                                <div style="width: 100%; height: 250px; background: rgba(0, 0, 0, 0.1); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <img src="" alt="일반 아기띠 이미지" style="width: 100%; height: 100%; object-fit: contain; display: none;" id="comparison6-normal-img">
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">이미지 영역</span>
+                                </div>
+                                <ul style="list-style: none; text-align: left; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
+                                    <li style="margin-bottom: 0.8rem;">• 아기띠 벗기고</li>
+                                    <li style="margin-bottom: 0.8rem;">• 카시트에 태우고</li>
+                                    <li style="margin-bottom: 0.8rem;">• 다시 메는 과정 번거로움</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- VS -->
+                        <div style="text-align: center; display: flex; align-items: center; height: 100%; padding: 0 1rem;">
+                            <div style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--accent);">VS</div>
+                        </div>
+
+                        <!-- V5 아기띠 -->
+                        <div style="text-align: center;">
+                            <div style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
+                                <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">V5 아기띠</h4>
+                                <!-- 이미지 영역 -->
+                                <div style="width: 100%; height: 250px; background: rgba(201, 169, 110, 0.1); border-radius: 12px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                    <img src="" alt="V5 아기띠 이미지" style="width: 100%; height: 100%; object-fit: contain; display: none;" id="comparison6-v5-img">
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">이미지 영역</span>
+                                </div>
+                                <ul style="list-style: none; text-align: left; color: var(--text); font-size: 0.95rem; line-height: 2;">
+                                    <li style="margin-bottom: 0.8rem;">• 지퍼만 내려 바로 태우기</li>
+                                    <li style="margin-bottom: 0.8rem;">• 착용한 채로 운전 가능</li>
+                                    <li style="margin-bottom: 0.8rem;">• 유모차에도 바로 착!</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1536,7 +2161,7 @@
                 <h2 class="section-title">결론</h2>
                 <p class="conclusion-quote">
                     "'조끼형 아기띠 V5'는 단순한 아기띠가 아닙니다.<br>
-                    기술을 통해 부모의 삶을 더 편안하고 즐겁게 만들고자 하는<br>
+                    기술을 통해 부모의 삶을 더 편안하게 만들고자 하는<br>
                     저희의 철학이 담긴 '솔루션'입니다."
                 </p>
                 <p class="conclusion-text">
@@ -1629,7 +2254,30 @@
                 nav.style.background = 'rgba(26, 26, 46, 0.95)';
             }
         });
+
+        // Comparison images loader
+        function loadComparisonImage(imgId, imgSrc) {
+            const img = document.getElementById(imgId);
+            if (img && imgSrc) {
+                img.src = imgSrc;
+                img.style.display = 'block';
+                img.onload = function() {
+                    const placeholder = img.parentElement.querySelector('span');
+                    if (placeholder) {
+                        placeholder.style.display = 'none';
+                    }
+                };
+                img.onerror = function() {
+                    img.style.display = 'none';
+                };
+            }
+        }
+
+        // 이미지 로드 예시 (나중에 실제 이미지 URL로 교체)
+        // loadComparisonImage('comparison1-normal-img', '이미지URL');
+        // loadComparisonImage('comparison1-v5-img', '이미지URL');
     </script>
 </body>
 </html>
+
 
