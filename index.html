@@ -60,6 +60,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: nowrap;
+            gap: 1rem;
         }
 
         .logo {
@@ -72,17 +74,19 @@
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 1.5rem;
             list-style: none;
+            flex-shrink: 0;
         }
 
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 400;
             transition: color 0.3s ease;
             position: relative;
+            white-space: nowrap;
         }
 
         .nav-links a::after {
@@ -102,6 +106,45 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            gap: 0.3rem;
+            margin-left: 1rem;
+            flex-shrink: 0;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Noto Sans KR', sans-serif;
+            white-space: nowrap;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .lang-switcher {
+                margin-left: 0;
+            }
         }
 
         /* Container */
@@ -995,15 +1038,20 @@
         <div class="container">
             <div class="logo">BEBESWAN V5</div>
             <ul class="nav-links">
-                <li><a href="#intro">서론</a></li>
-                <li><a href="#weight">무게 분산</a></li>
-                <li><a href="#structure">3단 분리</a></li>
-                <li><a href="#material">통기성 소재</a></li>
-                <li><a href="#why-vest">왜 조끼형?</a></li>
-                <li><a href="#certification">특허/인증</a></li>
-                <li><a href="#history">회사 연혁</a></li>
-                <li><a href="#value">비즈니스 가치</a></li>
+                <li><a href="#intro" data-i18n="nav.intro">서론</a></li>
+                <li><a href="#weight" data-i18n="nav.weight">무게 분산</a></li>
+                <li><a href="#structure" data-i18n="nav.structure">3단 분리</a></li>
+                <li><a href="#material" data-i18n="nav.material">통기성 소재</a></li>
+                <li><a href="#why-vest" data-i18n="nav.whyVest">왜 조끼형?</a></li>
+                <li><a href="#certification" data-i18n="nav.certification">특허/인증</a></li>
+                <li><a href="#history" data-i18n="nav.history">회사 연혁</a></li>
+                <li><a href="#value" data-i18n="nav.value">비즈니스 가치</a></li>
             </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="ko">한국어</button>
+                <button class="lang-btn" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="zh">中文</button>
+            </div>
         </div>
     </nav>
 
@@ -1012,9 +1060,9 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <span class="hero-badge">TECHNICAL WHITE PAPER</span>
-                    <h1>조끼형 아기띠 V5<br>기술 백서</h1>
-                    <p class="hero-subtitle">
+                    <span class="hero-badge" data-i18n="hero.badge">TECHNICAL WHITE PAPER</span>
+                    <h1 data-i18n="hero.title">조끼형 아기띠 V5<br>기술 백서</h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">
                         사용자 중심 혁신과 엔지니어링의 결정체.<br>
                         기존 아기띠의 한계를 넘어선<br>
                         차세대 육아 솔루션을 소개합니다.
@@ -1032,8 +1080,8 @@
         <div class="container">
             <div class="section-header fade-in">
                 <div class="section-number">01</div>
-                <h2 class="section-title">조끼형 아기띠의 탄생</h2>
-                <p class="section-subtitle" style="max-width: 800px;">
+                <h2 class="section-title" data-i18n="section01.title">조끼형 아기띠의 탄생</h2>
+                <p class="section-subtitle" style="max-width: 800px;" data-i18n="section01.subtitle">
                     어깨를 짓누르는 무게와 끊어질 듯한 허리 통증.<br>
                     잘못된 무게 분산 설계가 야기하는 고질적인 문제입니다.
                 </p>
@@ -1042,14 +1090,14 @@
             <!-- 상세 설명 카드 -->
             <div class="fade-in"
                 style="margin: 0 auto 3rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px;">
-                <p style="color: var(--text-muted); font-size: 1rem; line-height: 2; text-align: center;">
+                <p style="color: var(--text-muted); font-size: 1rem; line-height: 2; text-align: center;" data-i18n="section01.desc1">
                     베이비 캐리어는 부모와 아이의 유대를 강화하고 이동의 자유를 제공하는 필수 육아용품입니다.<br>
                     그러나 기존 제품들은 사용자인 부모에게 <strong style="color: var(--accent-light);">상당한 신체적 부담</strong>과 <strong
                         style="color: var(--accent-light);">사용상의 불편함</strong>을 안겨주었습니다.
                 </p>
                 <div style="width: 60px; height: 2px; background: var(--accent); margin: 1.5rem auto;"></div>
                 <p
-                    style="color: var(--text); font-size: 1.05rem; line-height: 1.8; text-align: center; font-weight: 500;">
+                    style="color: var(--text); font-size: 1.05rem; line-height: 1.8; text-align: center; font-weight: 500;" data-i18n="section01.desc2">
                     본 백서는 <span style="color: var(--accent);">'베베스완 V5'</span>가 이러한 고질적인 문제들을<br>
                     인체공학적 설계와 혁신적인 기술로 어떻게 해결하는지 분석합니다.
                 </p>
@@ -1063,12 +1111,12 @@
                     style="display: flex; justify-content: space-between; max-width: 900px; margin: 0 auto 2rem; padding: 0 2rem;">
                     <div style="text-align: center;">
                         <span
-                            style="background: rgba(160, 160, 160, 0.15); color: var(--text-muted); padding: 0.5rem 1.5rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; border: 1px solid rgba(160, 160, 160, 0.3);">❌
+                            style="background: rgba(160, 160, 160, 0.15); color: var(--text-muted); padding: 0.5rem 1.5rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; border: 1px solid rgba(160, 160, 160, 0.3);" data-i18n="mindmap.existingProblems">❌
                             기존 문제</span>
                     </div>
                     <div style="text-align: center;">
                         <span
-                            style="background: rgba(201, 169, 110, 0.15); color: var(--accent); padding: 0.5rem 1.5rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border);">✅
+                            style="background: rgba(201, 169, 110, 0.15); color: var(--accent); padding: 0.5rem 1.5rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border);" data-i18n="mindmap.v5Solutions">✅
                             V5 해결책</span>
                     </div>
                 </div>
@@ -1084,9 +1132,9 @@
                                 style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 16px; padding: 1.2rem 1.5rem; width: 280px;">
                                 <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
                                     <span style="font-size: 1.5rem;">⚡</span>
-                                    <h4 style="color: var(--text); font-size: 1.05rem; font-weight: 700;">신체적 부담</h4>
+                                    <h4 style="color: var(--text); font-size: 1.05rem; font-weight: 700;" data-i18n="mindmap.physicalBurden">신체적 부담</h4>
                                 </div>
-                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">무게가 어깨에 집중되어
+                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;" data-i18n="mindmap.physicalBurdenDesc">무게가 어깨에 집중되어
                                     피로감과 통증 유발</p>
                             </div>
                             <div
@@ -1100,9 +1148,9 @@
                                 style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 16px; padding: 1.2rem 1.5rem; width: 280px;">
                                 <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
                                     <span style="font-size: 1.5rem;">😴</span>
-                                    <h4 style="color: var(--text); font-size: 1.05rem; font-weight: 700;">사용 편의성 문제</h4>
+                                    <h4 style="color: var(--text); font-size: 1.05rem; font-weight: 700;" data-i18n="mindmap.usabilityIssue">사용 편의성 문제</h4>
                                 </div>
-                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">잠든 아이를 내려놓을 때
+                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;" data-i18n="mindmap.usabilityIssueDesc">잠든 아이를 내려놓을 때
                                     깨움, 통기성 부족</p>
                             </div>
                             <div
@@ -1117,7 +1165,7 @@
                             style="width: 130px; height: 130px; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 15px 40px rgba(201, 169, 110, 0.4); border: 3px solid rgba(255,255,255,0.2);">
                             <span style="font-size: 1.8rem; margin-bottom: 0.2rem;">💡</span>
                             <span style="color: var(--primary); font-weight: 900; font-size: 1.2rem;">V5</span>
-                            <span style="color: var(--primary); font-size: 0.7rem; font-weight: 600;">솔루션</span>
+                            <span style="color: var(--primary); font-size: 0.7rem; font-weight: 600;" data-i18n="mindmap.solution">솔루션</span>
                         </div>
                     </div>
 
@@ -1133,10 +1181,10 @@
                                 <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.3rem;">
                                     <span
                                         style="background: var(--accent); color: var(--primary); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem;">1</span>
-                                    <h4 style="color: var(--accent-light); font-size: 0.95rem; font-weight: 700;">인체공학적
+                                    <h4 style="color: var(--accent-light); font-size: 0.95rem; font-weight: 700;" data-i18n="mindmap.sol1Title">인체공학적
                                         무게 분산</h4>
                                 </div>
-                                <p style="color: var(--text-muted); font-size: 0.8rem;">어깨, 등, 허리 3점 분산</p>
+                                <p style="color: var(--text-muted); font-size: 0.8rem;" data-i18n="mindmap.sol1Desc">어깨, 등, 허리 3점 분산</p>
                             </div>
                         </div>
 
@@ -1150,10 +1198,10 @@
                                 <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.3rem;">
                                     <span
                                         style="background: var(--accent); color: var(--primary); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem;">2</span>
-                                    <h4 style="color: var(--accent-light); font-size: 0.95rem; font-weight: 700;">3단 분리형
+                                    <h4 style="color: var(--accent-light); font-size: 0.95rem; font-weight: 700;" data-i18n="mindmap.sol2Title">3단 분리형
                                         구조</h4>
                                 </div>
-                                <p style="color: var(--text-muted); font-size: 0.8rem;">잠든 아이를 깨우지 않는 설계</p>
+                                <p style="color: var(--text-muted); font-size: 0.8rem;" data-i18n="mindmap.sol2Desc">잠든 아이를 깨우지 않는 설계</p>
                             </div>
                         </div>
 
@@ -1167,10 +1215,10 @@
                                 <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.3rem;">
                                     <span
                                         style="background: var(--accent); color: var(--primary); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem;">3</span>
-                                    <h4 style="color: var(--accent-light); font-size: 0.95rem; font-weight: 700;">고통기성
+                                    <h4 style="color: var(--accent-light); font-size: 0.95rem; font-weight: 700;" data-i18n="mindmap.sol3Title">고통기성
                                         메쉬 소재</h4>
                                 </div>
-                                <p style="color: var(--text-muted); font-size: 0.8rem;">사계절 쾌적한 착용감</p>
+                                <p style="color: var(--text-muted); font-size: 0.8rem;" data-i18n="mindmap.sol3Desc">사계절 쾌적한 착용감</p>
                             </div>
                         </div>
                     </div>
@@ -1184,8 +1232,8 @@
         <div class="container">
             <div class="section-header fade-in">
                 <div class="section-number">02</div>
-                <h2 class="section-title">인체공학적 무게 분산 시스템</h2>
-                <p class="section-subtitle" style="white-space: nowrap; max-width: none;">
+                <h2 class="section-title" data-i18n="section02.title">인체공학적 무게 분산 시스템</h2>
+                <p class="section-subtitle" style="white-space: nowrap; max-width: none;" data-i18n="section02.subtitle">
                     조끼형 아기띠의 핵심 성능은 '체감 무게'를 얼마나 효과적으로 줄이느냐에 달려 있습니다.
                 </p>
             </div>
@@ -1205,8 +1253,8 @@
                     <div style="text-align: center;">
                         <div
                             style="background: rgba(201, 169, 110, 0.1); border-radius: 16px; padding: 2rem; border: 1px solid var(--border);">
-                            <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1rem;">V5 조끼형 구조</h4>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
+                            <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1rem;" data-i18n="weight.vestStructure">V5 조끼형 구조</h4>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;" data-i18n="weight.vestStructureDesc">
                                 조끼처럼 입는 구조로<br>
                                 <strong style="color: var(--accent-light);">어깨 + 등 + 허리</strong>에<br>
                                 무게를 고르게 분산합니다
@@ -1222,19 +1270,19 @@
                                     style="display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem; background: rgba(201, 169, 110, 0.1); border-radius: 10px; border: 1px solid var(--border);">
                                     <span
                                         style="background: var(--accent); color: var(--primary); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem;">1</span>
-                                    <span style="color: var(--text); font-size: 0.9rem; font-weight: 500;">조끼 패널</span>
+                                    <span style="color: var(--text); font-size: 0.9rem; font-weight: 500;" data-i18n="weight.part1">조끼 패널</span>
                                 </div>
                                 <div
                                     style="display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem; background: rgba(201, 169, 110, 0.1); border-radius: 10px; border: 1px solid var(--border);">
                                     <span
                                         style="background: var(--accent); color: var(--primary); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem;">2</span>
-                                    <span style="color: var(--text); font-size: 0.9rem; font-weight: 500;">아기 포켓</span>
+                                    <span style="color: var(--text); font-size: 0.9rem; font-weight: 500;" data-i18n="weight.part2">아기 포켓</span>
                                 </div>
                                 <div
                                     style="display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem; background: rgba(201, 169, 110, 0.1); border-radius: 10px; border: 1px solid var(--border);">
                                     <span
                                         style="background: var(--accent); color: var(--primary); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem;">3</span>
-                                    <span style="color: var(--text); font-size: 0.9rem; font-weight: 500;">허리 벨트</span>
+                                    <span style="color: var(--text); font-size: 0.9rem; font-weight: 500;" data-i18n="weight.part3">허리 벨트</span>
                                 </div>
                             </div>
                         </div>
@@ -1246,10 +1294,10 @@
             <div class="fade-in" style="margin-bottom: 4rem;">
                 <div style="text-align: center; margin-bottom: 2.5rem;">
                     <span
-                        style="background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600;">핵심
+                        style="background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600;" data-i18n="features.badge">핵심
                         혁신</span>
                     <h3
-                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 1rem; color: var(--accent-light);">
+                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 1rem; color: var(--accent-light);" data-i18n="features.title">
                         베베스완 V5의 주요 특징</h3>
                 </div>
 
@@ -1261,13 +1309,13 @@
                         <div
                             style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem;">
                             💪</div>
-                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;">무게 분산을
+                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;" data-i18n="features.card1Title">무게 분산을
                             통한<br>혁신적인 편안함</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;" data-i18n="features.card1Desc">
                             기존의 일반적인 아기띠는 하중이 어깨와 허리 한 지점에 집중되어 장시간 착용 시 극심한 피로를 유발하는 단점이 있었습니다.
                         </p>
                         <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
-                            <p style="color: var(--text); font-size: 0.85rem; line-height: 1.6;">
+                            <p style="color: var(--text); font-size: 0.85rem; line-height: 1.6;" data-i18n="features.card1Detail">
                                 베베스완 V5는 독자적인 <strong style="color: var(--accent);">베스트(Vest) 타입 설계</strong>를 도입하여 아이의
                                 무게를 <strong style="color: var(--accent-light);">어깨, 등, 허리 전체</strong>로 넓고 이상적으로 분산시킵니다.
                             </p>
@@ -1281,9 +1329,9 @@
                         <div
                             style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem;">
                             ✨</div>
-                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;">혼자서도 가능한<br>놀라운
+                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;" data-i18n="features.card2Title">혼자서도 가능한<br>놀라운
                             간편함</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;" data-i18n="features.card2Desc">
                             착용 과정의 번거로움을 획기적으로 줄였습니다. 셔츠를 입듯 간편하게 착용할 수 있는 시스템을 갖추고 있습니다.
                         </p>
                         <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
@@ -1291,17 +1339,17 @@
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
                                     <span
                                         style="background: var(--accent); color: var(--primary); width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700;">1</span>
-                                    <span style="color: var(--text); font-size: 0.85rem;">조끼처럼 입기</span>
+                                    <span style="color: var(--text); font-size: 0.85rem;" data-i18n="features.step1">조끼처럼 입기</span>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
                                     <span
                                         style="background: var(--accent); color: var(--primary); width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700;">2</span>
-                                    <span style="color: var(--text); font-size: 0.85rem;">버클 채우기</span>
+                                    <span style="color: var(--text); font-size: 0.85rem;" data-i18n="features.step2">버클 채우기</span>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
                                     <span
                                         style="background: var(--accent); color: var(--primary); width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700;">3</span>
-                                    <span style="color: var(--text); font-size: 0.85rem;">아이 안아주기</span>
+                                    <span style="color: var(--text); font-size: 0.85rem;" data-i18n="features.step3">아이 안아주기</span>
                                 </div>
                             </div>
                         </div>
@@ -1314,13 +1362,13 @@
                         <div
                             style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem;">
                             💕</div>
-                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;">초밀착 설계와<br>완벽한
+                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;" data-i18n="features.card3Title">초밀착 설계와<br>완벽한
                             안전</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;" data-i18n="features.card3Desc">
                             아이와 부모 사이의 불필요한 공간을 없앤 '초밀착 설계'로 아이는 부모의 심장 소리를 들으며 안정감을 느낍니다.
                         </p>
                         <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
-                            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                            <div style="display: flex; flex-direction: column; gap: 0.4rem;" data-i18n="features.card3Detail">
                                 <span style="color: var(--text); font-size: 0.8rem;">✓ <strong
                                         style="color: var(--accent);">3중 잠금장치</strong> - 이중 안전</span>
                                 <span style="color: var(--text); font-size: 0.8rem;">✓ <strong
@@ -1336,13 +1384,13 @@
                 <div
                     style="margin-top: 3rem; text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(201, 169, 110, 0.1) 0%, rgba(201, 169, 110, 0.02) 100%); border-radius: 20px; border: 1px solid var(--border);">
                     <p
-                        style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--accent-light); line-height: 1.8; font-style: italic;">
+                        style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--accent-light); line-height: 1.8; font-style: italic;" data-i18n="features.conclusionQuote">
                         "베베스완 V5는 부모에게는 <strong style="color: var(--accent);">통증 없는 육아와 편의성</strong>을,<br>
                         아이에게는 <strong style="color: var(--accent);">안전하고 정서적인 안정감</strong>을 제공하며<br>
                         모두에게 완벽한 외출 환경을 약속합니다."
                     </p>
                     <div style="width: 60px; height: 2px; background: var(--accent); margin: 1.5rem auto;"></div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    <p style="color: var(--text-muted); font-size: 0.95rem;" data-i18n="features.conclusionText">
                         마치 부모의 따뜻한 품을 그대로 본뜬 <strong style="color: var(--text);">입는 형태의 포옹</strong>과 같아서,<br>
                         아이와 부모가 서로의 온기를 가장 편안한 방식으로 나눌 수 있게 해줍니다.
                     </p>
@@ -1357,22 +1405,22 @@
                     <div class="diagram-point">
                         <div class="point-icon">👆</div>
                         <div class="point-text">
-                            <h4>1차 하중 수용 - 어깨</h4>
-                            <p>어깨 스트랩이 1차 하중을 받아 안정적으로 지지합니다.</p>
+                            <h4 data-i18n="diagram.point1Title">1차 하중 수용 - 어깨</h4>
+                            <p data-i18n="diagram.point1Desc">어깨 스트랩이 1차 하중을 받아 안정적으로 지지합니다.</p>
                         </div>
                     </div>
                     <div class="diagram-point">
                         <div class="point-icon">📊</div>
                         <div class="point-text">
-                            <h4>하중 재분배 - 등</h4>
-                            <p>후면 패널이 하중을 척추 라인을 따라 등으로 광범위하게 재분배합니다.</p>
+                            <h4 data-i18n="diagram.point2Title">하중 재분배 - 등</h4>
+                            <p data-i18n="diagram.point2Desc">후면 패널이 하중을 척추 라인을 따라 등으로 광범위하게 재분배합니다.</p>
                         </div>
                     </div>
                     <div class="diagram-point">
                         <div class="point-icon">⚓</div>
                         <div class="point-text">
-                            <h4>무게 중심 안정화 - 허리</h4>
-                            <p>견고한 허리 벨트가 잔여 하중을 골반으로 전달하여 무게 중심을 낮춥니다.</p>
+                            <h4 data-i18n="diagram.point3Title">무게 중심 안정화 - 허리</h4>
+                            <p data-i18n="diagram.point3Desc">견고한 허리 벨트가 잔여 하중을 골반으로 전달하여 무게 중심을 낮춥니다.</p>
                         </div>
                     </div>
                 </div>
@@ -1381,18 +1429,18 @@
             <div class="benefits-grid fade-in">
                 <div class="benefit-card">
                     <div class="benefit-icon">💪</div>
-                    <h4>피로도 감소</h4>
-                    <p>동일한 시간 동안 사용하더라도 어깨와 허리에 느껴지는 피로감이 현저히 줄어듭니다.</p>
+                    <h4 data-i18n="benefits.fatigue">피로도 감소</h4>
+                    <p data-i18n="benefits.fatigueDesc">동일한 시간 동안 사용하더라도 어깨와 허리에 느껴지는 피로감이 현저히 줄어듭니다.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">🏃</div>
-                    <h4>장시간 쾌적한 사용</h4>
-                    <p>신체적 부담이 적어 아이와 함께하는 외출이나 여행 시에도 오랜 시간 편안함을 유지합니다.</p>
+                    <h4 data-i18n="benefits.longUse">장시간 쾌적한 사용</h4>
+                    <p data-i18n="benefits.longUseDesc">신체적 부담이 적어 아이와 함께하는 외출이나 여행 시에도 오랜 시간 편안함을 유지합니다.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">🦴</div>
-                    <h4>척추 및 골반 보호</h4>
-                    <p>무게를 몸 전체로 분산시켜 장기적으로 사용자의 척추와 골반 건강을 보호합니다.</p>
+                    <h4 data-i18n="benefits.spine">척추 및 골반 보호</h4>
+                    <p data-i18n="benefits.spineDesc">무게를 몸 전체로 분산시켜 장기적으로 사용자의 척추와 골반 건강을 보호합니다.</p>
                 </div>
             </div>
 
@@ -1400,24 +1448,24 @@
             <div class="pressure-test-section fade-in" style="margin-top: 5rem;">
                 <div style="text-align: center; margin-bottom: 2rem;">
                     <span
-                        style="background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600;">과학적
+                        style="background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600;" data-i18n="pressure.badge1">과학적
                         검증</span>
                     <span
-                        style="background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-left: 0.5rem;">공인인증</span>
+                        style="background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-left: 0.5rem;" data-i18n="pressure.badge2">공인인증</span>
                 </div>
                 <h3
-                    style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--accent-light);">
+                    style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--accent-light);" data-i18n="pressure.title">
                     압력 분산의 차이가<br>
                     <span style="color: var(--accent);">착용감의 차이</span>를 만듭니다
                 </h3>
-                <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;" data-i18n="pressure.subtitle">
                     공인인증기관의 정밀한 압력 시험을 통해 입증된 베베스완의 우수한 압력 분산 기술
                 </p>
 
                 <!-- 압력 시험 테이블 -->
                 <div
                     style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; overflow-x: auto;">
-                    <h4 style="text-align: center; font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text);">공인인증기관
+                    <h4 style="text-align: center; font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text);" data-i18n="pressure.tableTitle">공인인증기관
                         - 압력 시험 도면</h4>
 
                     <table
@@ -1425,23 +1473,23 @@
                         <thead>
                             <tr style="background: rgba(201, 169, 110, 0.2);">
                                 <th
-                                    style="padding: 15px 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); color: var(--accent-light);">
+                                    style="padding: 15px 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); color: var(--accent-light);" data-i18n="pressure.position">
                                     위치</th>
                                 <th
-                                    style="padding: 15px 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); color: var(--text-muted);">
+                                    style="padding: 15px 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); color: var(--text-muted);" data-i18n="pressure.hTypeNormal">
                                     H타입<br>(일반형)</th>
                                 <th
-                                    style="padding: 15px 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); color: var(--text-muted);">
+                                    style="padding: 15px 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); color: var(--text-muted);" data-i18n="pressure.hTypeHip">
                                     H타입<br>(힙시트형)</th>
                                 <th
-                                    style="padding: 15px 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary);">
+                                    style="padding: 15px 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border); background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary);" data-i18n="pressure.vestType">
                                     조끼형타입<br>(V5)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td
-                                    style="padding: 15px; text-align: center; font-weight: 600; background: rgba(201, 169, 110, 0.05); border: 1px solid var(--border); color: var(--accent-light);">
+                                    style="padding: 15px; text-align: center; font-weight: 600; background: rgba(201, 169, 110, 0.05); border: 1px solid var(--border); color: var(--accent-light);" data-i18n="pressure.back">
                                     후면</td>
                                 <td style="padding: 15px; text-align: center; border: 1px solid var(--border);">
                                     <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766975361868.png"
@@ -1462,7 +1510,7 @@
                             </tr>
                             <tr>
                                 <td
-                                    style="padding: 15px; text-align: center; font-weight: 600; background: rgba(201, 169, 110, 0.05); border: 1px solid var(--border); color: var(--accent-light);">
+                                    style="padding: 15px; text-align: center; font-weight: 600; background: rgba(201, 169, 110, 0.05); border: 1px solid var(--border); color: var(--accent-light);" data-i18n="pressure.front">
                                     정면</td>
                                 <td style="padding: 15px; text-align: center; border: 1px solid var(--border);">
                                     <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766975361866.png"
@@ -1483,16 +1531,16 @@
                             </tr>
                             <tr>
                                 <td
-                                    style="padding: 15px; text-align: center; font-weight: 600; background: rgba(201, 169, 110, 0.05); border: 1px solid var(--border); color: var(--accent-light);">
+                                    style="padding: 15px; text-align: center; font-weight: 600; background: rgba(201, 169, 110, 0.05); border: 1px solid var(--border); color: var(--accent-light);" data-i18n="pressure.conclusion">
                                     결론</td>
                                 <td
-                                    style="padding: 15px; text-align: center; border: 1px solid var(--border); color: #ef4444; font-weight: 600; font-size: 0.85rem;">
+                                    style="padding: 15px; text-align: center; border: 1px solid var(--border); color: #ef4444; font-weight: 600; font-size: 0.85rem;" data-i18n="pressure.shoulderHigh">
                                     어깨<br>부담 높음</td>
                                 <td
-                                    style="padding: 15px; text-align: center; border: 1px solid var(--border); color: #ef4444; font-weight: 600; font-size: 0.85rem;">
+                                    style="padding: 15px; text-align: center; border: 1px solid var(--border); color: #ef4444; font-weight: 600; font-size: 0.85rem;" data-i18n="pressure.waistHigh">
                                     허리, 골반<br>부담 높음</td>
                                 <td
-                                    style="padding: 15px; text-align: center; border: 1px solid var(--border); background: rgba(201, 169, 110, 0.1); color: #22c55e; font-weight: 700; font-size: 0.85rem;">
+                                    style="padding: 15px; text-align: center; border: 1px solid var(--border); background: rgba(201, 169, 110, 0.1); color: #22c55e; font-weight: 700; font-size: 0.85rem;" data-i18n="pressure.overall">
                                     전반적으로<br>양호</td>
                             </tr>
                         </tbody>
@@ -1500,54 +1548,54 @@
 
                     <div
                         style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-top: 1.5rem; padding: 1rem; background: rgba(201, 169, 110, 0.05); border-radius: 10px;">
-                        <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">부담강도 :</span>
+                        <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);" data-i18n="pressure.intensity">부담강도 :</span>
                         <span
                             style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-muted);"><span
                                 style="width: 12px; height: 12px; background: #84cc16; border-radius: 50%;"></span>
-                            약</span>
+                            <span data-i18n="pressure.low">약</span></span>
                         <span
                             style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-muted);"><span
                                 style="width: 12px; height: 12px; background: #eab308; border-radius: 50%;"></span>
-                            중</span>
+                            <span data-i18n="pressure.medium">중</span></span>
                         <span
                             style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-muted);"><span
                                 style="width: 12px; height: 12px; background: #ef4444; border-radius: 50%;"></span>
-                            강</span>
+                            <span data-i18n="pressure.high">강</span></span>
                         <span
                             style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-muted);"><span
                                 style="width: 12px; height: 12px; background: #111; border-radius: 50%;"></span>
-                            최강</span>
+                            <span data-i18n="pressure.highest">최강</span></span>
                     </div>
                 </div>
 
                 <!-- 왜 압력 분산이 중요할까요? -->
                 <h4
-                    style="margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.3rem; color: var(--accent-light); text-align: center;">
+                    style="margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.3rem; color: var(--accent-light); text-align: center;" data-i18n="pressure.whyImportant">
                     왜 압력 분산이 중요할까요?</h4>
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
                     <div
                         style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 15px; padding: 1.5rem; text-align: center; transition: all 0.3s ease;">
                         <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">👶</div>
-                        <h5 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text);">아기의 편안함</h5>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">낮은 압력은 아기 신체에 부담을 주지 않습니다.</p>
+                        <h5 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text);" data-i18n="pressure.babyComfort">아기의 편안함</h5>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="pressure.babyComfortDesc">낮은 압력은 아기 신체에 부담을 주지 않습니다.</p>
                     </div>
                     <div
                         style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 15px; padding: 1.5rem; text-align: center; transition: all 0.3s ease;">
                         <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">👨‍👩‍👧</div>
-                        <h5 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text);">부모 어깨 부담 감소</h5>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">균등한 압력 분산으로 부담을 최소화합니다.</p>
+                        <h5 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text);" data-i18n="pressure.parentShoulder">부모 어깨 부담 감소</h5>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="pressure.parentShoulderDesc">균등한 압력 분산으로 부담을 최소화합니다.</p>
                     </div>
                     <div
                         style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 15px; padding: 1.5rem; text-align: center; transition: all 0.3s ease;">
                         <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">⏱️</div>
-                        <h5 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text);">장시간 사용 가능</h5>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">압력이 낮을수록 피로감이 적습니다.</p>
+                        <h5 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text);" data-i18n="pressure.longUse">장시간 사용 가능</h5>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="pressure.longUseDesc">압력이 낮을수록 피로감이 적습니다.</p>
                     </div>
                     <div
                         style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 15px; padding: 1.5rem; text-align: center; transition: all 0.3s ease;">
                         <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">🔬</div>
-                        <h5 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text);">과학적 검증</h5>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">공인인증기관의 정밀 측정으로 입증되었습니다.</p>
+                        <h5 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text);" data-i18n="pressure.scientific">과학적 검증</h5>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="pressure.scientificDesc">공인인증기관의 정밀 측정으로 입증되었습니다.</p>
                     </div>
                 </div>
             </div>
@@ -1559,8 +1607,8 @@
         <div class="container">
             <div class="section-header fade-in">
                 <div class="section-number">03</div>
-                <h2 class="section-title">최적의 통기성을 위한 소재 공학</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-i18n="section03.title">최적의 통기성을 위한 소재 공학</h2>
+                <p class="section-subtitle" data-i18n="section03.subtitle">
                     성인보다 체온 조절 능력이 민감한 영유아에게 통기성은 매우 중요한 요소입니다.
                 </p>
             </div>
@@ -1573,29 +1621,29 @@
                     <div class="material-feature">
                         <div class="material-icon">🌬️</div>
                         <div class="material-text">
-                            <h4>공기 순환 극대화</h4>
-                            <p>수많은 미세한 공기구멍으로 이루어진 구조는 공기의 흐름을 원활하게 하여 아기띠 내부에 열이 갇히는 것을 방지합니다.</p>
+                            <h4 data-i18n="material.airCirculation">공기 순환 극대화</h4>
+                            <p data-i18n="material.airCirculationDesc">수많은 미세한 공기구멍으로 이루어진 구조는 공기의 흐름을 원활하게 하여 아기띠 내부에 열이 갇히는 것을 방지합니다.</p>
                         </div>
                     </div>
                     <div class="material-feature">
                         <div class="material-icon">💧</div>
                         <div class="material-text">
-                            <h4>우수한 열과 습기 배출</h4>
-                            <p>활동 중에 발생하는 땀과 열을 빠르게 외부로 배출시켜 사용자와 아이 모두의 피부를 보송보송하게 유지합니다.</p>
+                            <h4 data-i18n="material.moisture">우수한 열과 습기 배출</h4>
+                            <p data-i18n="material.moistureDesc">활동 중에 발생하는 땀과 열을 빠르게 외부로 배출시켜 사용자와 아이 모두의 피부를 보송보송하게 유지합니다.</p>
                         </div>
                     </div>
                     <div class="material-feature">
                         <div class="material-icon">👶</div>
                         <div class="material-text">
-                            <h4>땀띠 및 피부 트러블 예방</h4>
-                            <p>연약한 아이 피부에 땀이 차서 발생하는 땀띠나 각종 피부 트러블의 발생 가능성을 크게 낮춥니다.</p>
+                            <h4 data-i18n="material.skinTrouble">땀띠 및 피부 트러블 예방</h4>
+                            <p data-i18n="material.skinTroubleDesc">연약한 아이 피부에 땀이 차서 발생하는 땀띠나 각종 피부 트러블의 발생 가능성을 크게 낮춥니다.</p>
                         </div>
                     </div>
                     <div class="material-feature">
                         <div class="material-icon">🌡️</div>
                         <div class="material-text">
-                            <h4>사계절 쾌적한 착용감</h4>
-                            <p>계절에 구애받지 않고 언제나 상쾌한 상태로 아이를 안을 수 있습니다.</p>
+                            <h4 data-i18n="material.allSeason">사계절 쾌적한 착용감</h4>
+                            <p data-i18n="material.allSeasonDesc">계절에 구애받지 않고 언제나 상쾌한 상태로 아이를 안을 수 있습니다.</p>
                         </div>
                     </div>
                 </div>
@@ -1605,13 +1653,13 @@
             <div class="fade-in" style="margin-top: 5rem;">
                 <div style="text-align: center; margin-bottom: 2.5rem;">
                     <span
-                        style="background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600;">프리미엄
+                        style="background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600;" data-i18n="material.premiumBadge">프리미엄
                         소재</span>
                     <h3
-                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 1rem; color: var(--accent-light);">
+                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 1rem; color: var(--accent-light);" data-i18n="material.premiumTitle">
                         타협 없는 안전의 기초, '프리미엄 안전 소재'</h3>
                     <p
-                        style="color: var(--text-muted); margin-top: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                        style="color: var(--text-muted); margin-top: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;" data-i18n="material.premiumSubtitle">
                         베베스완은 "편안함의 기본은 완벽한 안전"이라는 철학 아래,<br>
                         아이의 피부에 직접 닿는 소재에 대해서는 <strong style="color: var(--accent);">절대 타협하지 않습니다.</strong>
                     </p>
@@ -1626,14 +1674,14 @@
                         <div
                             style="width: 70px; height: 70px; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem;">
                             ✓</div>
-                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;">검증된 안전성</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;" data-i18n="material.verifiedSafety">검증된 안전성</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;" data-i18n="material.verifiedSafetyDesc">
                             단순한 고급 소재를 넘어, <strong style="color: var(--text);">공인 기관의 피부 자극 테스트</strong>를 완료하여 소재의 안전성을
                             객관적으로 증명했습니다.
                         </p>
                         <div
                             style="margin-top: 1rem; padding: 0.8rem; background: rgba(34, 197, 94, 0.1); border-radius: 10px; border-left: 3px solid #22c55e;">
-                            <span style="color: #22c55e; font-size: 0.85rem; font-weight: 600;">피부 자극 테스트 완료</span>
+                            <span style="color: #22c55e; font-size: 0.85rem; font-weight: 600;" data-i18n="material.skinTestComplete">피부 자극 테스트 완료</span>
                         </div>
                     </div>
 
@@ -1644,14 +1692,14 @@
                         <div
                             style="width: 70px; height: 70px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem;">
                             🌬️</div>
-                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;">쾌적한 통기성</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;" data-i18n="material.breathability">쾌적한 통기성</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;" data-i18n="material.breathabilityDesc">
                             뛰어난 통기성을 갖추어 장시간 착용 시 발생하는 <strong style="color: var(--text);">열기와 습기를 효과적으로 조절</strong>하며
                             쾌적한 환경을 제공합니다.
                         </p>
                         <div
                             style="margin-top: 1rem; padding: 0.8rem; background: rgba(59, 130, 246, 0.1); border-radius: 10px; border-left: 3px solid #3b82f6;">
-                            <span style="color: #3b82f6; font-size: 0.85rem; font-weight: 600;">공기 순환 극대화</span>
+                            <span style="color: #3b82f6; font-size: 0.85rem; font-weight: 600;" data-i18n="material.airCirculationMax">공기 순환 극대화</span>
                         </div>
                     </div>
 
@@ -1662,14 +1710,14 @@
                         <div
                             style="width: 70px; height: 70px; background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem;">
                             💕</div>
-                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;">부드러운 감촉</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
+                        <h4 style="color: var(--accent-light); font-size: 1.1rem; margin-bottom: 1rem;" data-i18n="material.softTouch">부드러운 감촉</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;" data-i18n="material.softTouchDesc">
                             프리미엄 소재 특유의 부드러운 감촉은 아이에게는 <strong style="color: var(--text);">정서적 안정감</strong>을, 부모에게는 기분
                             좋은 착용감을 선사합니다.
                         </p>
                         <div
                             style="margin-top: 1rem; padding: 0.8rem; background: rgba(236, 72, 153, 0.1); border-radius: 10px; border-left: 3px solid #ec4899;">
-                            <span style="color: #ec4899; font-size: 0.85rem; font-weight: 600;">정서적 안정감 제공</span>
+                            <span style="color: #ec4899; font-size: 0.85rem; font-weight: 600;" data-i18n="material.emotionalStability">정서적 안정감 제공</span>
                         </div>
                     </div>
                 </div>
@@ -1677,16 +1725,16 @@
                 <!-- 왜 프리미엄 소재인가? -->
                 <div
                     style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem; margin-bottom: 3rem;">
-                    <h4 style="text-align: center; font-size: 1.3rem; color: var(--accent-light); margin-bottom: 2rem;">
+                    <h4 style="text-align: center; font-size: 1.3rem; color: var(--accent-light); margin-bottom: 2rem;" data-i18n="material.whyPremium">
                         왜 프리미엄 소재여야 하는가?</h4>
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
                         <div
                             style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px; border-left: 3px solid var(--accent);">
                             <div style="font-size: 2rem;">👶</div>
                             <div>
-                                <h5 style="color: var(--text); font-size: 1rem; margin-bottom: 0.5rem;">연약한 아기 피부 보호
+                                <h5 style="color: var(--text); font-size: 1rem; margin-bottom: 0.5rem;" data-i18n="material.babySkinProtect">연약한 아기 피부 보호
                                 </h5>
-                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;">성인보다 훨씬 민감하고
+                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;" data-i18n="material.babySkinProtectDesc">성인보다 훨씬 민감하고
                                     연약한 아기 피부를 고려하여, 자극을 최소화할 수 있는 최고급 기능성 소재만을 엄선하여 사용합니다.</p>
                             </div>
                         </div>
@@ -1694,9 +1742,9 @@
                             style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px; border-left: 3px solid var(--accent);">
                             <div style="font-size: 2rem;">⏱️</div>
                             <div>
-                                <h5 style="color: var(--text); font-size: 1rem; margin-bottom: 0.5rem;">광범위하고 장시간의 접촉
+                                <h5 style="color: var(--text); font-size: 1rem; margin-bottom: 0.5rem;" data-i18n="material.longContact">광범위하고 장시간의 접촉
                                 </h5>
-                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;">아기띠는 아이의 몸을
+                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;" data-i18n="material.longContactDesc">아기띠는 아이의 몸을
                                     가장 넓게, 그리고 가장 오랜 시간 감싸는 제품이기 때문에 소재의 품질이 곧 아이의 안전과 직결됩니다.</p>
                             </div>
                         </div>
@@ -1704,8 +1752,8 @@
                             style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px; border-left: 3px solid var(--accent);">
                             <div style="font-size: 2rem;">🔬</div>
                             <div>
-                                <h5 style="color: var(--text); font-size: 1rem; margin-bottom: 0.5rem;">객관적인 신뢰성</h5>
-                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;">단순한 제조사의 주장이
+                                <h5 style="color: var(--text); font-size: 1rem; margin-bottom: 0.5rem;" data-i18n="material.objectiveTrust">객관적인 신뢰성</h5>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;" data-i18n="material.objectiveTrustDesc">단순한 제조사의 주장이
                                     아닌, 공인된 기관의 엄격한 테스트를 거침으로써 부모가 안심하고 아이를 맡길 수 있는 환경을 제공합니다.</p>
                             </div>
                         </div>
@@ -1713,9 +1761,9 @@
                             style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px; border-left: 3px solid var(--accent);">
                             <div style="font-size: 2rem;">💫</div>
                             <div>
-                                <h5 style="color: var(--text); font-size: 1rem; margin-bottom: 0.5rem;">완벽한 육아 환경의 기반
+                                <h5 style="color: var(--text); font-size: 1rem; margin-bottom: 0.5rem;" data-i18n="material.perfectEnv">완벽한 육아 환경의 기반
                                 </h5>
-                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;">부모와 아이가 불편함
+                                <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;" data-i18n="material.perfectEnvDesc">부모와 아이가 불편함
                                     없이 완벽한 교감을 나눌 수 있는 쾌적하고 안전한 환경을 조성하는 기반이 됩니다.</p>
                             </div>
                         </div>
@@ -1726,7 +1774,7 @@
                 <div
                     style="text-align: center; padding: 2.5rem; background: linear-gradient(135deg, rgba(201, 169, 110, 0.1) 0%, rgba(201, 169, 110, 0.02) 100%); border-radius: 20px; border: 1px solid var(--border);">
                     <p
-                        style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--accent-light); line-height: 1.8; font-style: italic; margin-bottom: 1.5rem;">
+                        style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--accent-light); line-height: 1.8; font-style: italic; margin-bottom: 1.5rem;" data-i18n="material.conclusionQuote">
                         "베베스완의 프리미엄 소재는<br>
                         <strong style="color: var(--accent);">안전(테스트 완료)</strong>, <strong
                             style="color: var(--accent);">기능(통기성)</strong>, <strong
@@ -1734,7 +1782,7 @@
                         세 가지 측면을 모두 만족시키는 핵심 요소입니다."
                     </p>
                     <div style="width: 60px; height: 2px; background: var(--accent); margin: 0 auto 1.5rem;"></div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    <p style="color: var(--text-muted); font-size: 0.95rem;" data-i18n="material.conclusionText">
                         이 최고급 기능성 소재는 마치 <strong style="color: var(--text);">'아이를 포근하게 감싸는 숨 쉬는 요람'</strong>과 같아서,<br>
                         민감한 아기 피부를 지켜줌과 동시에 부모와 아이가 서로의 온기를 가장 쾌적하게 느낄 수 있도록 돕습니다.
                     </p>
@@ -1748,8 +1796,8 @@
         <div class="container">
             <div class="section-header fade-in">
                 <div class="section-number">04</div>
-                <h2 class="section-title">왜? 꼭! 조끼 아기띠여야만 하는지 함께 볼까요?</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-i18n="section04.title">왜? 꼭! 조끼 아기띠여야만 하는지 함께 볼까요?</h2>
+                <p class="section-subtitle" data-i18n="section04.subtitle">
                     일반 아기띠와 V5 조끼형 아기띠의 차이를 직접 비교해보세요
                 </p>
             </div>
@@ -1761,7 +1809,7 @@
                         style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;">
                         1</div>
                     <h3
-                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;">
+                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;" data-i18n="compare1.title">
                         어깨와 허리도 편한데 허리라인까지 예쁘게 잡아주는 아기띠 어떠세요
                     </h3>
                 </div>
@@ -1774,7 +1822,7 @@
                             <div
                                 style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 20px; padding: 2rem;">
                                 <h4
-                                    style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                                    style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;" data-i18n="compare.normalCarrier">
                                     일반 아기띠</h4>
                                 <!-- 이미지 영역 -->
                                 <div
@@ -1788,9 +1836,9 @@
                                 </div>
                                 <ul
                                     style="list-style: none; text-align: left; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
-                                    <li style="margin-bottom: 0.8rem;">• 어깨와 허리에만 집중</li>
-                                    <li style="margin-bottom: 0.8rem;">• 통증 유발</li>
-                                    <li style="margin-bottom: 0.8rem;">• 울퉁불퉁 매끄럽지 못한 뒤태</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare1.normal1">• 어깨와 허리에만 집중</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare1.normal2">• 통증 유발</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare1.normal3">• 울퉁불퉁 매끄럽지 못한 뒤태</li>
                                 </ul>
                             </div>
                         </div>
@@ -1808,7 +1856,7 @@
                             <div
                                 style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
                                 <h4
-                                    style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                                    style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;" data-i18n="compare.v5Carrier">
                                     V5 아기띠</h4>
                                 <!-- 이미지 영역 -->
                                 <div
@@ -1819,9 +1867,9 @@
                                 </div>
                                 <ul
                                     style="list-style: none; text-align: left; color: var(--text); font-size: 0.95rem; line-height: 2;">
-                                    <li style="margin-bottom: 0.8rem;">• 어깨+등+허리에 넓게 분산</li>
-                                    <li style="margin-bottom: 0.8rem;">• 장시간 사용에도 편안함</li>
-                                    <li style="margin-bottom: 0.8rem;">• 매끄러운 허리라인</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare1.v51">• 어깨+등+허리에 넓게 분산</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare1.v52">• 장시간 사용에도 편안함</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare1.v53">• 매끄러운 허리라인</li>
                                 </ul>
                             </div>
                         </div>
@@ -1836,11 +1884,11 @@
                         style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;">
                         2</div>
                     <h3
-                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;">
+                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;" data-i18n="compare2.title">
                         혼자서도 아이를 업을수만 있다면..
                     </h3>
                     <p
-                        style="color: var(--text-muted); font-size: 1rem; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                        style="color: var(--text-muted); font-size: 1rem; line-height: 1.8; max-width: 700px; margin: 0 auto;" data-i18n="compare2.subtitle">
                         청소와 설거지 바로바로 할 수 있었을 텐데..<br>
                         남편이 출근하면 낮에는 혼자 육아하시는 어머님들이 대부분이실꺼에요.<br>
                         아이가 자는 틈을 타 청소라도 하려고 하면 깨는 우리 아이.
@@ -1855,7 +1903,7 @@
                             <div
                                 style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 20px; padding: 2rem;">
                                 <h4
-                                    style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                                    style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;" data-i18n="compare.normalCarrier">
                                     일반 아기띠</h4>
                                 <!-- 이미지 영역 -->
                                 <div
@@ -1869,9 +1917,9 @@
                                 </div>
                                 <ul
                                     style="list-style: none; text-align: left; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
-                                    <li style="margin-bottom: 0.8rem;">• 혼자 업지 못함</li>
-                                    <li style="margin-bottom: 0.8rem;">• 아이의 무게가 앞으로 쏠림</li>
-                                    <li style="margin-bottom: 0.8rem;">• 허리와 어깨에 부담 증가!</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare2.normal1">• 혼자 업지 못함</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare2.normal2">• 아이의 무게가 앞으로 쏠림</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare2.normal3">• 허리와 어깨에 부담 증가!</li>
                                 </ul>
                             </div>
                         </div>
@@ -1889,7 +1937,7 @@
                             <div
                                 style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
                                 <h4
-                                    style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                                    style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;" data-i18n="compare.v5Carrier">
                                     V5 아기띠</h4>
                                 <!-- 이미지 영역 -->
                                 <div
@@ -1903,9 +1951,9 @@
                                 </div>
                                 <ul
                                     style="list-style: none; text-align: left; color: var(--text); font-size: 0.95rem; line-height: 2;">
-                                    <li style="margin-bottom: 0.8rem;">• 혼자 쉽게 업을 수 있음</li>
-                                    <li style="margin-bottom: 0.8rem;">• 허리와 어깨 부담 ZERO!</li>
-                                    <li style="margin-bottom: 0.8rem;">• 육아, 가사 동시 OK</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare2.v51">• 혼자 쉽게 업을 수 있음</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare2.v52">• 허리와 어깨 부담 ZERO!</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare2.v53">• 육아, 가사 동시 OK</li>
                                 </ul>
                             </div>
                         </div>
@@ -1920,11 +1968,11 @@
                         style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;">
                         3</div>
                     <h3
-                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;">
+                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;" data-i18n="compare3.title">
                         오늘도 아이를 안고 식사하셨나요?
                     </h3>
                     <p
-                        style="color: var(--text-muted); font-size: 1rem; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                        style="color: var(--text-muted); font-size: 1rem; line-height: 1.8; max-width: 700px; margin: 0 auto;" data-i18n="compare3.subtitle">
                         외출할 때마다 부스터 챙길까 말까 고민 많으셨죠
                     </p>
                 </div>
@@ -1933,10 +1981,10 @@
                     style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; margin-bottom: 2rem;">
                     <div style="text-align: center; margin-bottom: 2rem;">
                         <div
-                            style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.8rem 2rem; border-radius: 30px; font-size: 1rem; font-weight: 600; margin-bottom: 1.5rem;">
+                            style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.8rem 2rem; border-radius: 30px; font-size: 1rem; font-weight: 600; margin-bottom: 1.5rem;" data-i18n="compare3.badge">
                             조끼 아기띠의 변신! 식사시 부스터로 활용!
                         </div>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">짐도 줄여주고 위생적으로 안심!</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;" data-i18n="compare3.badgeDesc">짐도 줄여주고 위생적으로 안심!</p>
                     </div>
 
                     <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 3rem; align-items: start;">
@@ -1945,7 +1993,7 @@
                             <div
                                 style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 20px; padding: 2rem;">
                                 <h4
-                                    style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                                    style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;" data-i18n="compare.normalCarrier">
                                     일반 아기띠</h4>
                                 <!-- 이미지 영역 -->
                                 <div
@@ -1956,9 +2004,9 @@
                                 </div>
                                 <ul
                                     style="list-style: none; text-align: left; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
-                                    <li style="margin-bottom: 0.8rem;">• 부스터 필요</li>
-                                    <li style="margin-bottom: 0.8rem;">• 맛집 제한</li>
-                                    <li style="margin-bottom: 0.8rem;">• 불편한 식사 시간</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare3.normal1">• 부스터 필요</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare3.normal2">• 맛집 제한</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare3.normal3">• 불편한 식사 시간</li>
                                 </ul>
                             </div>
                         </div>
@@ -1976,7 +2024,7 @@
                             <div
                                 style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
                                 <h4
-                                    style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                                    style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;" data-i18n="compare.v5Carrier">
                                     V5 아기띠</h4>
                                 <!-- 이미지 영역 -->
                                 <div
@@ -1987,9 +2035,9 @@
                                 </div>
                                 <ul
                                     style="list-style: none; text-align: left; color: var(--text); font-size: 0.95rem; line-height: 2;">
-                                    <li style="margin-bottom: 0.8rem;">• 부스터로 변신</li>
-                                    <li style="margin-bottom: 0.8rem;">• 맛집 제한 없음</li>
-                                    <li style="margin-bottom: 0.8rem;">• 편하고 즐거운 식사 시간</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare3.v51">• 부스터로 변신</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare3.v52">• 맛집 제한 없음</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare3.v53">• 편하고 즐거운 식사 시간</li>
                                 </ul>
                             </div>
                         </div>
@@ -2004,8 +2052,8 @@
                         style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;">
                         4</div>
                     <h3
-                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;">
-                        아이를 안고, 내릴 때마다 아기미를 입고 벗고.. 너무 번거로우셨죠?
+                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;" data-i18n="compare4.title">
+                        아이를 안고, 내릴 때마다 아기띠를 입고 벗고.. 너무 번거로우셨죠?
                     </h3>
                 </div>
 
@@ -2013,7 +2061,7 @@
                     style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; margin-bottom: 2rem;">
                     <div
                         style="text-align: center; margin-bottom: 2rem; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px;">
-                        <p style="color: var(--text); font-size: 1rem; line-height: 1.8;">
+                        <p style="color: var(--text); font-size: 1rem; line-height: 1.8;" data-i18n="compare4.desc">
                             조끼아기띠는<br>
                             <strong style="color: var(--accent);">겉 옷을 벗지 않아도, 아기띠를 벗지 않아도</strong><br>
                             지퍼만 스--윽 내리면 바로 안고, 바로 내릴 수 있어요!
@@ -2026,7 +2074,7 @@
                             <div
                                 style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 20px; padding: 2rem;">
                                 <h4
-                                    style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                                    style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;" data-i18n="compare.normalCarrier">
                                     일반 아기띠</h4>
                                 <!-- 이미지 영역 -->
                                 <div
@@ -2037,10 +2085,10 @@
                                 </div>
                                 <ul
                                     style="list-style: none; text-align: left; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
-                                    <li style="margin-bottom: 0.8rem;">• 겉옷 벗고</li>
-                                    <li style="margin-bottom: 0.8rem;">• 아기띠 풀고</li>
-                                    <li style="margin-bottom: 0.8rem;">• 아기 내리고..</li>
-                                    <li style="margin-bottom: 0.8rem;">• 다시! 메고, 안고, 입고..</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare4.normal1">• 겉옷 벗고</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare4.normal2">• 아기띠 풀고</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare4.normal3">• 아기 내리고..</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare4.normal4">• 다시! 메고, 안고, 입고..</li>
                                 </ul>
                             </div>
                         </div>
@@ -2058,7 +2106,7 @@
                             <div
                                 style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
                                 <h4
-                                    style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                                    style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;" data-i18n="compare.v5Carrier">
                                     V5 아기띠</h4>
                                 <!-- 이미지 영역 -->
                                 <div
@@ -2069,8 +2117,8 @@
                                 </div>
                                 <ul
                                     style="list-style: none; text-align: left; color: var(--text); font-size: 0.95rem; line-height: 2;">
-                                    <li style="margin-bottom: 0.8rem;">• 지퍼만 스-윽! 내리고</li>
-                                    <li style="margin-bottom: 0.8rem;">• 아기 내리면 끝!</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare4.v51">• 지퍼만 스-윽! 내리고</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare4.v52">• 아기 내리면 끝!</li>
                                 </ul>
                             </div>
                         </div>
@@ -2085,7 +2133,7 @@
                         style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;">
                         5</div>
                     <h3
-                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;">
+                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;" data-i18n="compare5.title">
                         아기띠로 아이를 겨우 재웠는데 갑자기 화장실이 급하면 참 난감하시죠?
                     </h3>
                 </div>
@@ -2094,7 +2142,7 @@
                     style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; margin-bottom: 2rem;">
                     <div
                         style="text-align: center; margin-bottom: 2rem; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px;">
-                        <p style="color: var(--text); font-size: 1rem; line-height: 1.8;">
+                        <p style="color: var(--text); font-size: 1rem; line-height: 1.8;" data-i18n="compare5.desc">
                             내려놓자니 깰것 같고, 안고 가자니 바지를 입고 벗기에 너무 힘들고<br>
                             허리벨트를 해제하자니 아이가 추락할 것 같고<br>
                             <strong style="color: var(--accent);">조끼아기띠는 허리벨트를 해제해도 아이가 그대로 안겨있어</strong><br>
@@ -2108,7 +2156,7 @@
                             <div
                                 style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 20px; padding: 2rem;">
                                 <h4
-                                    style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                                    style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;" data-i18n="compare.normalCarrier">
                                     일반 아기띠</h4>
                                 <!-- 이미지 영역 -->
                                 <div
@@ -2119,9 +2167,9 @@
                                 </div>
                                 <ul
                                     style="list-style: none; text-align: left; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
-                                    <li style="margin-bottom: 0.8rem;">• 허리벨트를 해제하면 추락</li>
-                                    <li style="margin-bottom: 0.8rem;">• 바지 벗고, 입기 불편함</li>
-                                    <li style="margin-bottom: 0.8rem;">• 화장실 이용 시 스트레스</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare5.normal1">• 허리벨트를 해제하면 추락</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare5.normal2">• 바지 벗고, 입기 불편함</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare5.normal3">• 화장실 이용 시 스트레스</li>
                                 </ul>
                             </div>
                         </div>
@@ -2139,7 +2187,7 @@
                             <div
                                 style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
                                 <h4
-                                    style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                                    style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;" data-i18n="compare.v5Carrier">
                                     V5 아기띠</h4>
                                 <!-- 이미지 영역 -->
                                 <div
@@ -2150,9 +2198,9 @@
                                 </div>
                                 <ul
                                     style="list-style: none; text-align: left; color: var(--text); font-size: 0.95rem; line-height: 2;">
-                                    <li style="margin-bottom: 0.8rem;">• 허리벨트를 해제해도 OK!</li>
-                                    <li style="margin-bottom: 0.8rem;">• 바지 벗고, 입기 편리함</li>
-                                    <li style="margin-bottom: 0.8rem;">• 화장실 이용 시 GOOD</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare5.v51">• 허리벨트를 해제해도 OK!</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare5.v52">• 바지 벗고, 입기 편리함</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare5.v53">• 화장실 이용 시 GOOD</li>
                                 </ul>
                             </div>
                         </div>
@@ -2167,7 +2215,7 @@
                         style="display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #d4b896 100%); color: var(--primary); padding: 0.5rem 1.5rem; border-radius: 30px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem;">
                         6</div>
                     <h3
-                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;">
+                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-light); margin-bottom: 1rem;" data-i18n="compare6.title">
                         차에 태울때면, 거쳐야 하는 과정이 너무 많아 외출이 두려웠었나요?
                     </h3>
                 </div>
@@ -2176,17 +2224,17 @@
                     style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; margin-bottom: 2rem;">
                     <div
                         style="text-align: center; margin-bottom: 2rem; padding: 1.5rem; background: rgba(201, 169, 110, 0.05); border-radius: 15px;">
-                        <p style="color: var(--text); font-size: 1rem; line-height: 1.8; margin-bottom: 1rem;">
+                        <p style="color: var(--text); font-size: 1rem; line-height: 1.8; margin-bottom: 1rem;" data-i18n="compare6.desc">
                             <strong style="color: var(--accent);">지퍼만 내려 차에 쏘-옥! 태우고</strong>
                         </p>
                         <div
                             style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 600px; margin: 0 auto;">
                             <div style="background: rgba(201, 169, 110, 0.1); border-radius: 10px; padding: 1rem;">
-                                <p style="color: var(--accent); font-weight: 600; font-size: 0.9rem;">착용한 상태에서 바로 운전 가능!
+                                <p style="color: var(--accent); font-weight: 600; font-size: 0.9rem;" data-i18n="compare6.feature1">착용한 상태에서 바로 운전 가능!
                                 </p>
                             </div>
                             <div style="background: rgba(201, 169, 110, 0.1); border-radius: 10px; padding: 1rem;">
-                                <p style="color: var(--accent); font-weight: 600; font-size: 0.9rem;">유모차에도 바로 착!</p>
+                                <p style="color: var(--accent); font-weight: 600; font-size: 0.9rem;" data-i18n="compare6.feature2">유모차에도 바로 착!</p>
                             </div>
                         </div>
                     </div>
@@ -2197,7 +2245,7 @@
                             <div
                                 style="background: rgba(160, 160, 160, 0.1); border: 1px solid rgba(160, 160, 160, 0.3); border-radius: 20px; padding: 2rem;">
                                 <h4
-                                    style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                                    style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;" data-i18n="compare.normalCarrier">
                                     일반 아기띠</h4>
                                 <!-- 이미지 영역 -->
                                 <div
@@ -2208,9 +2256,9 @@
                                 </div>
                                 <ul
                                     style="list-style: none; text-align: left; color: var(--text-muted); font-size: 0.95rem; line-height: 2;">
-                                    <li style="margin-bottom: 0.8rem;">• 아기띠 벗기고</li>
-                                    <li style="margin-bottom: 0.8rem;">• 카시트에 태우고</li>
-                                    <li style="margin-bottom: 0.8rem;">• 다시 메는 과정 번거로움</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare6.normal1">• 아기띠 벗기고</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare6.normal2">• 카시트에 태우고</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare6.normal3">• 다시 메는 과정 번거로움</li>
                                 </ul>
                             </div>
                         </div>
@@ -2228,7 +2276,7 @@
                             <div
                                 style="background: rgba(201, 169, 110, 0.1); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
                                 <h4
-                                    style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                                    style="color: var(--accent); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;" data-i18n="compare.v5Carrier">
                                     V5 아기띠</h4>
                                 <!-- 이미지 영역 -->
                                 <div
@@ -2239,9 +2287,9 @@
                                 </div>
                                 <ul
                                     style="list-style: none; text-align: left; color: var(--text); font-size: 0.95rem; line-height: 2;">
-                                    <li style="margin-bottom: 0.8rem;">• 지퍼만 내려 바로 태우기</li>
-                                    <li style="margin-bottom: 0.8rem;">• 착용한 채로 운전 가능</li>
-                                    <li style="margin-bottom: 0.8rem;">• 유모차에도 바로 착!</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare6.v51">• 지퍼만 내려 바로 태우기</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare6.v52">• 착용한 채로 운전 가능</li>
+                                    <li style="margin-bottom: 0.8rem;" data-i18n="compare6.v53">• 유모차에도 바로 착!</li>
                                 </ul>
                             </div>
                         </div>
@@ -2256,15 +2304,15 @@
         <div class="container">
             <div class="section-header fade-in">
                 <div class="section-number">05</div>
-                <h2 class="section-title">특허 및 인증</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-i18n="section05.title">특허 및 인증</h2>
+                <p class="section-subtitle" data-i18n="section05.subtitle">
                     세계가 인정한 베베스완의 기술력과 안전성
                 </p>
             </div>
 
             <!-- 수상 내역 -->
             <div class="fade-in" style="margin-bottom: 4rem;">
-                <h3 style="text-align: center; font-size: 1.5rem; color: var(--accent-light); margin-bottom: 2rem;">🏆
+                <h3 style="text-align: center; font-size: 1.5rem; color: var(--accent-light); margin-bottom: 2rem;" data-i18n="cert.awards">🏆
                     수상 내역</h3>
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
                     <a href="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766551915672.jpg"
@@ -2277,12 +2325,12 @@
                             <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766551915672.jpg"
                                 alt="여성발명상" style="width: 100%; height: 100%; object-fit: contain;">
                         </div>
-                        <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 0.5rem;">여성발명품박람회 금상</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Won the Gold Prize at the Women
+                        <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 0.5rem;" data-i18n="cert.womenGold">여성발명품박람회 금상</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="cert.womenGoldEn">Won the Gold Prize at the Women
                             Inventors Expo</p>
                         <span
                             style="display: inline-block; margin-top: 1rem; background: var(--accent); color: var(--primary); padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">2020</span>
-                        <p style="color: var(--accent); font-size: 0.75rem; margin-top: 0.5rem;">📄 클릭하여 인증서 보기</p>
+                        <p style="color: var(--accent); font-size: 0.75rem; margin-top: 0.5rem;" data-i18n="cert.clickView">📄 클릭하여 인증서 보기</p>
                     </a>
                     <a href="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766551915674.jpg"
                         target="_blank"
@@ -2294,19 +2342,19 @@
                             <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766551915674.jpg"
                                 alt="여성특별상" style="width: 100%; height: 100%; object-fit: contain;">
                         </div>
-                        <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 0.5rem;">여성가족부 장관상</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Minister of Gender Equality and Family
+                        <h4 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 0.5rem;" data-i18n="cert.familyAward">여성가족부 장관상</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="cert.familyAwardEn">Minister of Gender Equality and Family
                             Award</p>
                         <span
                             style="display: inline-block; margin-top: 1rem; background: var(--accent); color: var(--primary); padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">2020</span>
-                        <p style="color: var(--accent); font-size: 0.75rem; margin-top: 0.5rem;">📄 클릭하여 인증서 보기</p>
+                        <p style="color: var(--accent); font-size: 0.75rem; margin-top: 0.5rem;" data-i18n="cert.clickView">📄 클릭하여 인증서 보기</p>
                     </a>
                 </div>
             </div>
 
             <!-- 특허 등록 -->
             <div class="fade-in" style="margin-bottom: 4rem;">
-                <h3 style="text-align: center; font-size: 1.5rem; color: var(--accent-light); margin-bottom: 2rem;">📜
+                <h3 style="text-align: center; font-size: 1.5rem; color: var(--accent-light); margin-bottom: 2rem;" data-i18n="cert.patents">📜
                     특허 등록</h3>
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
                     <a href="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766551915670.png"
@@ -2319,12 +2367,12 @@
                             <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766551915670.png"
                                 alt="디자인등록증" style="width: 100%; height: 100%; object-fit: contain;">
                         </div>
-                        <h4 style="color: var(--text); font-size: 1.1rem; margin-bottom: 0.5rem;">디자인 특허 등록</h4>
-                        <p style="color: var(--accent); font-size: 0.9rem; font-weight: 600;">Design Patent Registration
+                        <h4 style="color: var(--text); font-size: 1.1rem; margin-bottom: 0.5rem;" data-i18n="cert.designPatent">디자인 특허 등록</h4>
+                        <p style="color: var(--accent); font-size: 0.9rem; font-weight: 600;" data-i18n="cert.designPatentEn">Design Patent Registration
                         </p>
-                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem;">등록번호: 제 30-1086989
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem;" data-i18n="cert.designNo">등록번호: 제 30-1086989
                             호<br>등록일: 2020년 12월 09일</p>
-                        <p style="color: var(--accent); font-size: 0.75rem; margin-top: 0.5rem;">📄 클릭하여 인증서 보기</p>
+                        <p style="color: var(--accent); font-size: 0.75rem; margin-top: 0.5rem;" data-i18n="cert.clickView">📄 클릭하여 인증서 보기</p>
                     </a>
                     <a href="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766551915668.png"
                         target="_blank"
@@ -2336,19 +2384,19 @@
                             <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766551915668.png"
                                 alt="특허증" style="width: 100%; height: 100%; object-fit: contain;">
                         </div>
-                        <h4 style="color: var(--text); font-size: 1.1rem; margin-bottom: 0.5rem;">기술 특허 등록</h4>
-                        <p style="color: var(--accent); font-size: 0.9rem; font-weight: 600;">Technology Patent
+                        <h4 style="color: var(--text); font-size: 1.1rem; margin-bottom: 0.5rem;" data-i18n="cert.techPatent">기술 특허 등록</h4>
+                        <p style="color: var(--accent); font-size: 0.9rem; font-weight: 600;" data-i18n="cert.techPatentEn">Technology Patent
                             Registration</p>
-                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem;">특허번호: 제 10-2684472
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem;" data-i18n="cert.techNo">특허번호: 제 10-2684472
                             호<br>등록일: 2024년 07월 09일</p>
-                        <p style="color: var(--accent); font-size: 0.75rem; margin-top: 0.5rem;">📄 클릭하여 인증서 보기</p>
+                        <p style="color: var(--accent); font-size: 0.75rem; margin-top: 0.5rem;" data-i18n="cert.clickView">📄 클릭하여 인증서 보기</p>
                     </a>
                 </div>
             </div>
 
             <!-- 안전 인증 -->
             <div class="fade-in">
-                <h3 style="text-align: center; font-size: 1.5rem; color: var(--accent-light); margin-bottom: 2rem;">✅ 안전
+                <h3 style="text-align: center; font-size: 1.5rem; color: var(--accent-light); margin-bottom: 2rem;" data-i18n="cert.safety">✅ 안전
                     인증</h3>
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
                     <a href="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766552291998.jpg"
@@ -2357,8 +2405,8 @@
                         onmouseover="this.style.borderColor='#22c55e'; this.style.transform='translateY(-5px)'"
                         onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
                         <div style="margin-bottom: 1.5rem;">
-                            <h4 style="color: var(--text); font-size: 1.1rem; margin-bottom: 0.3rem;">국제고관절협회 인증</h4>
-                            <p style="color: var(--accent); font-size: 0.85rem;">IHDI "Hip-Healthy" Certification</p>
+                            <h4 style="color: var(--text); font-size: 1.1rem; margin-bottom: 0.3rem;" data-i18n="cert.ihdi">국제고관절협회 인증</h4>
+                            <p style="color: var(--accent); font-size: 0.85rem;" data-i18n="cert.ihdiEn">IHDI "Hip-Healthy" Certification</p>
                         </div>
                         <div
                             style="width: 100%; height: 200px; overflow: hidden; border-radius: 12px; margin-bottom: 1rem; background: #fff;">
@@ -2373,7 +2421,7 @@
                         <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem; text-align: right;">
                             - International Hip Dysplasia Institute, 2020
                         </p>
-                        <p style="color: #22c55e; font-size: 0.75rem; margin-top: 0.5rem; text-align: center;">📄 클릭하여
+                        <p style="color: #22c55e; font-size: 0.75rem; margin-top: 0.5rem; text-align: center;" data-i18n="cert.clickView">📄 클릭하여
                             인증서 보기</p>
                     </a>
                     <a href="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766551915665.jpg"
@@ -2382,8 +2430,8 @@
                         onmouseover="this.style.borderColor='#3b82f6'; this.style.transform='translateY(-5px)'"
                         onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
                         <div style="margin-bottom: 1.5rem;">
-                            <h4 style="color: var(--text); font-size: 1.1rem; margin-bottom: 0.3rem;">한국 KC 안전 인증</h4>
-                            <p style="color: var(--accent); font-size: 0.85rem;">Korea Certification (KC) Safety Mark
+                            <h4 style="color: var(--text); font-size: 1.1rem; margin-bottom: 0.3rem;" data-i18n="cert.kc">한국 KC 안전 인증</h4>
+                            <p style="color: var(--accent); font-size: 0.85rem;" data-i18n="cert.kcEn">Korea Certification (KC) Safety Mark
                             </p>
                         </div>
                         <div
@@ -2392,14 +2440,14 @@
                                 alt="KC 인증" style="width: 100%; height: 100%; object-fit: contain;">
                         </div>
                         <p
-                            style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.7; padding: 1rem; background: rgba(59, 130, 246, 0.1); border-radius: 10px; border-left: 3px solid #3b82f6;">
+                            style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.7; padding: 1rem; background: rgba(59, 130, 246, 0.1); border-radius: 10px; border-left: 3px solid #3b82f6;" data-i18n="cert.kcDesc">
                             대한민국 산업통상자원부 국가기술표준원에서 인증하는 <strong style="color: #3b82f6;">KC 안전 마크</strong>를 획득하여 제품의 안전성을
                             공식 인증받았습니다.
                         </p>
                         <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem; text-align: right;">
                             - 국가기술표준원 (KATS)
                         </p>
-                        <p style="color: #3b82f6; font-size: 0.75rem; margin-top: 0.5rem; text-align: center;">📄 클릭하여
+                        <p style="color: #3b82f6; font-size: 0.75rem; margin-top: 0.5rem; text-align: center;" data-i18n="cert.clickView">📄 클릭하여
                             인증서 보기</p>
                     </a>
                 </div>
@@ -2412,8 +2460,8 @@
         <div class="container">
             <div class="section-header fade-in">
                 <div class="section-number">06</div>
-                <h2 class="section-title">Company History</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-i18n="section06.title">Company History</h2>
+                <p class="section-subtitle" data-i18n="section06.subtitle">
                     베베스완의 혁신적인 여정과 조끼형 아기띠의 진화
                 </p>
             </div>
@@ -2513,10 +2561,10 @@
                     <div
                         style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 1.5rem; overflow: hidden;">
                         <h3
-                            style="text-align: center; font-size: 1.3rem; color: var(--accent-light); margin-bottom: 1rem;">
+                            style="text-align: center; font-size: 1.3rem; color: var(--accent-light); margin-bottom: 1rem;" data-i18n="history.lineup">
                             조끼아기띠 라인업</h3>
                         <p
-                            style="text-align: center; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; font-style: italic;">
+                            style="text-align: center; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; font-style: italic;" data-i18n="history.lineupQuote">
                             "오직, 엄마와 아기만을 위해<br>베베스완의 아기띠 연구소는 지금도 끊임없이 연구합니다"
                         </p>
                         <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1766552701772.png"
@@ -2532,25 +2580,25 @@
         <div class="container">
             <div class="section-header fade-in">
                 <div class="section-number">07</div>
-                <h2 class="section-title">기술이 실현하는 비즈니스 가치</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-i18n="section07.title">기술이 실현하는 비즈니스 가치</h2>
+                <p class="section-subtitle" data-i18n="section07.subtitle">
                     V5의 기술적 차별점이 유통 파트너 및 B2B 고객에게 제공하는 강력한 비즈니스 가치
                 </p>
             </div>
 
             <div class="value-grid fade-in">
                 <div class="value-card">
-                    <h4>🎯 경쟁 우위를 위한 '문제 해결' 서사</h4>
-                    <p>V5는 '어깨 통증', '아이가 깨는 문제' 등 소비자들이 오랫동안 겪어온 명확한 고충을 직접적으로 해결하는 '솔루션'입니다. 파트너사가 소비자에게 매우 쉽고 강력하게 소구할
+                    <h4 data-i18n="value.card1Title">🎯 경쟁 우위를 위한 '문제 해결' 서사</h4>
+                    <p data-i18n="value.card1Desc">V5는 '어깨 통증', '아이가 깨는 문제' 등 소비자들이 오랫동안 겪어온 명확한 고충을 직접적으로 해결하는 '솔루션'입니다. 파트너사가 소비자에게 매우 쉽고 강력하게 소구할
                         수 있는 마케팅 서사를 제공합니다.</p>
                 </div>
                 <div class="value-card">
-                    <h4>❤️ 고객 만족도 및 충성도 증대</h4>
-                    <p>실제 육아의 질을 향상시키는 경험을 제공함으로써 높은 수준의 고객 만족도를 이끌어냅니다. 이는 긍정적인 입소문과 재구매로 이어져 강력한 브랜드 충성도를 구축합니다.</p>
+                    <h4 data-i18n="value.card2Title">❤️ 고객 만족도 및 충성도 증대</h4>
+                    <p data-i18n="value.card2Desc">실제 육아의 질을 향상시키는 경험을 제공함으로써 높은 수준의 고객 만족도를 이끌어냅니다. 이는 긍정적인 입소문과 재구매로 이어져 강력한 브랜드 충성도를 구축합니다.</p>
                 </div>
                 <div class="value-card">
-                    <h4>🏆 프리미엄 포지셔닝</h4>
-                    <p>V5의 3단 분리 구조와 같은 독보적 기술은 경쟁사가 쉽게 모방할 수 없는 강력한 기술적 해자(Moat)를 구축합니다. 기술력에 기반한 프리미엄 가격 정책을 정당화하여
+                    <h4 data-i18n="value.card3Title">🏆 프리미엄 포지셔닝</h4>
+                    <p data-i18n="value.card3Desc">V5의 3단 분리 구조와 같은 독보적 기술은 경쟁사가 쉽게 모방할 수 없는 강력한 기술적 해자(Moat)를 구축합니다. 기술력에 기반한 프리미엄 가격 정책을 정당화하여
                         파트너사의 수익성을 보호합니다.</p>
                 </div>
             </div>
@@ -2562,18 +2610,18 @@
         <div class="container">
             <div class="conclusion-content fade-in">
                 <div class="section-number">08</div>
-                <h2 class="section-title">결론</h2>
-                <p class="conclusion-quote">
+                <h2 class="section-title" data-i18n="section08.title">결론</h2>
+                <p class="conclusion-quote" data-i18n="section08.quote">
                     "'조끼형 아기띠 V5'는 단순한 아기띠가 아닙니다.<br>
                     기술을 통해 부모의 삶을 더 편안하게 만들고자 하는<br>
                     저희의 철학이 담긴 '솔루션'입니다."
                 </p>
-                <p class="conclusion-text">
+                <p class="conclusion-text" data-i18n="section08.text">
                     저희는 V5가 귀사의 포트폴리오에 강력한 경쟁력을 더하고,<br>
                     성공적인 비즈니스를 함께 열어갈 핵심 자산이 될 것이라 확신합니다.
                 </p>
                 <a href="mailto:sunahpark412@naver.com?subject=[V5 파트너십 문의]&body=안녕하세요, 조끼형 아기띠 V5 파트너십 관련하여 문의드립니다."
-                    class="cta-button">파트너십 문의하기</a>
+                    class="cta-button" data-i18n="section08.cta">파트너십 문의하기</a>
             </div>
         </div>
     </section>
@@ -2584,7 +2632,7 @@
             <div class="footer-content">
                 <div class="footer-logo">BEBESWAN</div>
                 <div class="footer-links">
-                    <span style="color: var(--text-muted); font-size: 0.9rem;">조끼형 아기띠 V5 기술 백서</span>
+                    <span style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="footer.whitepaper">조끼형 아기띠 V5 기술 백서</span>
                 </div>
             </div>
 
@@ -2592,27 +2640,27 @@
             <div
                 style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 2rem 0; padding: 2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
                 <div>
-                    <h4 style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">Company Info</h4>
+                    <h4 style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;" data-i18n="footer.companyInfo">Company Info</h4>
                     <div style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.8;">
-                        <p><strong style="color: var(--text);">상호:</strong> 주식회사 베베스완</p>
-                        <p><strong style="color: var(--text);">대표:</strong> 박선아</p>
-                        <p><strong style="color: var(--text);">사업자 등록번호:</strong> 136-81-37620</p>
-                        <p><strong style="color: var(--text);">통신판매업 신고:</strong> 2025-서울서초-1532</p>
+                        <p><strong style="color: var(--text);" data-i18n="footer.companyName">상호:</strong> <span data-i18n="footer.companyNameValue">주식회사 베베스완</span></p>
+                        <p><strong style="color: var(--text);" data-i18n="footer.ceo">대표:</strong> <span data-i18n="footer.ceoName">박선아</span></p>
+                        <p><strong style="color: var(--text);" data-i18n="footer.businessNo">사업자 등록번호:</strong> <span data-i18n="footer.businessNoValue">136-81-37620</span></p>
+                        <p><strong style="color: var(--text);" data-i18n="footer.salesNo">통신판매업 신고:</strong> <span data-i18n="footer.salesNoValue">2025-서울서초-1532</span></p>
                     </div>
                 </div>
                 <div>
-                    <h4 style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;">Contact</h4>
+                    <h4 style="color: var(--accent); font-size: 1rem; margin-bottom: 1rem;" data-i18n="footer.contact">Contact</h4>
                     <div style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.8;">
-                        <p><strong style="color: var(--text);">주소:</strong> 06099 서울 강남구 논현동 242-15 2층</p>
-                        <p><strong style="color: var(--text);">대표전화:</strong> 02-3443-1008</p>
-                        <p><strong style="color: var(--text);">개인정보관리책임자:</strong> 박선아</p>
+                        <p><strong style="color: var(--text);" data-i18n="footer.address">주소:</strong> <span data-i18n="footer.addressValue">06099 서울 강남구 논현동 242-15 2층</span></p>
+                        <p><strong style="color: var(--text);" data-i18n="footer.phone">대표전화:</strong> <span data-i18n="footer.phoneValue">02-3443-1008</span></p>
+                        <p><strong style="color: var(--text);" data-i18n="footer.privacy">개인정보관리책임자:</strong> <span data-i18n="footer.privacyValue">박선아</span></p>
                         <p><strong style="color: var(--text);">Email:</strong> <a href="mailto:sunahpark412@naver.com"
                                 style="color: var(--accent);">sunahpark412@naver.com</a></p>
                     </div>
                 </div>
             </div>
 
-            <p class="footer-text">
+            <p class="footer-text" data-i18n="footer.text">
                 © 2025 Bebeswan Co., Ltd. All Rights Reserved.<br>
                 이 문서는 B2B 파트너를 위한 기술 백서입니다.
             </p>
@@ -2620,6 +2668,937 @@
     </footer>
 
     <script>
+        // =====================================================
+        // 다국어 번역 시스템 (한국어, 영어, 중국어)
+        // =====================================================
+        const translations = {
+            ko: {
+                // 네비게이션
+                'nav.intro': '서론',
+                'nav.weight': '무게 분산',
+                'nav.structure': '3단 분리',
+                'nav.material': '통기성 소재',
+                'nav.whyVest': '왜 조끼형?',
+                'nav.certification': '특허/인증',
+                'nav.history': '회사 연혁',
+                'nav.value': '비즈니스 가치',
+                
+                // 히어로 섹션
+                'hero.badge': 'TECHNICAL WHITE PAPER',
+                'hero.title': '조끼형 아기띠 V5<br>기술 백서',
+                'hero.subtitle': '사용자 중심 혁신과 엔지니어링의 결정체.<br>기존 아기띠의 한계를 넘어선<br>차세대 육아 솔루션을 소개합니다.',
+                
+                // 섹션 01
+                'section01.title': '조끼형 아기띠의 탄생',
+                'section01.subtitle': '어깨를 짓누르는 무게와 끊어질 듯한 허리 통증.<br>잘못된 무게 분산 설계가 야기하는 고질적인 문제입니다.',
+                'section01.desc1': '베이비 캐리어는 부모와 아이의 유대를 강화하고 이동의 자유를 제공하는 필수 육아용품입니다.<br>그러나 기존 제품들은 사용자인 부모에게 <strong style="color: var(--accent-light);">상당한 신체적 부담</strong>과 <strong style="color: var(--accent-light);">사용상의 불편함</strong>을 안겨주었습니다.',
+                'section01.desc2': '본 백서는 <span style="color: var(--accent);">\'베베스완 V5\'</span>가 이러한 고질적인 문제들을<br>인체공학적 설계와 혁신적인 기술로 어떻게 해결하는지 분석합니다.',
+                
+                // 마인드맵
+                'mindmap.existingProblems': '❌ 기존 문제',
+                'mindmap.v5Solutions': '✅ V5 해결책',
+                'mindmap.physicalBurden': '신체적 부담',
+                'mindmap.physicalBurdenDesc': '무게가 어깨에 집중되어 피로감과 통증 유발',
+                'mindmap.usabilityIssue': '사용 편의성 문제',
+                'mindmap.usabilityIssueDesc': '잠든 아이를 내려놓을 때 깨움, 통기성 부족',
+                'mindmap.solution': '솔루션',
+                'mindmap.sol1Title': '인체공학적 무게 분산',
+                'mindmap.sol1Desc': '어깨, 등, 허리 3점 분산',
+                'mindmap.sol2Title': '3단 분리형 구조',
+                'mindmap.sol2Desc': '잠든 아이를 깨우지 않는 설계',
+                'mindmap.sol3Title': '고통기성 메쉬 소재',
+                'mindmap.sol3Desc': '사계절 쾌적한 착용감',
+                
+                // 섹션 02
+                'section02.title': '인체공학적 무게 분산 시스템',
+                'section02.subtitle': '조끼형 아기띠의 핵심 성능은 \'체감 무게\'를 얼마나 효과적으로 줄이느냐에 달려 있습니다.',
+                
+                // 섹션 03
+                'section03.title': '최적의 통기성을 위한 소재 공학',
+                'section03.subtitle': '성인보다 체온 조절 능력이 민감한 영유아에게 통기성은 매우 중요한 요소입니다.',
+                
+                // 무게 분산 구조
+                'weight.vestStructure': 'V5 조끼형 구조',
+                'weight.vestStructureDesc': '조끼처럼 입는 구조로<br><strong style="color: var(--accent-light);">어깨 + 등 + 허리</strong>에<br>무게를 고르게 분산합니다',
+                'weight.part1': '조끼 패널',
+                'weight.part2': '아기 포켓',
+                'weight.part3': '허리 벨트',
+                
+                // 주요 특징
+                'features.badge': '핵심 혁신',
+                'features.title': '베베스완 V5의 주요 특징',
+                'features.card1Title': '무게 분산을 통한<br>혁신적인 편안함',
+                'features.card1Desc': '기존의 일반적인 아기띠는 하중이 어깨와 허리 한 지점에 집중되어 장시간 착용 시 극심한 피로를 유발하는 단점이 있었습니다.',
+                'features.card1Detail': '베베스완 V5는 독자적인 <strong style="color: var(--accent);">베스트(Vest) 타입 설계</strong>를 도입하여 아이의 무게를 <strong style="color: var(--accent-light);">어깨, 등, 허리 전체</strong>로 넓고 이상적으로 분산시킵니다.',
+                'features.card2Title': '혼자서도 가능한<br>놀라운 간편함',
+                'features.card2Desc': '착용 과정의 번거로움을 획기적으로 줄였습니다. 셔츠를 입듯 간편하게 착용할 수 있는 시스템을 갖추고 있습니다.',
+                'features.step1': '조끼처럼 입기',
+                'features.step2': '버클 채우기',
+                'features.step3': '아이 안아주기',
+                'features.card3Title': '초밀착 설계와<br>완벽한 안전',
+                'features.card3Desc': "아이와 부모 사이의 불필요한 공간을 없앤 '초밀착 설계'로 아이는 부모의 심장 소리를 들으며 안정감을 느낍니다.",
+                'features.card3Detail': '<span style="color: var(--text); font-size: 0.8rem;">✓ <strong style="color: var(--accent);">3중 잠금장치</strong> - 이중 안전</span><span style="color: var(--text); font-size: 0.8rem;">✓ <strong style="color: var(--accent);">M자 포지션</strong> - 고관절 발달</span><span style="color: var(--text); font-size: 0.8rem;">✓ <strong style="color: var(--accent);">프리미엄 소재</strong> - 피부 테스트 완료</span>',
+                'features.conclusionQuote': '"베베스완 V5는 부모에게는 <strong style="color: var(--accent);">통증 없는 육아와 편의성</strong>을,<br>아이에게는 <strong style="color: var(--accent);">안전하고 정서적인 안정감</strong>을 제공하며<br>모두에게 완벽한 외출 환경을 약속합니다."',
+                'features.conclusionText': '마치 부모의 따뜻한 품을 그대로 본뜬 <strong style="color: var(--text);">입는 형태의 포옹</strong>과 같아서,<br>아이와 부모가 서로의 온기를 가장 편안한 방식으로 나눌 수 있게 해줍니다.',
+                
+                // 다이어그램
+                'diagram.point1Title': '1차 하중 수용 - 어깨',
+                'diagram.point1Desc': '어깨 스트랩이 1차 하중을 받아 안정적으로 지지합니다.',
+                'diagram.point2Title': '하중 재분배 - 등',
+                'diagram.point2Desc': '후면 패널이 하중을 척추 라인을 따라 등으로 광범위하게 재분배합니다.',
+                'diagram.point3Title': '무게 중심 안정화 - 허리',
+                'diagram.point3Desc': '견고한 허리 벨트가 잔여 하중을 골반으로 전달하여 무게 중심을 낮춥니다.',
+                
+                // 베니핏
+                'benefits.fatigue': '피로도 감소',
+                'benefits.fatigueDesc': '동일한 시간 동안 사용하더라도 어깨와 허리에 느껴지는 피로감이 현저히 줄어듭니다.',
+                'benefits.longUse': '장시간 쾌적한 사용',
+                'benefits.longUseDesc': '신체적 부담이 적어 아이와 함께하는 외출이나 여행 시에도 오랜 시간 편안함을 유지합니다.',
+                'benefits.spine': '척추 및 골반 보호',
+                'benefits.spineDesc': '무게를 몸 전체로 분산시켜 장기적으로 사용자의 척추와 골반 건강을 보호합니다.',
+                
+                // 압력 테스트
+                'pressure.badge1': '과학적 검증',
+                'pressure.badge2': '공인인증',
+                'pressure.title': '압력 분산의 차이가<br><span style="color: var(--accent);">착용감의 차이</span>를 만듭니다',
+                'pressure.subtitle': '공인인증기관의 정밀한 압력 시험을 통해 입증된 베베스완의 우수한 압력 분산 기술',
+                
+                // 섹션 04
+                'section04.title': '왜? 꼭! 조끼 아기띠여야만 하는지 함께 볼까요?',
+                'section04.subtitle': '일반 아기띠와 V5 조끼형 아기띠의 차이를 직접 비교해보세요',
+                
+                // 섹션 05
+                'section05.title': '특허 및 인증',
+                'section05.subtitle': '세계가 인정한 베베스완의 기술력과 안전성',
+                
+                // 섹션 06
+                'section06.title': 'Company History',
+                'section06.subtitle': '베베스완의 혁신적인 여정과 조끼형 아기띠의 진화',
+                
+                // 섹션 07
+                'section07.title': '기술이 실현하는 비즈니스 가치',
+                'section07.subtitle': 'V5의 기술적 차별점이 유통 파트너 및 B2B 고객에게 제공하는 강력한 비즈니스 가치',
+                
+                // 섹션 08 (결론)
+                'section08.title': '결론',
+                'section08.quote': '"\'조끼형 아기띠 V5\'는 단순한 아기띠가 아닙니다.<br>기술을 통해 부모의 삶을 더 편안하게 만들고자 하는<br>저희의 철학이 담긴 \'솔루션\'입니다."',
+                'section08.text': '저희는 V5가 귀사의 포트폴리오에 강력한 경쟁력을 더하고,<br>성공적인 비즈니스를 함께 열어갈 핵심 자산이 될 것이라 확신합니다.',
+                'section08.cta': '파트너십 문의하기',
+                
+                // 푸터
+                'footer.text': '© 2025 Bebeswan Co., Ltd. All Rights Reserved.<br>이 문서는 B2B 파트너를 위한 기술 백서입니다.',
+                'footer.whitepaper': '조끼형 아기띠 V5 기술 백서',
+                'footer.companyInfo': 'Company Info',
+                'footer.contact': 'Contact',
+                'footer.companyName': '상호:',
+                'footer.companyNameValue': '주식회사 베베스완',
+                'footer.ceo': '대표:',
+                'footer.ceoName': '박선아',
+                'footer.businessNo': '사업자 등록번호:',
+                'footer.businessNoValue': '136-81-37620',
+                'footer.salesNo': '통신판매업 신고:',
+                'footer.salesNoValue': '2025-서울서초-1532',
+                'footer.address': '주소:',
+                'footer.addressValue': '06099 서울 강남구 논현동 242-15 2층',
+                'footer.phone': '대표전화:',
+                'footer.phoneValue': '02-3443-1008',
+                'footer.privacy': '개인정보관리책임자:',
+                'footer.privacyValue': '박선아',
+                
+                // 압력 테스트 테이블
+                'pressure.tableTitle': '공인인증기관 - 압력 시험 도면',
+                'pressure.position': '위치',
+                'pressure.hTypeNormal': 'H타입<br>(일반형)',
+                'pressure.hTypeHip': 'H타입<br>(힙시트형)',
+                'pressure.vestType': '조끼형타입<br>(V5)',
+                'pressure.back': '후면',
+                'pressure.front': '정면',
+                'pressure.conclusion': '결론',
+                'pressure.shoulderHigh': '어깨<br>부담 높음',
+                'pressure.waistHigh': '허리, 골반<br>부담 높음',
+                'pressure.overall': '전반적으로<br>양호',
+                'pressure.intensity': '부담강도 :',
+                'pressure.low': '약',
+                'pressure.medium': '중',
+                'pressure.high': '강',
+                'pressure.highest': '최강',
+                'pressure.whyImportant': '왜 압력 분산이 중요할까요?',
+                'pressure.babyComfort': '아기의 편안함',
+                'pressure.babyComfortDesc': '낮은 압력은 아기 신체에 부담을 주지 않습니다.',
+                'pressure.parentShoulder': '부모 어깨 부담 감소',
+                'pressure.parentShoulderDesc': '균등한 압력 분산으로 부담을 최소화합니다.',
+                'pressure.longUse': '장시간 사용 가능',
+                'pressure.longUseDesc': '압력이 낮을수록 피로감이 적습니다.',
+                'pressure.scientific': '과학적 검증',
+                'pressure.scientificDesc': '공인인증기관의 정밀 측정으로 입증되었습니다.',
+                
+                // 소재 섹션
+                'material.airCirculation': '공기 순환 극대화',
+                'material.airCirculationDesc': '수많은 미세한 공기구멍으로 이루어진 구조는 공기의 흐름을 원활하게 하여 아기띠 내부에 열이 갇히는 것을 방지합니다.',
+                'material.moisture': '우수한 열과 습기 배출',
+                'material.moistureDesc': '활동 중에 발생하는 땀과 열을 빠르게 외부로 배출시켜 사용자와 아이 모두의 피부를 보송보송하게 유지합니다.',
+                'material.skinTrouble': '땀띠 및 피부 트러블 예방',
+                'material.skinTroubleDesc': '연약한 아이 피부에 땀이 차서 발생하는 땀띠나 각종 피부 트러블의 발생 가능성을 크게 낮춥니다.',
+                'material.allSeason': '사계절 쾌적한 착용감',
+                'material.allSeasonDesc': '계절에 구애받지 않고 언제나 상쾌한 상태로 아이를 안을 수 있습니다.',
+                'material.premiumBadge': '프리미엄 소재',
+                'material.premiumTitle': "타협 없는 안전의 기초, '프리미엄 안전 소재'",
+                'material.premiumSubtitle': '베베스완은 "편안함의 기본은 완벽한 안전"이라는 철학 아래,<br>아이의 피부에 직접 닿는 소재에 대해서는 <strong style="color: var(--accent);">절대 타협하지 않습니다.</strong>',
+                'material.verifiedSafety': '검증된 안전성',
+                'material.verifiedSafetyDesc': '단순한 고급 소재를 넘어, <strong style="color: var(--text);">공인 기관의 피부 자극 테스트</strong>를 완료하여 소재의 안전성을 객관적으로 증명했습니다.',
+                'material.skinTestComplete': '피부 자극 테스트 완료',
+                'material.breathability': '쾌적한 통기성',
+                'material.breathabilityDesc': '뛰어난 통기성을 갖추어 장시간 착용 시 발생하는 <strong style="color: var(--text);">열기와 습기를 효과적으로 조절</strong>하며 쾌적한 환경을 제공합니다.',
+                'material.airCirculationMax': '공기 순환 극대화',
+                'material.softTouch': '부드러운 감촉',
+                'material.softTouchDesc': '프리미엄 소재 특유의 부드러운 감촉은 아이에게는 <strong style="color: var(--text);">정서적 안정감</strong>을, 부모에게는 기분 좋은 착용감을 선사합니다.',
+                'material.emotionalStability': '정서적 안정감 제공',
+                'material.whyPremium': '왜 프리미엄 소재여야 하는가?',
+                'material.babySkinProtect': '연약한 아기 피부 보호',
+                'material.babySkinProtectDesc': '성인보다 훨씬 민감하고 연약한 아기 피부를 고려하여, 자극을 최소화할 수 있는 최고급 기능성 소재만을 엄선하여 사용합니다.',
+                'material.longContact': '광범위하고 장시간의 접촉',
+                'material.longContactDesc': '아기띠는 아이의 몸을 가장 넓게, 그리고 가장 오랜 시간 감싸는 제품이기 때문에 소재의 품질이 곧 아이의 안전과 직결됩니다.',
+                'material.objectiveTrust': '객관적인 신뢰성',
+                'material.objectiveTrustDesc': '단순한 제조사의 주장이 아닌, 공인된 기관의 엄격한 테스트를 거침으로써 부모가 안심하고 아이를 맡길 수 있는 환경을 제공합니다.',
+                'material.perfectEnv': '완벽한 육아 환경의 기반',
+                'material.perfectEnvDesc': '부모와 아이가 불편함 없이 완벽한 교감을 나눌 수 있는 쾌적하고 안전한 환경을 조성하는 기반이 됩니다.',
+                'material.conclusionQuote': '"베베스완의 프리미엄 소재는<br><strong style="color: var(--accent);">안전(테스트 완료)</strong>, <strong style="color: var(--accent);">기능(통기성)</strong>, <strong style="color: var(--accent);">정서(부드러움)</strong>라는<br>세 가지 측면을 모두 만족시키는 핵심 요소입니다."',
+                'material.conclusionText': '이 최고급 기능성 소재는 마치 <strong style="color: var(--text);">\'아이를 포근하게 감싸는 숨 쉬는 요람\'</strong>과 같아서,<br>민감한 아기 피부를 지켜줌과 동시에 부모와 아이가 서로의 온기를 가장 쾌적하게 느낄 수 있도록 돕습니다.',
+                
+                // 비교 섹션
+                'compare.normalCarrier': '일반 아기띠',
+                'compare.v5Carrier': 'V5 아기띠',
+                'compare1.title': '어깨와 허리도 편한데 허리라인까지 예쁘게 잡아주는 아기띠 어떠세요',
+                'compare1.normal1': '어깨와 허리에만 집중',
+                'compare1.normal2': '통증 유발',
+                'compare1.normal3': '울퉁불퉁 매끄럽지 못한 뒤태',
+                'compare1.v51': '어깨+등+허리에 넓게 분산',
+                'compare1.v52': '장시간 사용에도 편안함',
+                'compare1.v53': '매끄러운 허리라인',
+                'compare2.title': '혼자서도 아이를 업을수만 있다면..',
+                'compare2.subtitle': '청소와 설거지 바로바로 할 수 있었을 텐데..<br>남편이 출근하면 낮에는 혼자 육아하시는 어머님들이 대부분이실꺼에요.<br>아이가 자는 틈을 타 청소라도 하려고 하면 깨는 우리 아이.',
+                'compare2.normal1': '혼자 업지 못함',
+                'compare2.normal2': '아이의 무게가 앞으로 쏠림',
+                'compare2.normal3': '허리와 어깨에 부담 증가!',
+                'compare2.v51': '혼자 쉽게 업을 수 있음',
+                'compare2.v52': '허리와 어깨 부담 ZERO!',
+                'compare2.v53': '육아, 가사 동시 OK',
+                'compare3.title': '오늘도 아이를 안고 식사하셨나요?',
+                'compare3.subtitle': '외출할 때마다 부스터 챙길까 말까 고민 많으셨죠',
+                'compare3.badge': '조끼 아기띠의 변신! 식사시 부스터로 활용!',
+                'compare3.badgeDesc': '짐도 줄여주고 위생적으로 안심!',
+                'compare3.normal1': '부스터 필요',
+                'compare3.normal2': '맛집 제한',
+                'compare3.normal3': '불편한 식사 시간',
+                'compare3.v51': '부스터로 변신',
+                'compare3.v52': '맛집 제한 없음',
+                'compare3.v53': '편하고 즐거운 식사 시간',
+                'compare4.title': '아이를 안고, 내릴 때마다 아기띠를 입고 벗고.. 너무 번거로우셨죠?',
+                'compare4.desc': '조끼아기띠는<br><strong style="color: var(--accent);">겉 옷을 벗지 않아도, 아기띠를 벗지 않아도</strong><br>지퍼만 스--윽 내리면 바로 안고, 바로 내릴 수 있어요!',
+                'compare4.normal1': '겉옷 벗고',
+                'compare4.normal2': '아기띠 풀고',
+                'compare4.normal3': '아기 내리고..',
+                'compare4.normal4': '다시! 메고, 안고, 입고..',
+                'compare4.v51': '지퍼만 스-윽! 내리고',
+                'compare4.v52': '아기 내리면 끝!',
+                'compare5.title': '아기띠로 아이를 겨우 재웠는데 갑자기 화장실이 급하면 참 난감하시죠?',
+                'compare5.desc': '내려놓자니 깰것 같고, 안고 가자니 바지를 입고 벗기에 너무 힘들고<br>허리벨트를 해제하자니 아이가 추락할 것 같고<br><strong style="color: var(--accent);">조끼아기띠는 허리벨트를 해제해도 아이가 그대로 안겨있어</strong><br>화장실 이용이 더 이상 두렵지 않아요',
+                'compare5.normal1': '허리벨트를 해제하면 추락',
+                'compare5.normal2': '바지 벗고, 입기 불편함',
+                'compare5.normal3': '화장실 이용 시 스트레스',
+                'compare5.v51': '허리벨트를 해제해도 OK!',
+                'compare5.v52': '바지 벗고, 입기 편리함',
+                'compare5.v53': '화장실 이용 시 GOOD',
+                'compare6.title': '차에 태울때면, 거쳐야 하는 과정이 너무 많아 외출이 두려웠었나요?',
+                'compare6.desc': '<strong style="color: var(--accent);">지퍼만 내려 차에 쏘-옥! 태우고</strong>',
+                'compare6.feature1': '착용한 상태에서 바로 운전 가능!',
+                'compare6.feature2': '유모차에도 바로 착!',
+                'compare6.normal1': '아기띠 벗기고',
+                'compare6.normal2': '카시트에 태우고',
+                'compare6.normal3': '다시 메는 과정 번거로움',
+                'compare6.v51': '지퍼만 내려 바로 태우기',
+                'compare6.v52': '착용한 채로 운전 가능',
+                'compare6.v53': '유모차에도 바로 착!',
+                
+                // 인증 섹션
+                'cert.awards': '🏆 수상 내역',
+                'cert.patents': '📜 특허 등록',
+                'cert.safety': '✅ 안전 인증',
+                'cert.womenGold': '여성발명품박람회 금상',
+                'cert.womenGoldEn': 'Won the Gold Prize at the Women Inventors Expo',
+                'cert.familyAward': '여성가족부 장관상',
+                'cert.familyAwardEn': 'Minister of Gender Equality and Family Award',
+                'cert.clickView': '📄 클릭하여 인증서 보기',
+                'cert.designPatent': '디자인 특허 등록',
+                'cert.designPatentEn': 'Design Patent Registration',
+                'cert.designNo': '등록번호: 제 30-1086989 호<br>등록일: 2020년 12월 09일',
+                'cert.techPatent': '기술 특허 등록',
+                'cert.techPatentEn': 'Technology Patent Registration',
+                'cert.techNo': '특허번호: 제 10-2684472 호<br>등록일: 2024년 07월 09일',
+                'cert.ihdi': '국제고관절협회 인증',
+                'cert.ihdiEn': 'IHDI "Hip-Healthy" Certification',
+                'cert.kc': '한국 KC 안전 인증',
+                'cert.kcEn': 'Korea Certification (KC) Safety Mark',
+                'cert.kcDesc': '대한민국 산업통상자원부 국가기술표준원에서 인증하는 <strong style="color: #3b82f6;">KC 안전 마크</strong>를 획득하여 제품의 안전성을 공식 인증받았습니다.',
+                
+                // 연혁 섹션
+                'history.lineup': '조끼아기띠 라인업',
+                'history.lineupQuote': '"오직, 엄마와 아기만을 위해<br>베베스완의 아기띠 연구소는 지금도 끊임없이 연구합니다"',
+                'history.2019': 'Founded in September',
+                'history.2020a': 'Launched the world\'s first vest-style baby carrier in',
+                'history.2020b': 'Won the Gold Prize at the Women Inventors Expo in',
+                'history.2020c': 'Received the Minister of Gender Equality and Family Award in',
+                'history.2024a': 'Awarded the Korea Consumer Brand Award in',
+                'history.2024b': 'Began exports to Japan in',
+                'history.2024c': 'Korea Brand Award – 1st Place',
+                'history.2025a': 'KCBI Korea Consumer Award',
+                'history.2025b': 'Established Bebeswan Co., Ltd.',
+                'history.2026a': 'U.S. Market Entry Contract Confirmed',
+                'history.2026b': 'Q1 Scheduled Launch of Premium New Product "Eternity"',
+                
+                // 비즈니스 가치
+                'value.card1Title': '🎯 경쟁 우위를 위한 \'문제 해결\' 서사',
+                'value.card1Desc': 'V5는 \'어깨 통증\', \'아이가 깨는 문제\' 등 소비자들이 오랫동안 겪어온 명확한 고충을 직접적으로 해결하는 \'솔루션\'입니다. 파트너사가 소비자에게 매우 쉽고 강력하게 소구할 수 있는 마케팅 서사를 제공합니다.',
+                'value.card2Title': '❤️ 고객 만족도 및 충성도 증대',
+                'value.card2Desc': '실제 육아의 질을 향상시키는 경험을 제공함으로써 높은 수준의 고객 만족도를 이끌어냅니다. 이는 긍정적인 입소문과 재구매로 이어져 강력한 브랜드 충성도를 구축합니다.',
+                'value.card3Title': '🏆 프리미엄 포지셔닝',
+                'value.card3Desc': 'V5의 3단 분리 구조와 같은 독보적 기술은 경쟁사가 쉽게 모방할 수 없는 강력한 기술적 해자(Moat)를 구축합니다. 기술력에 기반한 프리미엄 가격 정책을 정당화하여 파트너사의 수익성을 보호합니다.'
+            },
+            en: {
+                // Navigation
+                'nav.intro': 'Introduction',
+                'nav.weight': 'Weight Distribution',
+                'nav.structure': '3-Part System',
+                'nav.material': 'Breathable Material',
+                'nav.whyVest': 'Why Vest Type?',
+                'nav.certification': 'Patents/Certs',
+                'nav.history': 'Company History',
+                'nav.value': 'Business Value',
+                
+                // Hero Section
+                'hero.badge': 'TECHNICAL WHITE PAPER',
+                'hero.title': 'Vest Baby Carrier V5<br>Technical White Paper',
+                'hero.subtitle': 'The culmination of user-centered innovation and engineering.<br>Introducing the next-generation parenting solution<br>that transcends the limitations of traditional baby carriers.',
+                
+                // Section 01
+                'section01.title': 'The Birth of Vest-Style Baby Carrier',
+                'section01.subtitle': 'Crushing weight on shoulders and excruciating back pain.<br>These are chronic problems caused by poor weight distribution design.',
+                'section01.desc1': 'Baby carriers are essential childcare products that strengthen the bond between parents and children while providing freedom of movement.<br>However, existing products have imposed <strong style="color: var(--accent-light);">significant physical burden</strong> and <strong style="color: var(--accent-light);">usability issues</strong> on parents.',
+                'section01.desc2': 'This white paper analyzes how <span style="color: var(--accent);">\'Bebeswan V5\'</span> solves these chronic problems<br>through ergonomic design and innovative technology.',
+                
+                // Mindmap
+                'mindmap.existingProblems': '❌ Existing Problems',
+                'mindmap.v5Solutions': '✅ V5 Solutions',
+                'mindmap.physicalBurden': 'Physical Burden',
+                'mindmap.physicalBurdenDesc': 'Weight concentrated on shoulders causes fatigue and pain',
+                'mindmap.usabilityIssue': 'Usability Issues',
+                'mindmap.usabilityIssueDesc': 'Wakes sleeping baby when putting down, poor breathability',
+                'mindmap.solution': 'Solution',
+                'mindmap.sol1Title': 'Ergonomic Weight Distribution',
+                'mindmap.sol1Desc': '3-point distribution: shoulders, back, waist',
+                'mindmap.sol2Title': '3-Part Detachable Structure',
+                'mindmap.sol2Desc': 'Design that doesn\'t wake sleeping baby',
+                'mindmap.sol3Title': 'High-Breathability Mesh',
+                'mindmap.sol3Desc': 'Comfortable wear in all seasons',
+                
+                // Weight Distribution Structure
+                'weight.vestStructure': 'V5 Vest Structure',
+                'weight.vestStructureDesc': 'A vest-like structure that<br>evenly distributes weight across<br><strong style="color: var(--accent-light);">shoulders + back + waist</strong>',
+                'weight.part1': 'Vest Panel',
+                'weight.part2': 'Baby Pocket',
+                'weight.part3': 'Waist Belt',
+                
+                // Key Features
+                'features.badge': 'Core Innovation',
+                'features.title': 'Key Features of Bebeswan V5',
+                'features.card1Title': 'Revolutionary Comfort<br>Through Weight Distribution',
+                'features.card1Desc': 'Traditional baby carriers concentrate the load on one point of the shoulders and waist, causing extreme fatigue during extended wear.',
+                'features.card1Detail': 'Bebeswan V5 introduces a unique <strong style="color: var(--accent);">Vest-type design</strong> that ideally distributes the baby\'s weight across the <strong style="color: var(--accent-light);">shoulders, back, and waist</strong>.',
+                'features.card2Title': 'Amazing Simplicity<br>Even Alone',
+                'features.card2Desc': 'Dramatically reduces the hassle of wearing. Features a system that allows easy wearing like putting on a shirt.',
+                'features.step1': 'Put on like a vest',
+                'features.step2': 'Fasten the buckle',
+                'features.step3': 'Hold your baby',
+                'features.card3Title': 'Close-Fit Design &<br>Perfect Safety',
+                'features.card3Desc': 'The close-fit design eliminates unnecessary space between parent and child, allowing the baby to feel secure while hearing the parent\'s heartbeat.',
+                'features.card3Detail': '<span style="color: var(--text); font-size: 0.8rem;">✓ <strong style="color: var(--accent);">Triple Lock</strong> - Double Safety</span><span style="color: var(--text); font-size: 0.8rem;">✓ <strong style="color: var(--accent);">M-Position</strong> - Hip Development</span><span style="color: var(--text); font-size: 0.8rem;">✓ <strong style="color: var(--accent);">Premium Material</strong> - Skin Test Completed</span>',
+                'features.conclusionQuote': '"Bebeswan V5 provides parents with <strong style="color: var(--accent);">pain-free parenting and convenience</strong>,<br>and children with <strong style="color: var(--accent);">safety and emotional stability</strong>,<br>promising a perfect outing environment for everyone."',
+                'features.conclusionText': 'Like a <strong style="color: var(--text);">wearable hug</strong> that mimics a parent\'s warm embrace,<br>it allows parents and children to share warmth in the most comfortable way.',
+                
+                // Diagram
+                'diagram.point1Title': 'Primary Load Support - Shoulders',
+                'diagram.point1Desc': 'Shoulder straps receive the primary load for stable support.',
+                'diagram.point2Title': 'Load Redistribution - Back',
+                'diagram.point2Desc': 'Back panel redistributes load widely along the spine to the back.',
+                'diagram.point3Title': 'Center of Gravity Stabilization - Waist',
+                'diagram.point3Desc': 'Sturdy waist belt transfers remaining load to the pelvis, lowering the center of gravity.',
+                
+                // Benefits
+                'benefits.fatigue': 'Reduced Fatigue',
+                'benefits.fatigueDesc': 'Significantly reduces fatigue felt in shoulders and waist even during the same usage time.',
+                'benefits.longUse': 'Comfortable Long-term Use',
+                'benefits.longUseDesc': 'Low physical burden maintains comfort during long outings or trips with your child.',
+                'benefits.spine': 'Spine & Pelvis Protection',
+                'benefits.spineDesc': 'Distributes weight throughout the body to protect the user\'s spine and pelvis health long-term.',
+                
+                // Pressure Test
+                'pressure.badge1': 'Scientific Verification',
+                'pressure.badge2': 'Certified',
+                'pressure.title': 'The difference in pressure distribution<br>makes the <span style="color: var(--accent);">difference in comfort</span>',
+                'pressure.subtitle': 'Bebeswan\'s excellent pressure distribution technology proven through precise pressure testing by certified institutions',
+                
+                // Section 02
+                'section02.title': 'Ergonomic Weight Distribution System',
+                'section02.subtitle': 'The core performance of a vest-style carrier depends on how effectively it reduces the "perceived weight."',
+                
+                // Section 03
+                'section03.title': 'Material Engineering for Optimal Breathability',
+                'section03.subtitle': 'Breathability is crucial for infants who are more sensitive to temperature regulation than adults.',
+                
+                // Section 04
+                'section04.title': 'Why Must It Be a Vest-Style Baby Carrier?',
+                'section04.subtitle': 'Compare the differences between regular carriers and V5 vest-style carriers yourself',
+                
+                // Section 05
+                'section05.title': 'Patents & Certifications',
+                'section05.subtitle': "Bebeswan's technology and safety recognized worldwide",
+                
+                // Section 06
+                'section06.title': 'Company History',
+                'section06.subtitle': "Bebeswan's innovative journey and the evolution of vest-style baby carriers",
+                
+                // Section 07
+                'section07.title': 'Business Value Through Technology',
+                'section07.subtitle': 'The powerful business value that V5\'s technical differentiation provides to distribution partners and B2B customers',
+                
+                // Section 08 (Conclusion)
+                'section08.title': 'Conclusion',
+                'section08.quote': '"The Vest Baby Carrier V5 is not just a baby carrier.<br>It is a \'solution\' embodying our philosophy<br>of making parents\' lives more comfortable through technology."',
+                'section08.text': 'We are confident that V5 will add strong competitiveness to your portfolio<br>and become a key asset for successful business collaboration.',
+                'section08.cta': 'Inquire About Partnership',
+                
+                // Footer
+                'footer.text': '© 2025 Bebeswan Co., Ltd. All Rights Reserved.<br>This document is a technical white paper for B2B partners.',
+                'footer.whitepaper': 'Vest Baby Carrier V5 Technical White Paper',
+                'footer.companyInfo': 'Company Info',
+                'footer.contact': 'Contact',
+                'footer.companyName': 'Company Name:',
+                'footer.companyNameValue': 'Bebeswan Co., Ltd.',
+                'footer.ceo': 'CEO:',
+                'footer.ceoName': 'Sunah Park',
+                'footer.businessNo': 'Business Registration No.:',
+                'footer.businessNoValue': '136-81-37620',
+                'footer.salesNo': 'Online Sales Registration:',
+                'footer.salesNoValue': '2025-Seoul Seocho-1532',
+                'footer.address': 'Address:',
+                'footer.addressValue': '2F, 242-15 Nonhyeon-dong, Gangnam-gu, Seoul 06099',
+                'footer.phone': 'Phone:',
+                'footer.phoneValue': '+82-2-3443-1008',
+                'footer.privacy': 'Privacy Officer:',
+                'footer.privacyValue': 'Sunah Park',
+                
+                // Pressure Test Table
+                'pressure.tableTitle': 'Certified Institution - Pressure Test Diagram',
+                'pressure.position': 'Position',
+                'pressure.hTypeNormal': 'H-Type<br>(Standard)',
+                'pressure.hTypeHip': 'H-Type<br>(Hip Seat)',
+                'pressure.vestType': 'Vest Type<br>(V5)',
+                'pressure.back': 'Back',
+                'pressure.front': 'Front',
+                'pressure.conclusion': 'Conclusion',
+                'pressure.shoulderHigh': 'Shoulder<br>High Burden',
+                'pressure.waistHigh': 'Waist, Pelvis<br>High Burden',
+                'pressure.overall': 'Overall<br>Good',
+                'pressure.intensity': 'Burden Level:',
+                'pressure.low': 'Low',
+                'pressure.medium': 'Medium',
+                'pressure.high': 'High',
+                'pressure.highest': 'Highest',
+                'pressure.whyImportant': 'Why is Pressure Distribution Important?',
+                'pressure.babyComfort': 'Baby\'s Comfort',
+                'pressure.babyComfortDesc': 'Low pressure doesn\'t burden the baby\'s body.',
+                'pressure.parentShoulder': 'Reduced Shoulder Burden',
+                'pressure.parentShoulderDesc': 'Even pressure distribution minimizes burden.',
+                'pressure.longUse': 'Extended Use Possible',
+                'pressure.longUseDesc': 'Lower pressure means less fatigue.',
+                'pressure.scientific': 'Scientifically Verified',
+                'pressure.scientificDesc': 'Proven through precise measurement by certified institutions.',
+                
+                // Material Section
+                'material.airCirculation': 'Maximized Air Circulation',
+                'material.airCirculationDesc': 'The structure with numerous micro air holes ensures smooth airflow, preventing heat from being trapped inside the carrier.',
+                'material.moisture': 'Excellent Heat & Moisture Release',
+                'material.moistureDesc': 'Quickly releases sweat and heat generated during activity, keeping both parent and baby\'s skin dry and fresh.',
+                'material.skinTrouble': 'Prevents Heat Rash & Skin Issues',
+                'material.skinTroubleDesc': 'Significantly reduces the possibility of heat rash and various skin troubles caused by sweat accumulation on delicate baby skin.',
+                'material.allSeason': 'Comfortable in All Seasons',
+                'material.allSeasonDesc': 'Hold your baby in a fresh state regardless of the season.',
+                'material.premiumBadge': 'Premium Material',
+                'material.premiumTitle': "The Foundation of Uncompromising Safety, 'Premium Safe Material'",
+                'material.premiumSubtitle': 'Under the philosophy that "the foundation of comfort is perfect safety,"<br>Bebeswan <strong style="color: var(--accent);">never compromises</strong> on materials that directly contact baby\'s skin.',
+                'material.verifiedSafety': 'Verified Safety',
+                'material.verifiedSafetyDesc': 'Beyond premium materials, <strong style="color: var(--text);">skin irritation tests by certified institutions</strong> have been completed to objectively prove material safety.',
+                'material.skinTestComplete': 'Skin Irritation Test Completed',
+                'material.breathability': 'Pleasant Breathability',
+                'material.breathabilityDesc': 'Equipped with excellent breathability, it <strong style="color: var(--text);">effectively regulates heat and moisture</strong> during extended wear, providing a comfortable environment.',
+                'material.airCirculationMax': 'Maximized Air Circulation',
+                'material.softTouch': 'Soft Touch',
+                'material.softTouchDesc': 'The unique softness of premium materials provides <strong style="color: var(--text);">emotional stability</strong> for babies and a pleasant wearing experience for parents.',
+                'material.emotionalStability': 'Provides Emotional Stability',
+                'material.whyPremium': 'Why Must It Be Premium Material?',
+                'material.babySkinProtect': 'Protecting Delicate Baby Skin',
+                'material.babySkinProtectDesc': 'Considering baby skin that is much more sensitive and delicate than adults, we carefully select only the finest functional materials to minimize irritation.',
+                'material.longContact': 'Extensive and Prolonged Contact',
+                'material.longContactDesc': 'Since baby carriers wrap the baby\'s body most extensively and for the longest time, material quality is directly linked to the baby\'s safety.',
+                'material.objectiveTrust': 'Objective Reliability',
+                'material.objectiveTrustDesc': 'Not just manufacturer claims, but rigorous testing by certified institutions provides an environment where parents can entrust their babies with peace of mind.',
+                'material.perfectEnv': 'Foundation for Perfect Parenting Environment',
+                'material.perfectEnvDesc': 'Creates the foundation for a comfortable and safe environment where parents and babies can bond perfectly without discomfort.',
+                'material.conclusionQuote': '"Bebeswan\'s premium materials satisfy all three aspects:<br><strong style="color: var(--accent);">Safety (Test Completed)</strong>, <strong style="color: var(--accent);">Function (Breathability)</strong>, and <strong style="color: var(--accent);">Emotion (Softness)</strong>."',
+                'material.conclusionText': 'This premium functional material is like a <strong style="color: var(--text);">\'breathing cradle that warmly wraps the baby\'</strong>,<br>protecting sensitive baby skin while helping parents and babies feel each other\'s warmth most comfortably.',
+                
+                // Comparison Section
+                'compare.normalCarrier': 'Regular Carrier',
+                'compare.v5Carrier': 'V5 Carrier',
+                'compare1.title': 'How about a carrier that\'s comfortable on shoulders and waist, and even creates a beautiful waistline?',
+                'compare1.normal1': 'Concentrated on shoulders and waist only',
+                'compare1.normal2': 'Causes pain',
+                'compare1.normal3': 'Uneven, bumpy back appearance',
+                'compare1.v51': 'Widely distributed to shoulders+back+waist',
+                'compare1.v52': 'Comfortable even for extended use',
+                'compare1.v53': 'Smooth waistline',
+                'compare2.title': 'If only I could carry the baby on my back alone..',
+                'compare2.subtitle': 'I could do cleaning and dishes right away..<br>Most mothers are alone with childcare during the day when husbands go to work.<br>When trying to clean while the baby sleeps, the baby wakes up.',
+                'compare2.normal1': 'Cannot carry alone',
+                'compare2.normal2': 'Baby\'s weight shifts forward',
+                'compare2.normal3': 'Increased burden on waist and shoulders!',
+                'compare2.v51': 'Easy to carry alone',
+                'compare2.v52': 'ZERO waist and shoulder burden!',
+                'compare2.v53': 'Childcare and housework OK at the same time',
+                'compare3.title': 'Did you have a meal while holding your baby today?',
+                'compare3.subtitle': 'You must have worried whether to bring a booster every time you go out',
+                'compare3.badge': 'Vest carrier transforms! Use as a booster during meals!',
+                'compare3.badgeDesc': 'Reduces luggage and ensures hygiene!',
+                'compare3.normal1': 'Booster required',
+                'compare3.normal2': 'Restaurant restrictions',
+                'compare3.normal3': 'Uncomfortable mealtime',
+                'compare3.v51': 'Transforms into a booster',
+                'compare3.v52': 'No restaurant restrictions',
+                'compare3.v53': 'Comfortable and enjoyable mealtime',
+                'compare4.title': 'Putting on and taking off the carrier every time you hold or put down the baby.. too cumbersome, right?',
+                'compare4.desc': 'With the vest carrier,<br><strong style="color: var(--accent);">without taking off your outer clothes or the carrier</strong><br>just unzip and you can immediately hold or put down the baby!',
+                'compare4.normal1': 'Take off outer clothes',
+                'compare4.normal2': 'Unbuckle the carrier',
+                'compare4.normal3': 'Put down the baby..',
+                'compare4.normal4': 'Again! Strap, hold, put on..',
+                'compare4.v51': 'Just unzip smoothly!',
+                'compare4.v52': 'Put down the baby and done!',
+                'compare5.title': 'What if you urgently need the bathroom after finally putting the baby to sleep in the carrier?',
+                'compare5.desc': 'Putting them down might wake them, carrying them makes pants difficult<br>Releasing the waist belt might cause the baby to fall<br><strong style="color: var(--accent);">With the vest carrier, the baby stays safely held even when the waist belt is released</strong><br>Using the bathroom is no longer scary',
+                'compare5.normal1': 'Releasing waist belt causes falling',
+                'compare5.normal2': 'Inconvenient to put on/take off pants',
+                'compare5.normal3': 'Stress when using bathroom',
+                'compare5.v51': 'OK even when waist belt is released!',
+                'compare5.v52': 'Easy to put on/take off pants',
+                'compare5.v53': 'GOOD when using bathroom',
+                'compare6.title': 'Were you afraid of going out because of all the steps needed when putting baby in the car?',
+                'compare6.desc': '<strong style="color: var(--accent);">Just unzip and place baby in the car smoothly!</strong>',
+                'compare6.feature1': 'Drive immediately while wearing!',
+                'compare6.feature2': 'Works with strollers too!',
+                'compare6.normal1': 'Take off the carrier',
+                'compare6.normal2': 'Put in car seat',
+                'compare6.normal3': 'Cumbersome to strap again',
+                'compare6.v51': 'Just unzip and place directly',
+                'compare6.v52': 'Drive while still wearing',
+                'compare6.v53': 'Works with strollers too!',
+                
+                // Certification Section
+                'cert.awards': '🏆 Awards',
+                'cert.patents': '📜 Patents',
+                'cert.safety': '✅ Safety Certifications',
+                'cert.womenGold': 'Women Inventors Expo Gold Prize',
+                'cert.womenGoldEn': 'Won the Gold Prize at the Women Inventors Expo',
+                'cert.familyAward': 'Minister of Gender Equality and Family Award',
+                'cert.familyAwardEn': 'Minister of Gender Equality and Family Award',
+                'cert.clickView': '📄 Click to view certificate',
+                'cert.designPatent': 'Design Patent Registration',
+                'cert.designPatentEn': 'Design Patent Registration',
+                'cert.designNo': 'Registration No.: 30-1086989<br>Date: December 09, 2020',
+                'cert.techPatent': 'Technology Patent Registration',
+                'cert.techPatentEn': 'Technology Patent Registration',
+                'cert.techNo': 'Patent No.: 10-2684472<br>Date: July 09, 2024',
+                'cert.ihdi': 'IHDI Certification',
+                'cert.ihdiEn': 'IHDI "Hip-Healthy" Certification',
+                'cert.kc': 'Korea KC Safety Certification',
+                'cert.kcEn': 'Korea Certification (KC) Safety Mark',
+                'cert.kcDesc': 'Received the <strong style="color: #3b82f6;">KC Safety Mark</strong> certified by the Korean Agency for Technology and Standards under the Ministry of Trade, Industry and Energy, officially certifying product safety.',
+                
+                // History Section
+                'history.lineup': 'Vest Carrier Lineup',
+                'history.lineupQuote': '"Only for mothers and babies,<br>Bebeswan\'s carrier research lab continues to research"',
+                'history.2019': 'Founded in September',
+                'history.2020a': 'Launched the world\'s first vest-style baby carrier',
+                'history.2020b': 'Won the Gold Prize at the Women Inventors Expo',
+                'history.2020c': 'Received the Minister of Gender Equality and Family Award',
+                'history.2024a': 'Awarded the Korea Consumer Brand Award',
+                'history.2024b': 'Began exports to Japan',
+                'history.2024c': 'Korea Brand Award – 1st Place',
+                'history.2025a': 'KCBI Korea Consumer Award',
+                'history.2025b': 'Established Bebeswan Co., Ltd.',
+                'history.2026a': 'U.S. Market Entry Contract Confirmed',
+                'history.2026b': 'Q1 Scheduled Launch of Premium New Product "Eternity"',
+                
+                // Business Value
+                'value.card1Title': '🎯 \'Problem-Solving\' Narrative for Competitive Advantage',
+                'value.card1Desc': 'V5 is a \'solution\' that directly addresses clear pain points consumers have long experienced, such as \'shoulder pain\' and \'baby waking up.\' It provides a marketing narrative that partners can easily and powerfully appeal to consumers.',
+                'value.card2Title': '❤️ Increased Customer Satisfaction & Loyalty',
+                'value.card2Desc': 'By providing experiences that actually improve the quality of parenting, it leads to high levels of customer satisfaction. This translates to positive word-of-mouth and repeat purchases, building strong brand loyalty.',
+                'value.card3Title': '🏆 Premium Positioning',
+                'value.card3Desc': 'Unique technologies like V5\'s 3-part detachable structure create a strong technological moat that competitors cannot easily imitate. It justifies premium pricing based on technology, protecting partner profitability.'
+            },
+            zh: {
+                // 导航
+                'nav.intro': '引言',
+                'nav.weight': '重量分散',
+                'nav.structure': '三段分离',
+                'nav.material': '透气面料',
+                'nav.whyVest': '为什么选背心式？',
+                'nav.certification': '专利/认证',
+                'nav.history': '公司历史',
+                'nav.value': '商业价值',
+                
+                // 英雄区
+                'hero.badge': '技术白皮书',
+                'hero.title': '背心式婴儿背带 V5<br>技术白皮书',
+                'hero.subtitle': '以用户为中心的创新与工程学的结晶。<br>超越传统婴儿背带的局限，<br>介绍下一代育儿解决方案。',
+                
+                // 第01节
+                'section01.title': '背心式婴儿背带的诞生',
+                'section01.subtitle': '压垮肩膀的重量和令人难以忍受的腰痛。<br>这些都是错误的重量分散设计造成的长期问题。',
+                'section01.desc1': '婴儿背带是加强父母与孩子之间的纽带、提供行动自由的必备育儿用品。<br>然而，现有产品给作为使用者的父母带来了<strong style="color: var(--accent-light);">相当大的身体负担</strong>和<strong style="color: var(--accent-light);">使用上的不便</strong>。',
+                'section01.desc2': '本白皮书分析了<span style="color: var(--accent);">\'Bebeswan V5\'</span>如何通过<br>人体工程学设计和创新技术解决这些长期问题。',
+                
+                // 思维导图
+                'mindmap.existingProblems': '❌ 现有问题',
+                'mindmap.v5Solutions': '✅ V5 解决方案',
+                'mindmap.physicalBurden': '身体负担',
+                'mindmap.physicalBurdenDesc': '重量集中在肩膀上，导致疲劳和疼痛',
+                'mindmap.usabilityIssue': '使用便利性问题',
+                'mindmap.usabilityIssueDesc': '放下睡着的宝宝时会惊醒，透气性不足',
+                'mindmap.solution': '解决方案',
+                'mindmap.sol1Title': '人体工程学重量分散',
+                'mindmap.sol1Desc': '肩膀、背部、腰部3点分散',
+                'mindmap.sol2Title': '三段分离式结构',
+                'mindmap.sol2Desc': '不惊醒睡着宝宝的设计',
+                'mindmap.sol3Title': '高透气网眼面料',
+                'mindmap.sol3Desc': '四季舒适穿着体验',
+                
+                // 重量分散结构
+                'weight.vestStructure': 'V5 背心式结构',
+                'weight.vestStructureDesc': '像穿背心一样的结构<br>将重量均匀分散到<br><strong style="color: var(--accent-light);">肩膀 + 背部 + 腰部</strong>',
+                'weight.part1': '背心面板',
+                'weight.part2': '婴儿口袋',
+                'weight.part3': '腰带',
+                
+                // 主要特点
+                'features.badge': '核心创新',
+                'features.title': 'Bebeswan V5的主要特点',
+                'features.card1Title': '通过重量分散<br>实现革命性舒适',
+                'features.card1Desc': '传统婴儿背带的负重集中在肩膀和腰部的一个点上，长时间佩戴会导致极度疲劳。',
+                'features.card1Detail': 'Bebeswan V5采用独特的<strong style="color: var(--accent);">背心式设计</strong>，将宝宝的重量理想地分散到<strong style="color: var(--accent-light);">肩膀、背部和腰部</strong>。',
+                'features.card2Title': '一个人也能轻松<br>穿戴的便捷性',
+                'features.card2Desc': '大大减少了穿戴的麻烦。配备像穿衬衫一样简单穿戴的系统。',
+                'features.step1': '像穿背心一样穿上',
+                'features.step2': '扣上扣子',
+                'features.step3': '抱住宝宝',
+                'features.card3Title': '紧密贴合设计<br>完美安全',
+                'features.card3Desc': '紧密贴合设计消除了父母和孩子之间的不必要空间，让宝宝听着父母的心跳感到安心。',
+                'features.card3Detail': '<span style="color: var(--text); font-size: 0.8rem;">✓ <strong style="color: var(--accent);">三重锁定</strong> - 双重安全</span><span style="color: var(--text); font-size: 0.8rem;">✓ <strong style="color: var(--accent);">M型姿势</strong> - 髋关节发育</span><span style="color: var(--text); font-size: 0.8rem;">✓ <strong style="color: var(--accent);">优质面料</strong> - 皮肤测试完成</span>',
+                'features.conclusionQuote': '"Bebeswan V5为父母提供<strong style="color: var(--accent);">无痛育儿和便利</strong>，<br>为孩子提供<strong style="color: var(--accent);">安全和情感稳定</strong>，<br>为所有人承诺完美的外出环境。"',
+                'features.conclusionText': '就像模仿父母温暖怀抱的<strong style="color: var(--text);">可穿戴式拥抱</strong>，<br>让父母和孩子以最舒适的方式分享彼此的温暖。',
+                
+                // 图表
+                'diagram.point1Title': '一级负重承载 - 肩膀',
+                'diagram.point1Desc': '肩带承载一级负重，提供稳定支撑。',
+                'diagram.point2Title': '负重再分配 - 背部',
+                'diagram.point2Desc': '背部面板沿脊椎线将负重广泛再分配到背部。',
+                'diagram.point3Title': '重心稳定 - 腰部',
+                'diagram.point3Desc': '坚固的腰带将剩余负重传递到骨盆，降低重心。',
+                
+                // 优点
+                'benefits.fatigue': '减轻疲劳',
+                'benefits.fatigueDesc': '即使使用相同时间，肩膀和腰部感受到的疲劳感也会显著降低。',
+                'benefits.longUse': '长时间舒适使用',
+                'benefits.longUseDesc': '身体负担小，即使与孩子长时间外出或旅行也能保持舒适。',
+                'benefits.spine': '保护脊椎和骨盆',
+                'benefits.spineDesc': '将重量分散到全身，长期保护使用者的脊椎和骨盆健康。',
+                
+                // 压力测试
+                'pressure.badge1': '科学验证',
+                'pressure.badge2': '官方认证',
+                'pressure.title': '压力分散的差异<br>造就<span style="color: var(--accent);">穿戴感的差异</span>',
+                'pressure.subtitle': '通过官方认证机构的精密压力测试证明的Bebeswan优秀压力分散技术',
+                
+                // 第02节
+                'section02.title': '人体工程学重量分散系统',
+                'section02.subtitle': '背心式婴儿背带的核心性能取决于它能多有效地减少"感知重量"。',
+                
+                // 第03节
+                'section03.title': '最佳透气性的材料工程',
+                'section03.subtitle': '对于体温调节能力比成人更敏感的婴幼儿来说，透气性是非常重要的因素。',
+                
+                // 第04节
+                'section04.title': '为什么一定要选背心式婴儿背带？',
+                'section04.subtitle': '亲自比较普通婴儿背带和V5背心式婴儿背带的区别',
+                
+                // 第05节
+                'section05.title': '专利与认证',
+                'section05.subtitle': '全球认可的Bebeswan技术实力和安全性',
+                
+                // 第06节
+                'section06.title': '公司历史',
+                'section06.subtitle': 'Bebeswan的创新历程和背心式婴儿背带的进化',
+                
+                // 第07节
+                'section07.title': '技术实现的商业价值',
+                'section07.subtitle': 'V5的技术差异为分销合作伙伴和B2B客户提供的强大商业价值',
+                
+                // 第08节（结论）
+                'section08.title': '结论',
+                'section08.quote': '"背心式婴儿背带V5不仅仅是一个婴儿背带。<br>它是承载着我们通过技术<br>让父母生活更舒适的理念的\'解决方案\'。"',
+                'section08.text': '我们坚信V5将为贵公司的产品组合增添强大的竞争力，<br>并成为共同开启成功业务的核心资产。',
+                'section08.cta': '咨询合作事宜',
+                
+                // 页脚
+                'footer.text': '© 2025 Bebeswan Co., Ltd. 版权所有。<br>本文档是为B2B合作伙伴准备的技术白皮书。',
+                'footer.whitepaper': '背心式婴儿背带 V5 技术白皮书',
+                'footer.companyInfo': '公司信息',
+                'footer.contact': '联系方式',
+                'footer.companyName': '公司名称:',
+                'footer.companyNameValue': 'Bebeswan Co., Ltd.',
+                'footer.ceo': '代表:',
+                'footer.ceoName': '朴善雅',
+                'footer.businessNo': '营业执照号码:',
+                'footer.businessNoValue': '136-81-37620',
+                'footer.salesNo': '网上销售登记:',
+                'footer.salesNoValue': '2025-首尔瑞草-1532',
+                'footer.address': '地址:',
+                'footer.addressValue': '首尔江南区论岘洞242-15 2楼',
+                'footer.phone': '电话:',
+                'footer.phoneValue': '+82-2-3443-1008',
+                'footer.privacy': '隐私负责人:',
+                'footer.privacyValue': '朴善雅',
+                
+                // 压力测试表格
+                'pressure.tableTitle': '官方认证机构 - 压力测试图',
+                'pressure.position': '位置',
+                'pressure.hTypeNormal': 'H型<br>(普通型)',
+                'pressure.hTypeHip': 'H型<br>(腰凳型)',
+                'pressure.vestType': '背心型<br>(V5)',
+                'pressure.back': '后面',
+                'pressure.front': '前面',
+                'pressure.conclusion': '结论',
+                'pressure.shoulderHigh': '肩部<br>负担重',
+                'pressure.waistHigh': '腰部、骨盆<br>负担重',
+                'pressure.overall': '总体<br>良好',
+                'pressure.intensity': '负担强度:',
+                'pressure.low': '弱',
+                'pressure.medium': '中',
+                'pressure.high': '强',
+                'pressure.highest': '最强',
+                'pressure.whyImportant': '为什么压力分散很重要？',
+                'pressure.babyComfort': '宝宝的舒适',
+                'pressure.babyComfortDesc': '低压力不会给宝宝身体带来负担。',
+                'pressure.parentShoulder': '减轻父母肩部负担',
+                'pressure.parentShoulderDesc': '均匀的压力分散将负担降到最低。',
+                'pressure.longUse': '可长时间使用',
+                'pressure.longUseDesc': '压力越低，疲劳感越少。',
+                'pressure.scientific': '科学验证',
+                'pressure.scientificDesc': '经官方认证机构精密测量证实。',
+                
+                // 材料部分
+                'material.airCirculation': '最大化空气循环',
+                'material.airCirculationDesc': '由无数微小气孔组成的结构使空气流通顺畅，防止热量积聚在背带内部。',
+                'material.moisture': '优秀的热量和湿气排出',
+                'material.moistureDesc': '快速排出活动中产生的汗水和热量，保持使用者和宝宝皮肤干爽。',
+                'material.skinTrouble': '预防痱子和皮肤问题',
+                'material.skinTroubleDesc': '大大降低因娇嫩宝宝皮肤出汗而产生的痱子和各种皮肤问题的可能性。',
+                'material.allSeason': '四季舒适穿着',
+                'material.allSeasonDesc': '不受季节限制，随时以清爽状态抱宝宝。',
+                'material.premiumBadge': '优质材料',
+                'material.premiumTitle': "毫不妥协的安全基础，'优质安全材料'",
+                'material.premiumSubtitle': '在"舒适的基础是完美的安全"理念下，<br>Bebeswan对直接接触宝宝皮肤的材料<strong style="color: var(--accent);">绝不妥协</strong>。',
+                'material.verifiedSafety': '验证的安全性',
+                'material.verifiedSafetyDesc': '不仅是高档材料，还通过<strong style="color: var(--text);">官方机构的皮肤刺激测试</strong>完成客观证明材料安全性。',
+                'material.skinTestComplete': '皮肤刺激测试完成',
+                'material.breathability': '舒适的透气性',
+                'material.breathabilityDesc': '具有出色的透气性，<strong style="color: var(--text);">有效调节长时间穿着时产生的热量和湿气</strong>，提供舒适的环境。',
+                'material.airCirculationMax': '最大化空气循环',
+                'material.softTouch': '柔软触感',
+                'material.softTouchDesc': '优质材料特有的柔软触感为宝宝提供<strong style="color: var(--text);">情感稳定</strong>，为父母提供舒适的穿戴体验。',
+                'material.emotionalStability': '提供情感稳定',
+                'material.whyPremium': '为什么必须是优质材料？',
+                'material.babySkinProtect': '保护娇嫩的宝宝皮肤',
+                'material.babySkinProtectDesc': '考虑到比成人更敏感和娇嫩的宝宝皮肤，我们精心挑选可以最大限度减少刺激的顶级功能性材料。',
+                'material.longContact': '广泛而长时间的接触',
+                'material.longContactDesc': '婴儿背带是包裹宝宝身体面积最大、时间最长的产品，因此材料质量直接关系到宝宝的安全。',
+                'material.objectiveTrust': '客观的可靠性',
+                'material.objectiveTrustDesc': '不只是制造商的声称，而是经过官方认证机构的严格测试，为父母提供可以放心托付宝宝的环境。',
+                'material.perfectEnv': '完美育儿环境的基础',
+                'material.perfectEnvDesc': '为父母和宝宝创造舒适安全的环境基础，让他们可以完美地进行亲密交流。',
+                'material.conclusionQuote': '"Bebeswan的优质材料满足三个方面：<br><strong style="color: var(--accent);">安全（测试完成）</strong>、<strong style="color: var(--accent);">功能（透气性）</strong>和<strong style="color: var(--accent);">情感（柔软）</strong>。"',
+                'material.conclusionText': '这种顶级功能性材料就像<strong style="color: var(--text);">\'温暖包裹宝宝的呼吸摇篮\'</strong>，<br>保护敏感的宝宝皮肤，同时帮助父母和宝宝以最舒适的方式感受彼此的温暖。',
+                
+                // 比较部分
+                'compare.normalCarrier': '普通背带',
+                'compare.v5Carrier': 'V5 背带',
+                'compare1.title': '肩膀和腰部都舒适，还能打造美丽腰线的背带怎么样？',
+                'compare1.normal1': '只集中在肩膀和腰部',
+                'compare1.normal2': '引起疼痛',
+                'compare1.normal3': '凹凸不平的背影',
+                'compare1.v51': '广泛分散到肩膀+背部+腰部',
+                'compare1.v52': '长时间使用也舒适',
+                'compare1.v53': '平滑的腰线',
+                'compare2.title': '如果能一个人背宝宝就好了..',
+                'compare2.subtitle': '可以马上做清洁和洗碗..<br>丈夫上班后，大多数妈妈白天独自育儿。<br>想趁宝宝睡觉时打扫，宝宝却醒了。',
+                'compare2.normal1': '无法独自背',
+                'compare2.normal2': '宝宝重量向前倾斜',
+                'compare2.normal3': '腰部和肩膀负担增加！',
+                'compare2.v51': '可以轻松独自背',
+                'compare2.v52': '腰部和肩膀负担为零！',
+                'compare2.v53': '育儿、家务同时进行OK',
+                'compare3.title': '今天也抱着宝宝吃饭了吗？',
+                'compare3.subtitle': '每次外出都在纠结要不要带增高垫吧',
+                'compare3.badge': '背心背带的变身！用餐时当增高垫！',
+                'compare3.badgeDesc': '减少行李，卫生又安心！',
+                'compare3.normal1': '需要增高垫',
+                'compare3.normal2': '餐厅限制',
+                'compare3.normal3': '不舒适的用餐时间',
+                'compare3.v51': '变身为增高垫',
+                'compare3.v52': '无餐厅限制',
+                'compare3.v53': '舒适愉快的用餐时间',
+                'compare4.title': '每次抱宝宝、放下宝宝都要穿脱背带..太麻烦了吧？',
+                'compare4.desc': '背心背带，<br><strong style="color: var(--accent);">不用脱外套，不用脱背带</strong><br>只要拉下拉链就可以立即抱起或放下宝宝！',
+                'compare4.normal1': '脱掉外套',
+                'compare4.normal2': '解开背带',
+                'compare4.normal3': '放下宝宝..',
+                'compare4.normal4': '再次！系上、抱起、穿上..',
+                'compare4.v51': '轻轻拉下拉链！',
+                'compare4.v52': '放下宝宝就完成！',
+                'compare5.title': '好不容易用背带哄睡宝宝，突然想上厕所怎么办？',
+                'compare5.desc': '放下怕宝宝醒，抱着去又很难穿脱裤子<br>解开腰带怕宝宝掉下来<br><strong style="color: var(--accent);">背心背带即使解开腰带宝宝也安全地待在怀里</strong><br>上厕所不再可怕',
+                'compare5.normal1': '解开腰带会掉落',
+                'compare5.normal2': '穿脱裤子不便',
+                'compare5.normal3': '上厕所时有压力',
+                'compare5.v51': '解开腰带也OK！',
+                'compare5.v52': '穿脱裤子方便',
+                'compare5.v53': '上厕所时很好',
+                'compare6.title': '把宝宝放进车里的步骤太多，害怕外出吗？',
+                'compare6.desc': '<strong style="color: var(--accent);">只要拉下拉链，轻松把宝宝放进车里！</strong>',
+                'compare6.feature1': '穿着就能直接开车！',
+                'compare6.feature2': '婴儿车也能直接用！',
+                'compare6.normal1': '脱下背带',
+                'compare6.normal2': '放入安全座椅',
+                'compare6.normal3': '重新系上很麻烦',
+                'compare6.v51': '只要拉下拉链直接放',
+                'compare6.v52': '穿着就能开车',
+                'compare6.v53': '婴儿车也能直接用！',
+                
+                // 认证部分
+                'cert.awards': '🏆 获奖记录',
+                'cert.patents': '📜 专利登记',
+                'cert.safety': '✅ 安全认证',
+                'cert.womenGold': '女性发明品博览会金奖',
+                'cert.womenGoldEn': '女性发明博览会金奖',
+                'cert.familyAward': '女性家族部长官奖',
+                'cert.familyAwardEn': '女性家族部长官奖',
+                'cert.clickView': '📄 点击查看证书',
+                'cert.designPatent': '设计专利登记',
+                'cert.designPatentEn': '设计专利登记',
+                'cert.designNo': '登记号: 第30-1086989号<br>登记日: 2020年12月09日',
+                'cert.techPatent': '技术专利登记',
+                'cert.techPatentEn': '技术专利登记',
+                'cert.techNo': '专利号: 第10-2684472号<br>登记日: 2024年07月09日',
+                'cert.ihdi': '国际髋关节协会认证',
+                'cert.ihdiEn': 'IHDI"髋关节健康"认证',
+                'cert.kc': '韩国KC安全认证',
+                'cert.kcEn': '韩国认证(KC)安全标志',
+                'cert.kcDesc': '获得韩国产业通商资源部国家技术标准院认证的<strong style="color: #3b82f6;">KC安全标志</strong>，正式认证产品安全性。',
+                
+                // 历史部分
+                'history.lineup': '背心背带产品线',
+                'history.lineupQuote': '"只为妈妈和宝宝，<br>Bebeswan的背带研究所至今仍在不断研究"',
+                'history.2019': '9月成立',
+                'history.2020a': '推出全球首款背心式婴儿背带',
+                'history.2020b': '女性发明博览会金奖',
+                'history.2020c': '获得女性家族部长官奖',
+                'history.2024a': '获得韩国消费者品牌奖',
+                'history.2024b': '开始出口日本',
+                'history.2024c': '韩国品牌奖 – 第一名',
+                'history.2025a': 'KCBI韩国消费者奖',
+                'history.2025b': '成立Bebeswan Co., Ltd.',
+                'history.2026a': '美国市场进入合同确定',
+                'history.2026b': '第一季度计划推出高端新品"Eternity"',
+                
+                // 商业价值
+                'value.card1Title': '🎯 为竞争优势的\'问题解决\'叙事',
+                'value.card1Desc': 'V5是一个直接解决消费者长期经历的明确痛点（如\'肩膀疼痛\'、\'宝宝醒来\'等问题）的\'解决方案\'。为合作伙伴提供可以非常简单且有力地向消费者诉求的营销叙事。',
+                'value.card2Title': '❤️ 提高客户满意度和忠诚度',
+                'value.card2Desc': '通过提供真正改善育儿质量的体验，带来高水平的客户满意度。这将转化为积极的口碑和重复购买，建立强大的品牌忠诚度。',
+                'value.card3Title': '🏆 高端定位',
+                'value.card3Desc': 'V5的三段分离结构等独特技术建立了竞争对手难以模仿的强大技术护城河。基于技术实力证明高端定价政策的合理性，保护合作伙伴的盈利能力。'
+            }
+        };
+
+        // 현재 언어 (기본값: 한국어)
+        let currentLang = 'ko';
+
+        // 언어 변경 함수
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // 모든 버튼 비활성화 후 선택된 버튼만 활성화
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // 번역 적용
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.dataset.i18n;
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // html lang 속성 업데이트
+            document.documentElement.lang = lang === 'ko' ? 'ko' : (lang === 'zh' ? 'zh-CN' : 'en');
+            
+            // 로컬 스토리지에 언어 설정 저장
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // 언어 버튼 이벤트 리스너
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                changeLanguage(btn.dataset.lang);
+            });
+        });
+
+        // 페이지 로드 시 저장된 언어 설정 적용
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            if (savedLang && translations[savedLang]) {
+                changeLanguage(savedLang);
+            }
+        });
+
+        // =====================================================
+        // 기존 스크립트
+        // =====================================================
+        
         // Scroll Animation
         const fadeElements = document.querySelectorAll('.fade-in');
 
